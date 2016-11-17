@@ -1,0 +1,107 @@
+@mixin item-paragraphs--tracdelight() {
+  .item-product {
+    @include product__item-text();
+    @include product__item--horizontal-block();
+  }
+}
+
+@mixin item-paragraph--content-teaser() {
+  .text-title {
+    @extend %title--content-block;
+  }
+
+  .list__content-teaser--horizontal {
+    @extend %list__content-teaser--horizontal;
+  }
+
+  .teaser {
+    @extend %teaser--content;
+    @extend %list__content-teaser__item--horizontal;
+  }
+
+  .item-marketing-sponsored {
+    margin-bottom: 0px;
+  }
+
+  .item-marketing-native {
+    .logo, .brand {
+      height: 13px;
+    }
+  }
+
+  .teaser__caption {
+    overflow: hidden;
+  }
+
+  .teaser__caption {
+    height: $teaser--content-caption-height-mobile;
+  }
+}
+
+@mixin item-paragraph--quote() {
+  @extend %center-block;
+  text-align: $quote__text-align--article;
+  position: relative;
+
+  &:before, &:after {
+    @extend %center-block;
+    content: " ";
+    max-width: $quote__border-max-width--article;
+    border-top: $quote__border-style--article;
+    display: block;
+  }
+
+  p:before, p:after {
+    @include text-helper($quote__quote-font-id--article);
+    color: $quote__quote-color--article;
+    font-style: $quote__title-font-style--article;
+    position: relative;
+    top: $quote__quote-top--article;
+    display: $quote__quote-display--article;
+  }
+
+  p {
+    @include text-helper($quote__title-font-id--article);
+    color: $quote__title-color--article;
+    font-style: $quote__title-font-style--article;
+    padding: $quote__title-padding--article;
+
+    &:before {
+      content: $quote__quote-before--article;
+      padding: $quote__quote-before-padding--article;
+    }
+
+    &:after {
+      content: $quote__quote-after--article;
+      padding: $quote__quote-after-padding--article;
+    }
+  }
+
+  footer {
+    @include text-helper($quote__author-font-id--article);
+    color: $quote__author-color--article;
+    font-style: $quote__author-font-style--article;
+    text-transform: $quote__author-text-transform--article;
+    padding: $quote__author-padding--article;
+    text-align: $quote__author-text-align--article;
+
+    &:before {
+      content: $quote__author-before--article;
+      vertical-align: $quote__author-v-align--article;
+      padding: $quote__author-before-padding--article;
+    }
+  }
+
+  p:before, p:after {
+    @include text-helper-size($quote__quote-font-id--article, $quote__quote-size-mobile--article, $quote__quote-line-height--article);
+  }
+
+  //called title
+  p {
+    @include text-helper-size($quote__title-font-id--article, $quote__title-size--article-mobile, $quote__title-line-height--article);
+  }
+
+  footer {
+    @include text-helper-size($quote__author-font-id--article, $quote__author-size--article-mobile, $quote__author-line-height--article);
+  }
+}

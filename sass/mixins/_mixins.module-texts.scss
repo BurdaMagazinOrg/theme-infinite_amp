@@ -1,0 +1,123 @@
+@mixin seo-linker-text() {
+  .seo-linker__item-title {
+    @include text-helper($seo-linker__item-title-font-id);
+  }
+
+  .seo-linker__link-list--image {
+    @include text-helper($seo-linker__link-list-font-id);
+    color: $seo-linker__link-list-color;
+
+    a:hover {
+      color: $seo-linker__link-list-hover-color;
+    }
+  }
+
+  .seo-linker__item-title {
+    @include text-helper-size($seo-linker__item-title-font-id, $seo-linker__item-title-size-mobile);
+  }
+
+  .seo-linker__link-list--image {
+    @include text-helper-size($seo-linker__link-list-font-id, $seo-linker__link-list-size-mobile);
+  }
+}
+
+/**
+** Teaser types
+**/
+
+@mixin teaser__text--default() {
+  .teaser__overhead {
+    @include text-helper($teaser__overhead-font-id--default);
+    @include text-helper-size($teaser__overhead-font-id--default, $teaser__overhead-size-mobile--default);
+    text-transform: uppercase;
+    color: $teaser__overhead-color--default;
+    letter-spacing: $teaser__overhead-letter-spacing--default;
+  }
+
+  .teaser__copy {
+    @extend %copytext--teaser-default;
+  }
+}
+
+@mixin teaser-list__text--middle($size-mobile: $teaser-list__headline-size-mobile--teaser-middle, $font: $teaser-list__headline-font-id--teaser-middle) {
+  .text-headline {
+    @include text-helper($font);
+    @include text-helper-size($font, $size-mobile);
+  }
+}
+
+@mixin teaser-list__text--horoscope-middle($size-mobile: $teaser-list__headline-size-mobile--teaser-horoscope-middle, $font: $teaser-list__headline-font-id--teaser-horoscope-middle) {
+  .text-headline {
+    @include text-helper($font);
+    @include text-helper-size($font, $size-mobile);
+  }
+}
+
+@mixin teaser-list__text--horoscope-50($size-mobile: $teaser-list__headline-size-mobile--teaser-horoscope-middle, $font: $teaser-list__headline-font-id--teaser-horoscope-middle) {
+  @include teaser-list__text--horoscope-middle($size-mobile, $font);
+}
+
+@mixin teaser-list-h-text() {
+
+  &:hover {
+    color: $teaser__title-hover-color--list-horizontal;
+
+    .teaser__title {
+      color: inherit;
+    }
+  }
+
+  .teaser__title {
+    @include text-helper($teaser__title-font-id--list-horizontal);
+    @include text-helper-size($teaser__title-font-id--list-horizontal, $teaser__title-size--list-horizontal-mobile);
+    color: $teaser__title-color--list-horizontal;
+  }
+}
+
+@mixin teaser-square-xs-text() {
+  .teaser__title {
+    @include text-headline();
+    @include text-headline-size($teaser-square-xs-headline-size-mobile);
+  }
+}
+
+/**
+** Socials
+**/
+
+@mixin socials-labeled-horizontal-bar-text() {
+  .item-social span {
+    @include text-helper($socials-labeled-horizontal-bar-label-font-id, $socials-labeled-horizontal-bar-label-size);
+    line-height: $socials-labeled-horizontal-bar-label-size + 1px;
+    text-transform: uppercase;
+  }
+}
+
+@mixin item-media--file-text() {
+  .item-media__title--file {
+    @include text-helper($media__title-font-id--file);
+    @include text-helper-size($media__title-font-id--file, $media__title-size-mobile--file);
+    color: $media__title-color--file;
+  }
+
+  .item-media__description--file {
+    @include text-helper($media__description-font-id--file);
+    @include text-helper-size($media__description-font-id--file, $media__description-size-mobile--file);
+    color: $media__description-color--file;
+  }
+
+  .item-media__btn-download--file {
+    @include btn--large(($media__btn-download-size-mobile--file, $media__btn-download-size-tablet--file, $media__btn-download-size-desktop--file), $media__btn-download-font-id--file);
+  }
+}
+
+@mixin item-anchor-nav__text() {
+  @include text-helper($anchor-nav__item-font-id);
+  @include text-helper-size($anchor-nav__item-font-id, $anchor-nav__item-size-mobile);
+  color: $anchor-nav__item-mobile-color;
+  text-transform: $anchor-nav__item-text-transform;
+
+  li {
+    display: inline-block;
+  }
+}

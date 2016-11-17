@@ -1,0 +1,47 @@
+@mixin item-media--gallery-amp() {
+  img {
+    object-fit: contain;
+    object-position: 50% 0;
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba($white, 0.8);
+    padding: 5px 5px 0 5px;
+    color: $gray-base;
+  }
+}
+
+@mixin item-media__description() {
+  @include text-helper($media__description-font-id);
+  @include text-helper-size($media__description-font-id, $media__description-size-mobile);
+  margin: $media__description-margin;
+  color: $media__description-color;
+
+  p {
+    line-height: inherit;
+    font-size: inherit;
+  }
+}
+
+@mixin item-media--file() {
+  @include item-media--file-text();
+  position: relative;
+  min-height: $media__min-height--file;
+
+  .item-media__title--file {
+    margin: $media__title-margin--file;
+    display: inline-block;
+  }
+
+  .item-media__description--file {
+    margin: $media__description-margin--file;
+  }
+
+  .item-media__btn-download--file {
+    margin: $media__btn-download-margin-mobile--file;
+  }
+}

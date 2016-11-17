@@ -1,0 +1,13 @@
+{% set link_url = link_url | default("") %}
+
+{% if link_url != "" %}
+<a class="logo" href="{{ link_url }}" title="{{ 'Home'|t }}">
+{% endif %}
+
+    <amp-img src="{{ logo }}" alt="{{ 'Home'|t }}" width="100" height="50">
+    </amp-img>
+
+{% if use_link != "false" %}
+</a>
+{% endif %}
+

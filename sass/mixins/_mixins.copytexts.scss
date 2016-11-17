@@ -1,0 +1,9 @@
+@mixin copytext--text-block() {
+  @extend %text-content;
+  @include text-content-size($copytext--text-block-mobile);
+}
+
+@mixin copytext--teaser-default() {
+  @include text-helper($teaser__copy--default-font-id);
+  @include text-helper-size($teaser__copy--default-font-id, $teaser__copy--default-mobile);
+}

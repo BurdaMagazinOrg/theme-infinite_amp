@@ -1,0 +1,12 @@
+@mixin list__content-teaser__item--horizontal($item-count: $list__content-teaser--horizontal-count--small) {
+  margin-top: $list__content-teaser__item--horizontal-gap-top-mobile;
+  padding-top: $list__content-teaser__item--horizontal-gap-top-mobile;
+  padding-left: $list__content-teaser--horizontal-gap-h-mobile;
+  padding-right: $list__content-teaser--horizontal-gap-h-mobile;
+}
+
+@mixin list__content-teaser--horizontal() {
+  @include clearfix();
+  margin-left: -$list__content-teaser--horizontal-gap-h-mobile;
+  margin-right: -$list__content-teaser--horizontal-gap-h-mobile;
+}

@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a media entity.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('item-media item-media--image') }}>
+    {% if content %}
+        {{ content.field_image }}
+
+        <div class="caption">
+            {{ content.field_source }}
+            {{ content.field_description }}
+        </div>
+    {% endif %}
+</div>

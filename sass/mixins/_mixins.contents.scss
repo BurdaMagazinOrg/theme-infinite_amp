@@ -1,0 +1,19 @@
+@mixin item-content--article-amp() {
+  .title--article {
+    @include text-helper($title--article-font-id, $title--article-mobile, $title--article-line-height);
+    color: $title--article-color;
+    text-transform: $title--article-text-transform;
+  }
+
+  .item-content__content > .item-paragraph:first-child {
+    margin-top: 0;
+  }
+
+  .item-paragraph {
+    margin-top: $gap-v-region-mobile;
+  }
+
+  .item-paragraph--media, .item-paragraph--gallery, .item-content__block--tags {
+    margin-top: $gap-v-region-mobile * 2;
+  }
+}

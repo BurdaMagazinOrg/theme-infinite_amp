@@ -1,0 +1,36 @@
+@mixin teaser--content() {
+  @include clearfix();
+
+  &:hover {
+    .text-headline a, .text-headline a:hover {
+      color: $teaser--content-headline-hover-color;
+    }
+  }
+
+  .caption, .teaser__caption {
+    @include gap__caption-top--h-teaser();
+  }
+
+  .teaser__title {
+    @include text-helper($teaser--content-headline-font-id);
+    @include text-helper-size($teaser--content-headline-font-id, $teaser--content-headline-size-mobile, $teaser--content-headline-line-height);
+    text-transform: $teaser--content-headline-text-transform;
+    color: $teaser--content-headline-color;
+  }
+
+  &:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .img-container, .teaser__img-container {
+    width: $teaser--content-img-width-mobile;
+    padding-right: $padding;
+    float: left;
+  }
+
+  .caption, .teaser__caption {
+    margin-top: 0;
+    padding-right: $padding;
+  }
+}

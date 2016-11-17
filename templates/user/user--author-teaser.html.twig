@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if user.status %}
+    {% if content.user_picture | render is not empty %}
+        <div class="img-container container-avatar">
+            {{ content.user_picture }}
+        </div>
+    {% endif %}
+    <div class="caption">  {# TODO: closed in author-teaser.html.twig #}
+        <div class="text-author">Artikel von
+          <a href="{{ path('entity.user.canonical', {'user': user.id}) }}">
+            {{ content.first_name }} {{ content.last_name }}
+          </a>
+        </div>
+{% endif %}

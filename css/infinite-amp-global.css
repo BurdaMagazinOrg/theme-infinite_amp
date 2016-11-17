@@ -1,0 +1,421 @@
+/** backgrounds **/
+/** colors **/
+/** borders **/
+/** sizes **/
+/** new variables **/
+/**
+** Lists Gaps
+** padding + margin
+**/
+/**
+**  socials **
+**/
+/** animation **/
+/** bootstrap overrides **/
+/**
+** Specific Lists Gaps
+**/
+/**
+** Containers
+**/
+/**
+** Btns
+**/
+/**
+** Form
+**/
+/**
+** Lists Margins
+** only margin
+**/
+/**region full content **/
+/**
+** Header
+**/
+/**
+** Main Navigation
+**/
+/**
+** Newsletter
+**/
+/**
+** Products
+**/
+/**
+** Labels
+**/
+/** label-category **/
+/** label-marketing**/
+/** label-marketing**/
+/** label-copyright**/
+/**
+** Titles
+**/
+/** title--page-center **/
+/** title--horizontal-block **/
+/** title--content-block **/
+/** title--article **/
+/** title--text-block **/
+/** copytext--text-block **/
+/**
+** Teaser
+**/
+/** feed-teaser **/
+/**
+** list-teaser
+**/
+/** full-content-teaser **/
+/** list horizontal teaser **/
+/** teaser square xs **/
+/** landscape **/
+/** teaser content **/
+/**
+**  Lists **
+**/
+/** list--content-teaser **/
+/** list--alphabetical **/
+/** socials horizontal clean bar **/
+/** socials horizontal clean bar -- light **/
+/** socials horizontal bar **/
+/** socials vertical bar **/
+/** socials teaser horizontal bar **/
+/** socials horizontal media bar **/
+/**
+** Item Contents
+**/
+/** spotlight **/
+/** left settings **/
+/** profile **/
+/** seo linker **/
+/** Gallery */
+/**
+** Media
+**/
+/**
+** Breadcrumb
+**/
+/**
+** Tags
+**/
+/**
+** Quote
+**/
+/**
+** Dates
+**/
+/**
+** Author
+**/
+/**
+** Tables
+**/
+/**
+** Ads
+**/
+/**
+** Modal
+**/
+/**
+** Horoscope
+**/
+/**
+** Rating
+**/
+/**
+** Pager
+**/
+/**
+** Outbrain
+**/
+/**
+** Navigations
+**/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+** Containers
+**/
+/** Lists Gaps **/
+/**
+** Common
+**/
+/** vertical bar **/
+/** horizontal teaser bar **/
+/** horizontal clean bar **/
+/** horizontal media bar **/
+/** horizontal bar **/
+/**
+** Profile
+**/
+/**
+** Media Header
+**/
+/**
+** Teaser types
+**/
+/**
+** Socials
+**/
+/**
+** Products
+**/
+/**
+** Lists
+**/
+/**
+** Menus
+**/
+/**
+** Menu Sidebar
+**/
+/**
+** Media
+**/
+/**
+** Submenu
+**/
+/**
+* Text-Label
+**/
+.breadcrumb li, .breadcrumb li:before {
+  font-family: "Verdana";
+  letter-spacing: 1px;
+}
+
+/**
+* Text-Headline
+**/
+.item-content--article .title--article {
+  font-family: "Arial";
+  letter-spacing: 0px;
+  font-weight: normal;
+}
+
+/**
+* Text-Tiny
+**/
+.item-author .caption {
+  font-family: "Verdana";
+  letter-spacing: 0px;
+}
+
+/**
+* Text-Content
+**/
+/** Margins **/
+/** Submenu **/
+/** Sidebar **/
+.breadcrumb li {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin: 0 0 0 15px;
+  color: #383838;
+}
+.breadcrumb li:before {
+  font-size: inherit;
+  line-height: 1;
+  content: ">";
+  color: #ea331e;
+  position: absolute;
+  left: -12px;
+  top: 0;
+  margin: 0;
+}
+.breadcrumb li:first-child {
+  margin-left: 0;
+}
+.breadcrumb li:first-child:before {
+  content: none;
+}
+.breadcrumb li:last-child {
+  color: #ea331e;
+}
+@media (max-width: 479px) {
+  .breadcrumb li {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
+@media (min-width: 480px) and (max-width: 991px) {
+  .breadcrumb li {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
+@media (min-width: 992px) {
+  .breadcrumb li {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
+
+.item-author {
+  color: #7d8482;
+  display: inline-block;
+  min-width: 235px;
+}
+.item-author:before, .item-author:after {
+  content: " ";
+  display: table;
+}
+.item-author:after {
+  clear: both;
+}
+[data-internal-url].item-author {
+  cursor: pointer;
+}
+.item-author:hover .img-container {
+  opacity: 0.85;
+  filter: alpha(opacity=85);
+}
+.item-author:hover .text-author span {
+  color: #7d8482;
+}
+.item-author .caption {
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+.item-author .text-author {
+  margin: 3px 0 0 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+.item-author .text-author span {
+  display: inline-block;
+}
+.item-author .container-avatar {
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin: 0 10px 0 0;
+}
+.item-author .container-avatar img {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+}
+
+.item-content--article .title--article {
+  font-size: 24px;
+  line-height: 1.2;
+  color: #383838;
+  text-transform: none;
+}
+
+body {
+  color: #383838;
+  font-size: 16px;
+  font-family: "Arial";
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+a {
+  -webkit-transition-property: color, background-color, border-color;
+  transition-property: color, background-color, border-color;
+  -webkit-transition-duration: 0.35s;
+  transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: #7d8482;
+}

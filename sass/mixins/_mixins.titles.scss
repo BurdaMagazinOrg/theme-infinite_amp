@@ -1,0 +1,62 @@
+@mixin title--horizontal-block() {
+  @include text-helper($title--horizontal-block-font-id);
+  @include text-helper-size($title--horizontal-block-font-id, $title--horizontal-block-mobile);
+  margin-bottom: $title--horizontal-block-gap-bottom-mobile;
+  text-align: center;
+  text-transform: $title--horizontal-block-text-transform;
+  letter-spacing: $title--horizontal-block-letter-spacing;
+  color: $title--horizontal-block-color;
+  padding-top: 6px; //umlaute fix
+
+  .item-title {
+    text-align: center;
+  }
+}
+
+@mixin title--article($size-mobile: $title--article-mobile, $font: $title--article-font-id) {
+  @include text-helper($font);
+  @include text-helper-size($font, $size-mobile, $title--article-line-height);
+  max-width: $title--article-max-width;
+  color: $title--article-color;
+  text-transform: $title--article-text-transform;
+}
+
+@mixin title--page-center() {
+  @include text-helper($title--page-center-font-id);
+  @include text-helper-size($title--page-center-font-id, $title--page-center-mobile);
+  text-align: center;
+  color: $title--page-center-color;
+  letter-spacing: -1px;
+}
+
+@mixin title--text-block() {
+  @include text-helper($title--text-block-font-id);
+  @include text-helper-size($title--text-block-font-id, $title--text-block-mobile);
+  margin: $title-margin-mobile--text-block;
+  color: $title--text-block-color;
+  text-transform: $title--text-block-text-transform;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  & + * {
+    margin: $title__children-margin-mobile--text-block;
+  }
+
+  & + h2, & + h3, & + h4, & + h5, & + h6 {
+    margin: $title__headline-margin-mobile--text-block;
+  }
+}
+
+@mixin title--content-block($size-mobile: $title--content-block-mobile, $font: $title--content-block-font-id, $color: $title--content-block-color, $margin-mobile: $title--content-block-gap-bottom-mobile) {
+  $size-mobile: nth($sizes, 1);
+  $margin-mobile: nth($margins, 1);
+
+  @include text-helper($font);
+  @include text-helper-size($font, $size-mobile);
+  margin-bottom: $margin-mobile;
+  color: $color;
+  text-transform: $title--content-block-text-transform;
+  text-align: $title--content-block-text-align;
+}

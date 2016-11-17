@@ -1,0 +1,21 @@
+.item-paragraph {
+  .item-title, .item-paragraph__title {
+    @extend %title--content-block;
+  }
+}
+
+.item-paragraph--recent-content, .item-paragraph--content-teaser, .item-paragraph--term-teaser {
+  @extend %item-paragraph--recent-content;
+}
+
+.item-paragraph--text {
+  @extend %item-paragraph--text;
+}
+
+.item-paragraph--quote {
+  @extend %item-paragraph--quote;
+}
+
+.item-paragraph--tracdelight, .item-paragraph--advertising-products-paragraph {
+  @include item-paragraph--tracdelight();
+}

@@ -1,0 +1,3 @@
+@mixin gap__caption-top--h-teaser($type: margin) {
+  #{$type}-top: $gap__caption-top--h-teaser-mobile;
+}

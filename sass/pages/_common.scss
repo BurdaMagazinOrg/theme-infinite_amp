@@ -1,0 +1,64 @@
+.amp-header {
+  border-bottom: $h-line-style;
+
+  .logo {
+    padding-top: 5px;
+    display: inline-block;
+  }
+}
+
+.amp-header__content {
+  @extend %gap__container--h-padding-amp;
+}
+
+.amp-main {
+  @extend %gap__container--h-padding-amp;
+}
+
+.amp-footer__content {
+  @extend %gap__container--h-padding-amp;
+  margin-top: $gap-v-region-mobile;
+
+  .more-button {
+    @extend %btn--large;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: $gap-v-region-mobile;
+  }
+
+  nav {
+    @extend %gap__container--h-padding-amp;
+    margin-top: $gap-v-region-mobile;
+    margin-left: - $container-h-gap--mobile;
+    margin-right: - $container-h-gap--mobile;
+    border-top: $h-line-style;
+    padding-top: 15px;
+    padding-bottom: 12px;
+  }
+
+  ul {
+    @include text-helper($menu--main-navigation-font-id, $menu--main-navigation-size - 3px);
+
+    li {
+      margin-right: 15px;
+      margin-bottom: 5px;
+      display: inline-block;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.item-content__header {
+  //$margin-v-item-content__item-mobile
+  margin-top: $gap-v-region-mobile;
+  margin-bottom: $gap-v-region-mobile;
+
+  .item-author {
+    margin-top: $gap-v-region-mobile;
+  }
+}
+

@@ -1,0 +1,186 @@
+<?php
+
+/**
+ * Implements hook_preprocess_paragraphs().
+ */
+function infinite_amp_preprocess_paragraph(&$variables) {
+  if ($variables['paragraph']->getType() === 'recent_content') {
+
+    $items = 3;
+    $paragraph = $variables['paragraph'];
+    if ($paragraph->hasField('field_item_count') && !$paragraph->field_item_count->isEmpty()) {
+      $items = $paragraph->field_item_count->value;
+    }
+    $embed_view = paragraphs_starterkit_recent_content_views_embed_view('paragraph_recent_content', 'amp_recent_content', $items);
+    $recent_content_view = \Drupal::service('renderer')->render($embed_view);
+    $variables['content']['amp_recent_content_view'] = array(
+      '#markup' => $recent_content_view
+    );
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function infinite_amp_theme_suggestions_user_alter(array &$suggestions, array $variables, $hook) {
+  if (!empty($variables['elements']['#view_mode'])) {
+    $suggestions[] = $hook . '__' . $variables['elements']['#view_mode'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_outbrain().
+ */
+function infinite_amp_preprocess_outbrain(&$variables) {
+  if (Drupal::request()->attributes->has('node')) {
+    $node = Drupal::request()->attributes->get('node');
+    $variables['canonical_url'] = $canonical_href = $node->toUrl('canonical', ['absolute' => TRUE])->toString();
+    $variables['amp_url'] = $amp_href = \Drupal::service('amp.query_parameters')->add($canonical_href);
+    $variables['#attached']['library'][] = 'amp/amp.iframe';
+  }
+}
+
+/**
+ * Implements hook_preprocess_region().
+ */
+function infinite_amp_preprocess_region(&$variables) {
+  $site_config = \Drupal::config('system.site');
+  $variables['site_name'] = $site_config->get('name');
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ *
+ * Custom theme settings
+ */
+function infinite_amp_form_system_theme_settings_alter(&$form, &$form_state) {
+
+  /*--------------- Share button Settings --------------*/
+  $form['share'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Share button settings'),
+    '#collapsed' => TRUE,
+    '#collapsible' => TRUE,
+  );
+
+  $form['share']['gtm_id'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Google tag manager ID'),
+    '#default_value' => theme_get_setting('gtm_id'),
+    '#size' => 80,
+    '#description' => t('Enter your Google tag manager ID.'),
+    '#prefix' => '<div id="gtm-id-wrapper">',
+    '#suffix' => '</div>',
+  );
+
+  $form['share']['share_image_style'] = array(
+    '#type' => 'select',
+    '#title' => t('Image style for sharing'),
+    '#options' => image_style_options(),
+    '#default_value' => theme_get_setting('share_image_style'),
+    '#description' => t('Select the image style, that will be used for sharing on social media.'),
+    '#prefix' => '<div id="share-image-style-wrapper">',
+    '#suffix' => '</div>',
+  );
+
+  $form['share']['facebook_share_button'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Facebook share button text'),
+    '#default_value' => theme_get_setting('facebook_share_button'),
+    '#size' => 80,
+    '#description' => t('Enter the the text, that will be shown on the facebook share button.'),
+    '#prefix' => '<div id="facebook-share-button-wrapper">',
+    '#suffix' => '</div>',
+  );
+
+  $form['share']['whatsapp_share_button'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Whatsapp share button text'),
+    '#default_value' => theme_get_setting('whatsapp_share_button'),
+    '#size' => 80,
+    '#description' => t('Enter the the text, that will be shown on the whatsapp share button.'),
+    '#prefix' => '<div id="whatsapp-share-button-wrapper">',
+    '#suffix' => '</div>',
+  );
+
+  $form['share']['whatsapp_share_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Whatsapp share text'),
+    '#default_value' => theme_get_setting('whatsapp_share_text'),
+    '#size' => 80,
+    '#description' => t('Enter the the text, that will be shown as share whatsapp text.'),
+    '#prefix' => '<div id="whatsapp-share-text-wrapper">',
+    '#suffix' => '</div>',
+  );
+
+  $form['share']['pinterest_share_button'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Pinterest share button text'),
+    '#default_value' => theme_get_setting('pinterest_share_button'),
+    '#size' => 80,
+    '#description' => t('Enter the the text, that will be shown on the pinterest share button.'),
+    '#prefix' => '<div id="pinterest-share-button-wrapper">',
+    '#suffix' => '</div>',
+  );
+
+  $form['share']['twitter_share_button'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Twitter share button text'),
+    '#default_value' => theme_get_setting('twitter_share_button'),
+    '#size' => 80,
+    '#description' => t('Enter the the text, that will be shown on the twitter share button.'),
+    '#prefix' => '<div id="twitter-share-button-wrapper">',
+    '#suffix' => '</div>',
+  );
+
+  $form['share']['twitter_share_via'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Via which twitter handle to share.'),
+    '#default_value' => theme_get_setting('twitter_share_via'),
+    '#size' => 80,
+    '#description' => t('Enter the the twitter handle, that will be shown when sharing content.'),
+    '#prefix' => '<div id="twitter-share-via-wrapper">',
+    '#suffix' => '</div>',
+  );
+
+  $form['share']['email_share_button'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Email share button text'),
+    '#default_value' => theme_get_setting('email_share_button'),
+    '#size' => 80,
+    '#description' => t('Enter the the text, that will be shown on the email share button.'),
+    '#prefix' => '<div id="email-share-button-wrapper">',
+    '#suffix' => '</div>',
+  );
+
+  $form['share']['email_share_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Email share text'),
+    '#default_value' => theme_get_setting('email_share_text'),
+    '#size' => 80,
+    '#description' => t('Enter the the text, that will be shown in the email.'),
+    '#prefix' => '<div id="email-share-button-wrapper">',
+    '#suffix' => '</div>',
+  );
+
+  $form['share']['email_subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Email subject text'),
+    '#default_value' => theme_get_setting('email_subject'),
+    '#size' => 80,
+    '#description' => t('Enter the the text, that will be shown as the email subject.'),
+    '#prefix' => '<div id="email-share-subject-wrapper">',
+    '#suffix' => '</div>',
+  );
+}
+
+/**
+ * Implements hook_preprocess_html();
+ */
+function infinite_amp_preprocess_html(&$variables) {
+  $variables['#attached']['library'][] = 'amp/amp.fit-text';
+  $css = file_get_contents(drupal_get_path('theme', 'infinite_amp') . '/css/infinite-amp-global.css');
+  if ($css) {
+    $variables['amp_css'] = $css;
+  }
+}

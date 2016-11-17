@@ -1,0 +1,17 @@
+.item-media {
+  amp-img {
+    margin-bottom: $gap-size-xxs;
+  }
+
+  .text-description {
+    @extend %item-media__description;
+  }
+
+  .text-copyright {
+    @extend %label--copyright;
+  }
+}
+
+.item-media--gallery {
+  @extend %item-media--gallery-amp;
+}

@@ -1,0 +1,18 @@
+{% set attributes = attributes.setAttribute('data-text-action', 'text-overflow') %}
+{% set attributes = attributes.setAttribute('data-text-action-target', '.caption') %}
+
+{% extends "paragraph.html.twig" %}
+
+{% block content_block %}
+    {% block title %}
+        {% if content.field_title %}
+            {{ content.field_title }}
+        {% endif %}
+    {% endblock %}
+
+    <div class="list__content-teaser--horizontal">
+        {% block list %}
+            {{ content.field_terms }}
+        {% endblock %}
+    </div>
+{% endblock %}
