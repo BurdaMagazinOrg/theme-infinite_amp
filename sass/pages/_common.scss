@@ -1,3 +1,7 @@
+.visually-hidden {
+  display: none;
+}
+
 .amp-header {
   border-bottom: $h-line-style;
 
@@ -56,6 +60,14 @@
   //$margin-v-item-content__item-mobile
   margin-top: $gap-v-region-mobile;
   margin-bottom: $gap-v-region-mobile;
+
+  .breadcrumb {
+    margin-bottom: $gap-v-region-mobile;
+
+    li:before {
+      line-height: inherit;
+    }
+  }
 
   .item-author {
     margin-top: $gap-v-region-mobile;
