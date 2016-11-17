@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\views\ViewExecutable;
+
 /**
  * Implements hook_preprocess_paragraphs().
  */
@@ -192,4 +194,17 @@ function infinite_amp_preprocess_block(&$variables) {
   if ($variables['plugin_id'] === 'infinite_blocks_channel_presenter') {
     $variables['#attached']['library'][] = 'amp/amp.carousel';
   }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function infinite_amp_views_pre_render(ViewExecutable $view) {
+  if ($view->id() === 'infinite_taxonomy_term' && !$view->is_attachment) {
+    // Remove the footer until the newsletter form is rebuilt in an AMP compatible format.
+    $view->footer = [];
+    // Remove the pager.
+    $view->pager = [];
+  }
+
 }
