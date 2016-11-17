@@ -1,0 +1,16 @@
+{
+    "name": "burdamagazinorg/infinite_amp",
+    "type": "drupal-theme",
+    "authors": [
+        {
+            "name": "Nico Davis",
+            "email": "n.davis@nicodavis.de"
+        },
+        {
+            "name": "Mārtiņš Bērtiņš",
+            "email": "martins.bertins@wunder.io"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
