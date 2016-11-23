@@ -206,5 +206,4 @@ function infinite_amp_views_pre_render(ViewExecutable $view) {
     // Remove the pager.
     $view->pager = [];
   }
-
 }
