@@ -1,0 +1,6 @@
+.region-full-content + .region-full-content {
+  @extend %gap--v-region;
+  @if ($region-v-lined) {
+    border-top: $h-line-style;
+  }
+}

@@ -50,9 +50,6 @@
 }
 
 @mixin title--content-block($size-mobile: $title--content-block-mobile, $font: $title--content-block-font-id, $color: $title--content-block-color, $margin-mobile: $title--content-block-gap-bottom-mobile) {
-  $size-mobile: nth($sizes, 1);
-  $margin-mobile: nth($margins, 1);
-
   @include text-helper($font);
   @include text-helper-size($font, $size-mobile);
   margin-bottom: $margin-mobile;

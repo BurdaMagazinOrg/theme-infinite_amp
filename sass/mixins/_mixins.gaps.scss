@@ -1,3 +1,50 @@
+/**
+** Containers
+**/
+
+@mixin gap__container--v-reset($lined: false) {
+  @if ($region-v-lined or $lined) {
+    border-top: 0;
+  }
+
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/** Lists Gaps **/
+@mixin gap--v-tiny($gap: $gap-v-tiny-mobile) {
+  @include _gap($gap);
+}
+
+@mixin gap--v-xs($gap: $gap-v-xs-mobile) {
+  @include _gap($gap);
+}
+
+@mixin gap--v-sm($gap: $gap-v-sm-mobile) {
+  @include _gap($gap);
+}
+
+@mixin gap--v-xl($gap: $gap-v-xl-mobile) {
+  @include _gap($gap);
+}
+
+@mixin gap--v-xxl($gap: $gap-v-xxl-mobile) {
+  @include _gap($gap);
+}
+
+@mixin gap--v-region($gap: $gap-v-region-mobile) {
+  @include _gap($gap);
+}
+
+@mixin gap--v-sm-region($gap: $gap-v-sm-region-mobile) {
+  @include _gap($gap);
+}
+
+@mixin _gap($gap-mobile: $gap-v-region-mobile) {
+  margin-top: round($gap-mobile);
+  padding-top: round($gap-mobile);
+}
+
 @mixin gap__caption-top--h-teaser($type: margin) {
   #{$type}-top: $gap__caption-top--h-teaser-mobile;
 }
