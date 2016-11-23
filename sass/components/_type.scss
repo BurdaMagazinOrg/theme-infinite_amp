@@ -16,3 +16,41 @@ a {
     color: $text-highlighted;
   }
 }
+
+.text-headline {
+  @extend %text-headline;
+}
+
+//.text-label {
+//  @extend %text-label;
+//}
+//
+//.text-tiny {
+//  @extend %text-tiny;
+//}
+//
+//.text-category {
+//  @extend %label--category;
+//}
+//
+//.text-copyright {
+//  @extend %label--copyright;
+//}
+
+.text-description {
+  strong, b {
+    font-family: inherit;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+strong, b, .text--highlighted {
+  @include bold-settings();
+}
+
+i, em {
+  font-style: italic;
+}

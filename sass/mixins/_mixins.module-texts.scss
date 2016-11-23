@@ -39,6 +39,18 @@
   }
 }
 
+@mixin teaser-feed-large-text($size-mobile: $feed-teaser-headline-size-mobile) {
+  .teaser__title {
+    text-transform: $feed-teaser-headline-text-transform;
+  }
+
+  @media (max-width: $screen-xs-max) {
+    .teaser__title {
+      @include text-headline-size($size-mobile);
+    }
+  }
+}
+
 @mixin teaser-list__text--middle($size-mobile: $teaser-list__headline-size-mobile--teaser-middle, $font: $teaser-list__headline-font-id--teaser-middle) {
   .text-headline {
     @include text-helper($font);
