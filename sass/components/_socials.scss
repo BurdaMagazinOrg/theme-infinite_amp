@@ -1,0 +1,8 @@
+.socials {
+  .item-social {
+    @extend %socials-default-item;
+  }
+
+  //fb / whatsapp / instagram / etc
+  @include socials-default-items();
+}

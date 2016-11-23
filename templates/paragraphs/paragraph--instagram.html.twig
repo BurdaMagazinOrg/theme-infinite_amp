@@ -1,1 +1,13 @@
-{% extends "@infinite/paragraphs/paragraph--instagram.html.twig" %}
+{% extends "paragraph.html.twig" %}
+
+{% block content_block %}
+    {% block title %}
+        {% if content.field_title %}
+            {{ content.field_title }}
+        {% endif %}
+    {% endblock %}
+
+    {% if content.field_link %}
+        {{ content.field_link }}
+    {% endif %}
+{% endblock %}

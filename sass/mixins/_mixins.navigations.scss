@@ -1,0 +1,45 @@
+@mixin helper__menu-dropdown($btn-class: 'btn__open-tree', $btn-class--open: 'btn__open-tree--is-open', $list-element: 'li') {
+
+  .#{$btn-class} {
+    @extend %btn__open-tree--mobile;
+    display: none;
+    text-align: left;
+  }
+
+  &.#{$btn-class--open} {
+    #{$list-element} {
+      display: block;
+    }
+
+    .#{$btn-class} {
+      margin-bottom: $gap-size-xs;
+    }
+  }
+
+  .#{$btn-class} {
+    display: block;
+  }
+
+  #{$list-element} {
+    display: none;
+    text-align: left;
+  }
+}
+
+@mixin item-anchor-navigation--full() {
+  @include item-anchor-nav__text();
+  z-index: 2;
+  padding: $anchor-nav__padding-mobile;
+
+  a {
+    margin: $anchor-nav__item-margin-mobile;
+    padding: $anchor-nav__item-padding-mobile;
+    display: block;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  @include helper__menu-dropdown();
+}
