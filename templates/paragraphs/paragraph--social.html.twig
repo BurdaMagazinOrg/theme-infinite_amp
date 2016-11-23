@@ -42,8 +42,11 @@
 {% block content_block %}
     {% block title %}
         {% if content.field_title %}
-            <div class="text-headline item-title">{{ content.field_title }}</div>
+            {{ content.field_title }}
         {% endif %}
     {% endblock %}
-    {{ content|without('field_title') }}  {# see TWIG files in media directory #}
+
+    {% if content.field_link %}
+        {{ content.field_link }}
+    {% endif %}
 {% endblock %}
