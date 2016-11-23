@@ -105,3 +105,71 @@
     @include text-helper-size($quote__author-font-id--article, $quote__author-size--article-mobile, $quote__author-line-height--article);
   }
 }
+
+@mixin item-paragraph--spotlight() {
+  @include gap__container--h-negative();
+  @include item-content--spotlight-text();
+  @include _spotlight--small();
+
+  /** Defaults **/
+  position: relative;
+
+  amp-img {
+    margin-bottom: 0;
+  }
+
+  //img {
+  //  @include img-full-responsive();
+  //}
+
+  .socials-bar .item-social {
+    @include socials-clean-horizontal-bar-item--light();
+  }
+
+  .spotlight__wrapper {
+    position: relative;
+  }
+
+  .spotlight__caption {
+    color: $spotlight__caption-color;
+  }
+
+  .spotlight__anchor-nav {
+    @extend %item-anchor-navigation--full;
+  }
+
+}
+
+@mixin item-paragraph--profile() {
+  @include item-paragraph--profile-text;
+  @include _profile--small();
+
+  .title {
+    margin-bottom: $profile__title-gap-bottom;
+  }
+
+  //.img-container {
+  //  img {
+  //    @extend %img-full-responsive;
+  //  }
+  //}
+
+  .caption {
+    padding-top: $gap-size-xxs;
+  }
+
+  .facts {
+    max-width: $profile__fact-max-width;
+    width: 100%;
+    display: inline-block;
+  }
+
+  table, tbody, th, td, tr {
+    display: block;
+    text-align: center;
+  }
+
+  tr {
+    @include item-paragraph--profile__fact-item();
+  }
+}

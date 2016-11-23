@@ -1,0 +1,24 @@
+@mixin socials-clean-horizontal-bar-item($bg: $socials__bg-color--clean-horizontal-bar,
+  $color: $socials__color--clean-horizontal-bar,
+  $border: $socials__border--clean-horizontal-bar,
+  $bg-hover: $socials__bg-color-hover--clean-horizontal-bar,
+  $color-hover: $socials__color-hover--clean-horizontal-bar,
+  $border-color-hover: $socials__border-color-hover--clean-horizontal-bar) {
+
+  display: inline-block;
+  background-color: $bg;
+  border: $border;
+  color: $color;
+  margin-left: $socials-clean-horizontal-bar-left-gap;
+  text-align: center;
+
+  -webkit-transform: rotate(0.0001deg); //smoothing
+
+  &:hover {
+    background-color: $bg-hover;
+    color: $color-hover;
+    border-color: $border-color-hover;
+  }
+
+  @include socials-item-settings($socials-clean-horizontal-bar-size-mobile, $socials-clean-horizontal-bar-icon-size-mobile);
+}

@@ -1,3 +1,11 @@
+%item-content--paragraphs-amp {
+  @include item-content--paragraphs-amp();
+}
+
 %item-content--article-amp {
   @include item-content--article-amp();
+}
+
+%item-content--taxonomy-amp {
+  @include item-content--taxonomy-amp();
 }

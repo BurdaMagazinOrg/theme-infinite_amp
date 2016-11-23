@@ -1,4 +1,8 @@
 @mixin item-media--gallery-amp() {
+  amp-img {
+    margin-bottom: 19px;
+  }
+
   img {
     object-fit: contain;
     object-position: 50% 0;

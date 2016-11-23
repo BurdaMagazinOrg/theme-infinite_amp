@@ -19,3 +19,11 @@
 .item-paragraph--tracdelight, .item-paragraph--advertising-products-paragraph {
   @include item-paragraph--tracdelight();
 }
+
+.item-paragraph--spotlight {
+  @include item-paragraph--spotlight();
+}
+
+.item-paragraph--profile {
+  @include item-paragraph--profile();
+}
