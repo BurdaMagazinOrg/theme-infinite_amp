@@ -27,3 +27,7 @@
 .item-paragraph--profile {
   @include item-paragraph--profile();
 }
+
+.item-paragraph--seo-links {
+  @include item-paragraph--seo-links();
+}

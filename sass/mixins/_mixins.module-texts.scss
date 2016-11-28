@@ -1,6 +1,8 @@
 @mixin seo-linker-text() {
   .seo-linker__item-title {
     @include text-helper($seo-linker__item-title-font-id);
+    @include text-helper-size($seo-linker__item-title-font-id, $seo-linker__item-title-size-mobile);
+    text-transform: uppercase;
   }
 
   .seo-linker__link-list--image {
@@ -10,10 +12,6 @@
     a:hover {
       color: $seo-linker__link-list-hover-color;
     }
-  }
-
-  .seo-linker__item-title {
-    @include text-helper-size($seo-linker__item-title-font-id, $seo-linker__item-title-size-mobile);
   }
 
   .seo-linker__link-list--image {
@@ -41,13 +39,8 @@
 
 @mixin teaser-feed-large-text($size-mobile: $feed-teaser-headline-size-mobile) {
   .teaser__title {
+    @include text-headline-size($size-mobile);
     text-transform: $feed-teaser-headline-text-transform;
-  }
-
-  @media (max-width: $screen-xs-max) {
-    .teaser__title {
-      @include text-headline-size($size-mobile);
-    }
   }
 }
 

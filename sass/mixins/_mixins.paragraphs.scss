@@ -173,3 +173,21 @@
     @include item-paragraph--profile__fact-item();
   }
 }
+
+@mixin item-paragraph--seo-links() {
+  @include seo-linker-text();
+
+  .seo-linker__item--image {
+    .img-container img {
+      @extend %img-full-responsive-inline-block;
+    }
+  }
+
+  .seo-linker__item-title {
+    @extend %gap__caption-top--h-teaser;
+  }
+
+  .seo-linker__link-list--image {
+    @extend %list__links--module;
+  }
+}
