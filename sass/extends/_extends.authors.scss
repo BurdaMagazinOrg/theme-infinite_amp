@@ -2,7 +2,7 @@
   @include item-author();
 
   amp-img {
-    width: $author__profile-image-size--teaser-default !important;
-    height: $author__profile-image-size--teaser-default !important;
+    width: $author__profile-image-size--teaser-default;
+    height: $author__profile-image-size--teaser-default;
   }
 }
