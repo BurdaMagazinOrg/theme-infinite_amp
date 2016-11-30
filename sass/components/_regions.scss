@@ -4,3 +4,7 @@
     border-top: $h-line-style;
   }
 }
+
+.region-teaser-list {
+  @extend %padding--v-region;
+}

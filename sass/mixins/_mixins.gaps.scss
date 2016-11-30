@@ -48,3 +48,8 @@
 @mixin gap__caption-top--h-teaser($type: margin) {
   #{$type}-top: $gap__caption-top--h-teaser-mobile;
 }
+
+@mixin gap__container--h-negative() {
+  margin-left: -$container-h-gap--mobile;
+  margin-right: -$container-h-gap--mobile;
+}

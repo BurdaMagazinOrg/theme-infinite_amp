@@ -15,3 +15,7 @@
 .item-media--gallery {
   @extend %item-media--gallery-amp;
 }
+
+.item-media--header {
+  @extend %item-media--header;
+}

@@ -10,3 +10,15 @@
   margin-left: -$list__content-teaser--horizontal-gap-h-mobile;
   margin-right: -$list__content-teaser--horizontal-gap-h-mobile;
 }
+
+@mixin list__images--horizontal($gap-mobile: $teaser__gap--list-horizontal-mobile) {
+  @include clearfix();
+
+  margin-left: -$gap-mobile;
+  margin-right: -$gap-mobile;
+}
+
+@mixin list__images--horizontal__item($gap-mobile: $teaser__gap--list-horizontal-mobile) {
+  padding-left: $gap-mobile;
+  padding-right: $gap-mobile;
+}

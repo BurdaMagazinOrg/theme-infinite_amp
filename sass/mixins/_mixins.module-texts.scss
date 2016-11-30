@@ -126,3 +126,16 @@
     display: inline-block;
   }
 }
+
+@mixin item-media--header-text() {
+  .text-headline {
+    @include text-helper($title--media-header-font-id);
+    @include text-helper-size($title--media-header-font-id, $title--media-header-mobile);
+    text-shadow: $title--media-header-text-shadow;
+    text-transform: $title--media-header-text-transform;
+    color: $title--media-header-color;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

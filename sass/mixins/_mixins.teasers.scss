@@ -83,6 +83,19 @@
   }
 }
 
+@mixin teaser-list-h-amp() {
+  width: 70%;
+
+  amp-img {
+    margin-bottom: 0;
+  }
+
+  .teaser__caption {
+    @extend %caption-overlay-amp;
+    white-space: normal;
+  }
+}
+
 @mixin teaser-feed-large-gap() {
   border-top: $feed-teaser-h-line;
   padding-top: $feed-teaser-gap-top-mobile;
