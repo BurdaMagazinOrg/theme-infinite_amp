@@ -33,9 +33,9 @@
     overflow: hidden;
   }
 
-  .teaser__caption {
-    height: $teaser--content-caption-height-mobile;
-  }
+  //.teaser__caption {
+  //  height: $teaser--content-caption-height-mobile;
+  //}
 }
 
 @mixin item-paragraph--quote() {

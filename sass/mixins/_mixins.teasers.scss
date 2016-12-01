@@ -56,7 +56,7 @@
   }
 
   .caption, .teaser__caption {
-    @include gap__caption-top--h-teaser();
+    //@include gap__caption-top--h-teaser();
   }
 
   .teaser__title {
