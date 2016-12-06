@@ -55,10 +55,6 @@
     }
   }
 
-  .caption, .teaser__caption {
-    //@include gap__caption-top--h-teaser();
-  }
-
   .teaser__title {
     @include text-helper($teaser--content-headline-font-id);
     @include text-helper-size($teaser--content-headline-font-id, $teaser--content-headline-size-mobile, $teaser--content-headline-line-height);
@@ -79,6 +75,7 @@
 
   .caption, .teaser__caption {
     margin-top: 0;
+    padding-top: 0;
     padding-right: $padding;
   }
 }
