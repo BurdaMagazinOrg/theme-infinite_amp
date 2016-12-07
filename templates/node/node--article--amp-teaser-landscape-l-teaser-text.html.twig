@@ -1,11 +1,1 @@
-{% extends "@infinite/node/node--article--teaser-default.html.twig" %}
-
-{% set attributes = attributes.addClass('teaser-landscape-large') %}
-
-{% block teaser_text %}
-    {% if content.field_teaser_text %}
-        <p class="teaser__copy">
-            {{ content.field_teaser_text }}
-        </p>
-    {% endif %}
-{% endblock %}
+{% extends "@infinite/node/node--article--teaser-landscape-l-teaser-text.html.twig" %}
