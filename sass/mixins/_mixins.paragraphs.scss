@@ -197,5 +197,13 @@
 }
 
 @mixin item-paragraph--pinterest() {
+  text-align: center;
 
+  amp-pinterest {
+    text-align: left;
+  }
+
+  .-amp-pinterest-embed-pin-stats {
+    padding-top: 0;
+  }
 }

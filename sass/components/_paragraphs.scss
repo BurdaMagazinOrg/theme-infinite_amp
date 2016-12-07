@@ -31,3 +31,7 @@
 .item-paragraph--seo-links {
   @include item-paragraph--seo-links();
 }
+
+.item-paragraph--pinterest {
+  @include item-paragraph--pinterest();
+}
