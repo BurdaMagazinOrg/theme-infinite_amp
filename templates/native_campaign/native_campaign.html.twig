@@ -1,10 +1,11 @@
 <div{{ attributes.addClass('native_campaign') }}>
     <span class="logo">
-        <img src="{{ logo_url }}" />
+
+        {{ logo | raw }}
     </span>
     <span class="separator">&</span>
     <span class="brand">
-        {{ content.logo }}
+        {{ campaign_logo  | raw }}
     </span>
     {{ content.tracking_pixel }}
 </div>
