@@ -1,0 +1,26 @@
+@mixin item-date--node-created() {
+  @include text-helper($date__font-id--node-created);
+  @include text-helper-size($date__font-id--node-created, $date__size-mobile--node-created);
+  letter-spacing: $date__letter-spacing--node-created;
+  color: $date__color--node-created;
+  text-transform: $date__text-transform--node-created;
+  margin: $date__margin-mobile--node-created;
+}
+
+@mixin item-date--vita-short() {
+  @include text-helper($author__date-font-id--vita-short);
+  @include text-helper-size($author__date-font-id--vita-short, $author__date-size-mobile--vita-short);
+  margin: $author__date-margin-mobile--vita-short;
+  letter-spacing: $author__date-letter-spacing--vita-short;
+  color: $author__date-color--vita-short;
+  text-transform: $author__date-text-transform--vita-short;
+}
+
+@mixin item-date--horoscope() {
+  @include text-helper($date__font-id--horoscope);
+  @include text-helper-size($date__font-id--horoscope, $date__size-mobile--horoscope);
+  margin: $date__margin-mobile--horoscope;
+  letter-spacing: $date__letter-spacing--horoscope;
+  color: $date__color--horoscope;
+  text-transform: $date__text-transform--horoscope;
+}

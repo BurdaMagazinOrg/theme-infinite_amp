@@ -1,3 +1,11 @@
+.item-content__block, .item-block {
+  @extend %item-content__block;
+}
+
+.item-content__block--meta-data {
+  @extend %item-author--vita-short;
+}
+
 .item-content--article {
   @extend %item-content--article-amp;
 }

@@ -1,0 +1,53 @@
+@mixin item-author--vita-short() {
+  text-align: $author-text-align--vita-short;
+
+  .item-date--vita-short {
+    display: block;
+  }
+
+  .item-author__profile-image {
+
+    img {
+      padding: 2px;
+      max-width: 100%;
+      height: auto;
+      border: $author__profile-image-border--vita-short;
+      border-radius: $author__profile-image-radius--vita-short;
+      -webkit-border-radius: $author__profile-image-radius--vita-short;
+      -moz-border-radius: $author__profile-image-radius--vita-short;
+    }
+  }
+
+  .item-author__name {
+    @include text-helper($author__name-font-id--vita-short);
+    color: $author__name-color--vita-short;
+  }
+
+  .item-author__email, .item-author__job {
+    @include text-helper($author__email-font-id--vita-short);
+    color: $author__email-color--vita-short;
+  }
+
+  .item-author__short-info {
+    @include text-helper($author__short-info-font-id--vita-short);
+    color: $author__short-info-color--vita-short;
+  }
+
+  padding-top: $author-padding-top-bottom-mobile--vita-short;
+  padding-bottom: $author-padding-top-bottom-mobile--vita-short;
+
+  .item-author__name {
+    @include text-helper-size($author__name-font-id--vita-short, $author__name-size-mobile--vita-short);
+    margin: $author__name-margin-mobile--vita-short;
+  }
+
+  .item-author__email, .item-author__job {
+    @include text-helper-size($author__email-font-id--vita-short, $author__email-size-mobile--vita-short);
+    margin: $author__email-margin-mobile--vita-short;
+  }
+
+  .item-author__short-info {
+    @include text-helper-size($author__short-info-font-id--vita-short, $author__short-info-size-mobile--vita-short);
+    margin: $author__short-info-margin-mobile--vita-short;
+  }
+}

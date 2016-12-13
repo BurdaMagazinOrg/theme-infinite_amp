@@ -1,0 +1,36 @@
+@mixin margin--v-sm($gap: $gap-v-sm-mobile) {
+  @include _margin--v(top, $gap);
+}
+
+@mixin margin--v-xl($gap: $gap-v-xl-mobile) {
+  @include _margin--v(top, $gap);
+}
+
+@mixin margin--v-xxl($gap: $gap-v-xxl-mobile) {
+  @include _margin--v(top, $gap);
+}
+
+@mixin margin--v-region($gap: $gap-v-region-mobile) {
+  @include _margin--v(top, $gap);
+}
+
+@mixin margin--v-item-content__item($gap: $margin-v-item-content__item-mobile) {
+  @include _margin--v(top, $gap);
+}
+
+@mixin _margin--v($direction, $gap-mobile) {
+  margin-#{$direction}: round($gap-mobile);
+}
+
+/**
+** Common
+**/
+@mixin gap__container--h() {
+  margin-left: $container-h-gap--mobile;
+  margin-right: $container-h-gap--mobile;
+}
+
+@mixin gap__container--h-negative() {
+  margin-left: -$container-h-gap--mobile;
+  margin-right: -$container-h-gap--mobile;
+}
