@@ -51,3 +51,359 @@
     margin: $author__short-info-margin-mobile--vita-short;
   }
 }
+
+@mixin item-author--vita-short() {
+  text-align: $author-text-align--vita-short;
+
+  .item-date--vita-short {
+    display: block;
+  }
+
+  .item-author__profile-image {
+    a {
+      max-width: 50%;
+    }
+
+    img {
+      padding: 2px;
+      max-width: 100%;
+      height: auto;
+      border: $author__profile-image-border--vita-short;
+      border-radius: $author__profile-image-radius--vita-short;
+      -webkit-border-radius: $author__profile-image-radius--vita-short;
+      -moz-border-radius: $author__profile-image-radius--vita-short;
+    }
+  }
+
+  .item-author__name {
+    @include text-helper($author__name-font-id--vita-short);
+    color: $author__name-color--vita-short;
+  }
+
+  .item-author__email, .item-author__job {
+    @include text-helper($author__email-font-id--vita-short);
+    color: $author__email-color--vita-short;
+  }
+
+  .item-author__short-info {
+    @include text-helper($author__short-info-font-id--vita-short);
+    color: $author__short-info-color--vita-short;
+  }
+
+  padding-top: $author-padding-top-bottom-mobile--vita-short;
+  padding-bottom: $author-padding-top-bottom-mobile--vita-short;
+
+  .item-author__name {
+    @include text-helper-size($author__name-font-id--vita-short, $author__name-size-mobile--vita-short);
+    margin: $author__name-margin-mobile--vita-short;
+  }
+
+  .item-author__email, .item-author__job {
+    @include text-helper-size($author__email-font-id--vita-short, $author__email-size-mobile--vita-short);
+    margin: $author__email-margin-mobile--vita-short;
+  }
+
+  .item-author__short-info {
+    @include text-helper-size($author__short-info-font-id--vita-short, $author__short-info-size-mobile--vita-short);
+    margin: $author__short-info-margin-mobile--vita-short;
+  }
+}
+
+@mixin item-author--detail-large() {
+  text-align: $author-text-align--detail-large;
+
+  .item-author__profile-image {
+    a {
+      display: inline-block;
+    }
+
+    img {
+      padding: 2px;
+      max-width: 100%;
+      height: auto;
+      border: $author__profile-image-border--detail-large;
+      border-radius: $author__profile-image-radius--detail-large;
+      -webkit-border-radius: $author__profile-image-radius--detail-large;
+      -moz-border-radius: $author__profile-image-radius--detail-large;
+    }
+  }
+
+  .item-author__name {
+    @include text-helper($author__name-font-id--detail-large);
+    color: $author__name-color--detail-large;
+  }
+
+  .item-author__job {
+    @include text-helper($author__job-font-id--detail-large);
+    color: $author__job-color--detail-large;
+    text-transform: $author__job-text-transform--detail-large;
+    letter-spacing: $author__job-letter-spacing--detail-large;
+  }
+
+  .item-author__short-info {
+    @include text-helper($author__short-info-font-id--detail-large);
+    color: $author__short-info-color--detail-large;
+    text-transform: $author__short-info-text-transform--detail-large;
+    letter-spacing: $author__short-info-letter-spacing--detail-large;
+  }
+
+  .item-author__socials-title {
+    @include text-helper($author__socials-title-font-id--detail-large);
+    color: $author__socials-title-color--detail-large;
+    text-transform: $author__socials-title-text-transform--detail-large;
+    letter-spacing: $author__socials-title-letter-spacing--detail-large;
+  }
+
+  .item-author__socials-misc {
+    @include text-helper($author__socials-misc-font-id--detail-large);
+    color: $author__socials-misc-color--detail-large;
+    text-transform: $author__socials-misc-text-transform--detail-large;
+    letter-spacing: $author__socials-misc-letter-spacing--detail-large;
+  }
+
+  .item-author__socials-misc-item {
+    a {
+      &:hover {
+        color: $author__socials-misc-item-hover-color--detail-large;
+      }
+    }
+  }
+
+  .socials {
+    .item-social {
+      @extend %socials-media-horizontal-author-bar-item;
+    }
+  }
+
+  margin: $author-margin-mobile--detail-large;
+
+  .item-author__profile-image {
+    a {
+      max-width: 50%;
+    }
+  }
+
+  .item-author__name {
+    @include text-helper-size($author__name-font-id--detail-large, $author__name-size-mobile--detail-large);
+    margin: $author__name-margin-mobile--detail-large;
+  }
+
+  .item-author__job {
+    @include text-helper-size($author__job-font-id--detail-large, $author__job-size-mobile--detail-large);
+    margin: $author__job-margin-mobile--detail-large;
+  }
+
+  .item-author__short-info {
+    @include text-helper-size($author__short-info-font-id--detail-large, $author__short-info-size-mobile--detail-large, $author__short-info-line-height--detail-large);
+    margin: $author__short-info-margin-mobile--detail-large;
+  }
+
+  .item-author__socials-title {
+    @include text-helper-size($author__socials-title-font-id--detail-large, $author__socials-title-size-mobile--detail-large);
+    margin: $author__socials-title-margin-mobile--detail-large;
+  }
+
+  .item-author__socials-icons {
+    margin: $author__socials-margin-mobile--detail-large;
+  }
+
+  .item-author__socials-misc {
+    @include text-helper-size($author__socials-misc-font-id--detail-large, $author__socials-misc-size-mobile--detail-large);
+    margin: $author__socials-misc-margin-mobile--detail-large;
+  }
+
+  .item-author__socials-misc-item {
+    margin: $author__socials-misc-item-margin-mobile--detail-large;
+  }
+
+}
+
+@mixin item-author--teaser-large() {
+  @extend %clearfix;
+  @include item-author__gap--teaser-large();
+
+  .item-author__profile-image {
+    img {
+      padding: 2px;
+      max-width: 100%;
+      height: auto;
+      border: $author__profile-image-border--teaser-large;
+      border-radius: $author__profile-image-radius--teaser-large;
+      -webkit-border-radius: $author__profile-image-radius--teaser-large;
+      -moz-border-radius: $author__profile-image-radius--teaser-large;
+    }
+  }
+
+  .item-author__name {
+    @include text-helper($author__name-font-id--teaser-large);
+    color: $author__name-color--teaser-large;
+  }
+
+  .item-author__job {
+    @include text-helper($author__job-font-id--teaser-large);
+    color: $author__job-color--teaser-large;
+    text-transform: $author__job-text-transform--teaser-large;
+    letter-spacing: $author__job-letter-spacing--teaser-large;
+  }
+
+  text-align: $author-text-align-mobile--teaser-large;
+
+  .item-author__profile-image img {
+    max-width: 50%;
+  }
+
+  .item-author__caption {
+    text-align: $author__caption-text-align-mobile--teaser-large;
+  }
+
+  .item-author__name {
+    @include text-helper-size($author__name-font-id--teaser-large, $author__name-size-mobile--teaser-large);
+    margin: $author__name-margin-mobile--teaser-large;
+  }
+
+  .item-author__job {
+    @include text-helper-size($author__job-font-id--teaser-large, $author__job-size-mobile--teaser-large);
+    margin: $author__job-margin-mobile--teaser-large;
+  }
+
+}
+
+@mixin item-author__gap--teaser-large() {
+  border-top: $h-line-style;
+
+  &:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  padding-top: $gap-size-sm;
+  margin-top: $gap-size-sm;
+}
+
+@mixin item-author--teaser-small() {
+  @include make-sm-column($grid-columns/2);
+  @include item-author__gap--teaser-small();
+  text-align: $author-text-align--teaser-small;
+
+  .item-author__profile-image {
+    a {
+      display: inline-block;
+    }
+
+    img {
+      padding: 2px;
+      max-width: 100%;
+      height: auto;
+      border: $author__profile-image-border--teaser-small;
+      border-radius: $author__profile-image-radius--teaser-small;
+      -webkit-border-radius: $author__profile-image-radius--teaser-small;
+      -moz-border-radius: $author__profile-image-radius--teaser-small;
+    }
+  }
+
+  .item-author__name {
+    @include text-helper($author__name-font-id--teaser-small);
+    color: $author__name-color--teaser-small;
+  }
+
+  .item-author__job {
+    @include text-helper($author__job-font-id--teaser-small);
+    color: $author__job-color--teaser-small;
+    text-transform: $author__job-text-transform--teaser-small;
+    letter-spacing: $author__job-letter-spacing--teaser-small;
+  }
+
+  .item-author__profile-image {
+    a {
+      max-width: 50%;
+    }
+  }
+
+  .item-author__name {
+    @include text-helper-size($author__name-font-id--teaser-small, $author__name-size-mobile--teaser-small);
+    margin: $author__name-margin-mobile--teaser-small;
+  }
+
+  .item-author__job {
+    @include text-helper-size($author__job-font-id--teaser-small, $author__job-size-mobile--teaser-small);
+    margin: $author__job-margin-mobile--teaser-small;
+  }
+
+}
+
+@mixin item-author__gap--teaser-small() {
+  border-top: $h-line-style;
+  padding-top: $gap-size-sm;
+  margin-top: $gap-size-sm;
+}
+
+@mixin item-author--teaser-small-detail() {
+  @include make-sm-column($grid-columns/2);
+  @include item-author__gap--teaser-small-detail();
+  text-align: $author-text-align--teaser-small-detail;
+
+  .item-author__profile-image {
+    a {
+      display: inline-block;
+    }
+
+    img {
+      padding: 2px;
+      max-width: 100%;
+      height: auto;
+      border: $author__profile-image-border--teaser-small-detail;
+      border-radius: $author__profile-image-radius--teaser-small-detail;
+      -webkit-border-radius: $author__profile-image-radius--teaser-small-detail;
+      -moz-border-radius: $author__profile-image-radius--teaser-small-detail;
+    }
+  }
+
+  .item-author__name {
+    @include text-helper($author__name-font-id--teaser-small-detail);
+    color: $author__name-color--teaser-small-detail;
+  }
+
+  .item-author__job {
+    @include text-helper($author__job-font-id--teaser-small-detail);
+    color: $author__job-color--teaser-small-detail;
+    text-transform: $author__job-text-transform--teaser-small-detail;
+    letter-spacing: $author__job-letter-spacing--teaser-small-detail;
+  }
+
+  .item-author__profile-image {
+    a {
+      max-width: 50%;
+    }
+  }
+
+  .item-author__name {
+    @include text-helper-size($author__name-font-id--teaser-small-detail, $author__name-size-mobile--teaser-small-detail);
+    margin: $author__name-margin-mobile--teaser-small-detail;
+  }
+
+  .item-author__job {
+    @include text-helper-size($author__job-font-id--teaser-small-detail, $author__job-size-mobile--teaser-small-detail);
+    margin: $author__job-margin-mobile--teaser-small-detail;
+  }
+
+  .item-author__short-info {
+    @include text-helper($author__short-info-font-id--teaser-small-detail);
+    color: $author__short-info-color--teaser-small-detail;
+    text-transform: $author__short-info-text-transform--teaser-small-detail;
+    letter-spacing: $author__short-info-letter-spacing--teaser-small-detail;
+  }
+
+  .item-author__short-info {
+    @include text-helper-size($author__short-info-font-id--teaser-small-detail, $author__short-info-size-mobile--teaser-small-detail);
+    margin: $author__short-info-margin-mobile--teaser-small-detail;
+  }
+}
+
+@mixin item-author__row() {
+  &:first-child > .item-author:first-child {
+    padding-top: 0;
+    margin-top: 0;
+    border-top: 0;
+  }
+}

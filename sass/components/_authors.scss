@@ -1,3 +1,23 @@
 .item-author {
   @extend %item-author--amp;
 }
+
+.item-author--detail-large {
+  @extend %item-author--detail-large;
+}
+
+.item-author--teaser-large {
+  @extend %item-author--teaser-large;
+}
+
+.item-author--teaser-small {
+  @extend %item-author--teaser-small;
+}
+
+.item-author--teaser-small-detail {
+  @extend %item-author--teaser-small-detail;
+}
+
+.item-author__row {
+  @extend %item-author__row;
+}
