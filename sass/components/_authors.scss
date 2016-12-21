@@ -1,5 +1,6 @@
 .item-author {
   @extend %item-author--amp;
+  display: block;
 }
 
 .item-author--detail-large {
