@@ -27,7 +27,7 @@
     <div class="caption">  {# TODO: closed in author-teaser.html.twig #}
         <div class="text-author">Artikel von
           <a href="{{ path('entity.user.canonical', {'user': user.id}) }}">
-            {{ content.first_name }} {{ content.last_name }}
+            {{ user.displayName }}
           </a>
         </div>
 {% endif %}
