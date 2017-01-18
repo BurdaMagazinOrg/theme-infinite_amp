@@ -1,27 +1,26 @@
-{% if rows %}
-    {% if attachment_before %}
-        {{ attachment_before }}
-    {% endif %}
-
-    <div class="region-full-content">
-        {% if header %}
-            {{ header }}
-        {% endif %}
-    </div>
-
-    <div class="region-full-content">
-        <div class="teaser-list-large">
-            {{ rows }}
-        </div>
-    </div>
-
-    {% if footer %}
-        {{ footer }}
-    {% endif %}
-
-    {% if attachment_after %}
-        {{ attachment_after }}
-    {% endif %}
+{% if attachment_before %}
+    {{ attachment_before }}
 {% endif %}
 
+{% if header %}
+<div class="region-full-content">
+    {{ header }}
+</div>
+{% endif %}
+
+{% if rows %}
+  <div class="region-full-content">
+      <div class="teaser-list-large">
+          {{ rows }}
+      </div>
+  </div>
+{% endif %}
+
+{% if footer %}
+    {{ footer }}
+{% endif %}
+
+{% if attachment_after %}
+    {{ attachment_after }}
+{% endif %}
 
