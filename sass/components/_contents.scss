@@ -1,3 +1,7 @@
+.item-content__header {
+  @extend %item-content__header;
+}
+
 .item-content__block, .item-block {
   @extend %item-content__block;
 }

@@ -1,3 +1,34 @@
+@mixin item-content__header() {
+
+  .ratio-wrapper {
+    @include item-media--header-ratio();
+    position: relative;
+    height: 0;
+    overflow: hidden;
+
+    .caption {
+      @extend %gap__container--h-padding;
+      @extend %flexbox;
+      @extend %align-items-center;
+      @extend %justify-content-center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  .title--page {
+    //text-align: center;
+    width: 100%;
+  }
+
+  .author {
+    margin: $author__margin-mobile--content-header;
+  }
+}
+
 @mixin item-content--paragraphs-amp() {
   .item-content__content > .item-paragraph:first-child {
     margin-top: 0;

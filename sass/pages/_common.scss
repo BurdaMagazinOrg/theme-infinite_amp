@@ -12,15 +12,15 @@
 }
 
 .amp-header__content {
-  @extend %gap__container--h-padding-amp;
+  @extend %gap__container--h-padding;
 }
 
 .amp-main {
-  @extend %gap__container--h-padding-amp;
+  @extend %gap__container--h-padding;
 }
 
 .amp-footer__content {
-  @extend %gap__container--h-padding-amp;
+  @extend %gap__container--h-padding;
   margin-top: $gap-v-region-mobile;
 
   .more-button {
@@ -32,7 +32,7 @@
   }
 
   nav {
-    @extend %gap__container--h-padding-amp;
+    @extend %gap__container--h-padding;
     margin-top: $gap-v-region-mobile;
     margin-left: - $container-h-gap--mobile;
     margin-right: - $container-h-gap--mobile;

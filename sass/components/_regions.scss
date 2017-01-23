@@ -1,9 +1,19 @@
+
+.region--full-content, .region-full-content {
+  @extend %region--full-content;
+  @extend %region__children--full-content;
+}
+
 .region-full-content + .region-full-content {
   @extend %gap--v-region;
   @if ($region-v-lined) {
     border-top: $h-line-style;
   }
 }
+
+  .no-v-padding:first-child {
+    @include margin--v-region(-$gap-v-region-mobile);
+  }
 
 .region-teaser-list {
   @extend %padding--v-region;

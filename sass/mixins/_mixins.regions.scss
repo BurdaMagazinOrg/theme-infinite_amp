@@ -1,0 +1,5 @@
+@mixin region__children--full-content {
+  & > .item-content__header:first-child {
+    padding-top: 0;
+  }
+}

@@ -5,11 +5,12 @@
 @import "base";
 
 @import "../../../contrib/infinite/sass/mixins";
+@import "mixins";
+
 @import "../../../contrib/infinite/sass/extends";
+@import "extends";
 
 @import "../../../contrib/infinite/sass/fonts";
 
-@import "mixins";
-@import "extends";
 
 @import "base.components";
