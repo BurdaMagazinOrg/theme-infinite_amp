@@ -1,0 +1,16 @@
+
+@mixin label--copyright($size-mobile: $label--copyright-size--mobile, $font: $label--copyright-font-id, $color: $label--copyright-color) {
+  @extend %icon-copyright;
+  @include text-helper($font);
+  @include text-helper-size($label--copyright-font-id, $size-mobile);
+  color: $color;
+  text-transform: $label--copyright-text-transform;
+
+  span + span {
+    &:before {
+      content: ",";
+      margin-left: -4px;
+      margin-right: 3px;
+    }
+  }
+}
