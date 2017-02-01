@@ -1,0 +1,12 @@
+{% set deviceAdIds = ad_tag | default({'smartphone': '', 'tablet': '', 'desktop': ''}) %}
+{% set smartphoneId = deviceAdIds['smartphone'] | default('') %}
+
+{% block content %}
+    <amp-ad width="300"
+            height="250"
+            type="a9"
+            data-aax_size="300x250"
+            data-aax_pubname="test123"
+            data-aax_src="{{ smartphoneId }}">
+    </amp-ad>
+{% endblock %}

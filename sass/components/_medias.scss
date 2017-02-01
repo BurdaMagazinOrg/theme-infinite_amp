@@ -14,6 +14,10 @@
 
 .item-media--gallery {
   @extend %item-media--gallery-amp;
+
+  .text-copyright {
+    font-size: 10px;
+  }
 }
 
 .item-media--header {
