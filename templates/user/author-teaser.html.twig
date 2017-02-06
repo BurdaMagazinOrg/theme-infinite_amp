@@ -18,11 +18,11 @@
  * @ingroup themeable
  */
 #}
-<div class="author item-author"
-        {% if author_id != 0 %}
-            data-internal-url="{{ author_url }}"
-        {% endif %}
-        >
+<div class="author item-author">
+
+    {% if author_id != 0 %}
+        <a href="{{ author_url }}" target="_self">
+    {% endif %}
 
     {% if author_id != 0 %}
         {{ author_picture }}
@@ -36,5 +36,9 @@
             <time class="text-timestamp" itemprop="date" datetime="{{ datetime }}" title="">vor {{ formatted_interval }}</time>
         {% endif %}
         </div>
+    {% endif %}
+
+    {% if author_id != 0 %}
+    </a>
     {% endif %}
 </div>
