@@ -1,9 +1,9 @@
-{% set deviceAdIds = ad_tag | default({'smartphone': '', 'tablet': '', 'desktop': ''}) %}
-{% set smartphoneId = deviceAdIds['smartphone'] | default('') %}
+{#{% set deviceAdIds = ad_tag | default({'smartphone': '', 'tablet': '', 'desktop': ''}) %}#}
+{#{% set smartphoneId = deviceAdIds['smartphone'] | default('') %}#}
 
-{% block content %}
-    <amp-ad width=300 height=250
-            type="appnexus"
-            data-tagid="{{ smartphoneId }}">
-    </amp-ad>
-{% endblock %}
+{#{% block content %}#}
+    {#<amp-ad width=300 height=250#}
+            {#type="appnexus"#}
+            {#data-tagid="{{ smartphoneId }}">#}
+    {#</amp-ad>#}
+{#{% endblock %}#}
