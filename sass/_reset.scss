@@ -34,11 +34,11 @@ figure {
 
 // Images
 
-img {
-  vertical-align: middle;
-}
+//img {
+//  vertical-align: middle;
+//}
 
 // Responsive images (ensure images don't scale beyond their parents)
-.img-responsive {
-  @include img-responsive;
-}
+//.img-responsive {
+//  @include img-responsive;
+//}

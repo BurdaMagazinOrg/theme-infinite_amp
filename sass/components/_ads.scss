@@ -1,22 +1,7 @@
 @include ads-native();
 
 .item-marketing-native {
-
   amp-img {
     max-height: 20px;
-  }
-
-  .native_campaign {
-    //@extend %flexbox;
-
-    & > * {
-      //flex-shrink: 1;
-      //width: auto;
-      //flex: 1;
-    }
-  }
-
-  .logo, .brand {
-    //max-height: 20px;
   }
 }
