@@ -1,5 +1,14 @@
 @include ads-native();
 
+.region-marketing {
+
+  text-align: center;
+
+  //amp-ad {
+  //  text-align: left;
+  //}
+}
+
 .item-marketing-native {
   amp-img {
     max-height: 20px;

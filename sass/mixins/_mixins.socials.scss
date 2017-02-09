@@ -1,3 +1,13 @@
+@mixin socials-default-item() {
+  color: $white;
+  border-radius: $socials-default-border-radius;
+  background-size: $socials-icon-size-md + 2px;
+}
+
+@mixin socials-item-settings($item-size, $font-size, $orientation: horizontal) {
+  background-size: $font-size + 2px;
+}
+
 @mixin socials-clean-horizontal-bar-item($bg: $socials__bg-color--clean-horizontal-bar,
   $color: $socials__color--clean-horizontal-bar,
   $border: $socials__border--clean-horizontal-bar,
@@ -21,4 +31,30 @@
   }
 
   @include socials-item-settings($socials-clean-horizontal-bar-size-mobile, $socials-clean-horizontal-bar-icon-size-mobile);
+}
+
+@mixin socials-default-items() {
+  .icon-facebook {
+    background-color: $color-facebook;
+  }
+
+  .icon-twitter {
+    background-color: $color-twitter;
+  }
+
+  .icon-pinterest {
+    background-color: $color-pinterest;
+  }
+
+  .icon-instagram {
+    background-color: $color-instagram;
+  }
+
+  .icon-email {
+    background-color: $color-email;
+  }
+
+  .icon-whatsapp {
+    background-color: $color-whatsapp;
+  }
 }

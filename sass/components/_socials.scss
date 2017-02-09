@@ -1,9 +1,17 @@
 .socials {
   .item-social {
     @extend %socials-default-item;
+    //min-width: $socials-media-horizontal-bar-size-mobile;
+    //height: $socials-media-horizontal-bar-size-mobile;
+    margin-left: $socials-media-left-gap;
+    margin-top: $socials-media-left-gap;
   }
 
   //fb / whatsapp / instagram / etc
   @include socials-default-items();
+}
+
+.item-social.icon-email {
+  background-size: $socials-icon-size-md + 9px;
 }
 

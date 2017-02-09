@@ -25,6 +25,21 @@
 {% endblock %}
 
 {% block content_body %}
+
+    <div class="socials socials-bar socials-vertical-bar">
+        {% block socials_vertical_bar %}
+            {% embed '@infinite_amp/embeds/social_icons.html.twig' with {
+            'url': content.url,
+            'label': content.label,
+            'twitter_share_via': content.twitter_share_via,
+            'email_share_text': content.email_share_text,
+            'email_subject': content.email_subject,
+            'whatsapp_share_text': content.whatsapp_share_text,
+            } %}
+            {% endembed %}
+        {% endblock %}
+    </div>
+
     {% if content.field_paragraphs['#items'] %}
         {{ content.field_paragraphs }}
     {% endif %}

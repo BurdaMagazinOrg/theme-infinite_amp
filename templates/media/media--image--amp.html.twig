@@ -22,6 +22,16 @@
                 </div>
             {% endif %}
 
+            {% block socials_block %}
+                <div class="socials socials-bar">
+                    <amp-social-share width="32" height="32" class="item-social icon-facebook" type="facebook"
+                                      data-param-app_id="{{ fb_app_id }}"></amp-social-share>
+                    <amp-social-share width="32" height="32" class="item-social icon-pinterest" type="pinterest"
+                                      data-param-url="{{ absolute_node_url | e('html_attr') }}"
+                                      data-param-media="{{ share_img_url | e('html_attr') }}"
+                                      data-param-description="{{ content.field_description | plain_text | e('html_attr') }}"></amp-social-share>
+                </div>
+            {% endblock %}
         </div>
     {% endif %}
 </div>
