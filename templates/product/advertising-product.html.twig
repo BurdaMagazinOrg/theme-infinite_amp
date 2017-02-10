@@ -1,1 +1,13 @@
-{% extends "@infinite/product/advertising-product.html.twig" %}
+{% if content.status %}
+    <a class="item-product" {{ data_attributes }} href="{{ content.product_url | raw | plain_text }}" target="_blank">
+        <div class="img-container">
+            {{ content.product_image }}
+        </div>
+        <div class="caption">
+            <div class="text-brand">{{ content.product_brand }}</div>
+            <div class="text-headline">{{ content.product_name }}</div>
+            <div class="text-price">{{ content.product_price }} {{ formatted_currency }}</div>
+            <div class="text-shop">Zum Shop</div>
+        </div>
+    </a>
+{% endif %}

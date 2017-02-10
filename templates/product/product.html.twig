@@ -1,1 +1,13 @@
-{% extends "@infinite/product/product.html.twig" %}
+{% if content.active %}
+    <a class="item-product" {{ data_attributes }} href="{{ content.product_url | raw | plain_text }}" target="_blank">
+        <div class="img-container">
+            {{ content.file }}
+        </div>
+        <div class="caption">
+            <div class="text-brand">{{ content.brand }}</div>
+            <div class="text-headline">{{ content.title }}</div>
+            <div class="text-price">{{ content.formattedprice }}</div>
+            <div class="text-shop">Zum Shop</div>
+        </div>
+    </a>
+{% endif %}
