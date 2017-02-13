@@ -5,6 +5,30 @@ use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
 
 
+function infinite_amp_preprocess(&$variables) {
+
+  if (\Drupal::moduleHandler()->moduleExists('metatag')) {
+    /**
+     * TODO: Does metatag module provide some simpler api call to get metatags?
+     */
+    $metatag_manager = \Drupal::service('metatag.manager');
+    // First, get defaults.
+    $metatags = metatag_get_default_tags();
+    if (!$metatags) {
+      return;
+    }
+
+    $entity = metatag_get_route_entity();
+    if (!empty($entity) && $entity instanceof ContentEntityInterface) {
+      $metatags = array_merge($metatags, $metatag_manager->tagsFromEntity($entity));
+    }
+
+    if (isset($metatags['fb_app_id'])) {
+      $variables['fb_app_id'] = $metatags['fb_app_id'];
+    }
+  }
+}
+
 function infinite_amp_preprocess_node(&$variables) {
   /* @var Node $node */
   $node = &$variables['elements']['#node'];
@@ -266,6 +290,7 @@ function infinite_amp_preprocess_html(&$variables) {
     $variables['amp_css'] = $css;
   }
 }
+
 
 /**
  * Implements hook_preprocess_block().

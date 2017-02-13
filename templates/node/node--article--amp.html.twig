@@ -29,12 +29,12 @@
     <div class="socials socials-bar socials-vertical-bar">
         {% block socials_vertical_bar %}
             {% embed '@infinite_amp/embeds/social_icons.html.twig' with {
-            'url': content.url,
-            'label': content.label,
-            'twitter_share_via': content.twitter_share_via,
-            'email_share_text': content.email_share_text,
-            'email_subject': content.email_subject,
-            'whatsapp_share_text': content.whatsapp_share_text,
+            'url': url,
+            'label': label,
+            'twitter_share_via': twitter_share_via,
+            'email_share_text': email_share_text,
+            'email_subject': email_subject,
+            'whatsapp_share_text': whatsapp_share_text,
             } %}
             {% endembed %}
         {% endblock %}
@@ -50,6 +50,8 @@
         <div class="socials socials-bar socials-horizontal-bar item-content__block">
             {% embed '@infinite_amp/embeds/social_icons.html.twig' with {
             'content': content,
+            'url': url,
+            'label': label,
             facebook_share_button: 'Share',
             whatsapp_share_button: 'Share',
             pinterest_share_button: 'Pin',
