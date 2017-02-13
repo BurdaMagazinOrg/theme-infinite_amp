@@ -1,6 +1,84 @@
 <?php
 
 use Drupal\views\ViewExecutable;
+use Drupal\Core\Url;
+use Drupal\image\Entity\ImageStyle;
+
+
+function infinite_amp_preprocess_node(&$variables) {
+  /* @var Node $node */
+  $node = &$variables['elements']['#node'];
+
+  // share buttons received from theme settings
+  $variables['facebook_share_button'] = theme_get_setting('facebook_share_button');
+  $variables['whatsapp_share_button'] = theme_get_setting('whatsapp_share_button');
+  $variables['pinterest_share_button'] = theme_get_setting('pinterest_share_button');
+  $variables['twitter_share_button'] = theme_get_setting('twitter_share_button');
+  $variables['twitter_share_via'] = theme_get_setting('twitter_share_via');
+  $variables['email_share_button'] = theme_get_setting('email_share_button');
+  $variables['whatsapp_share_text'] = theme_get_setting('whatsapp_share_text');
+  $variables['email_share_text'] = theme_get_setting('email_share_text');
+  $variables['email_subject'] = theme_get_setting('email_subject');
+
+  $bundle = $node->bundle();
+  if ($bundle == "article" || $bundle == "page") {
+    // todo: switch later to publish date.
+    $variables['datetime'] = \Drupal::service('date.formatter')
+      ->format($node->created->value, 'html_datetime');
+    $variables['timestamp'] = \Drupal::service('date.formatter')
+      ->format($node->created->value, 'infinite_timestamp');
+
+    // Get absolute URL from node alias URL.
+    $absolute_url = \Drupal::service('path.alias_manager')
+      ->getAliasByPath('/node/' . $node->id());
+    $absolute_url = Url::fromUri('base:/' . $absolute_url, array('absolute' => TRUE));
+
+    // Override TWIG url with absolute alias URL.
+    $variables['path'] = $variables['url'];  // used for lazy loading history API.
+    $variables['url'] = $absolute_url->toString();
+    $variables['nid'] = $node->id();
+
+    // Get share image URL from teaser media.
+    if ($node->hasField('field_teaser_media') &&
+      !$node->field_teaser_media->isEmpty()
+    ) {
+
+      if (!empty($node->field_teaser_media->entity) &&  // todo: check wyh some media entity reference seems to be empty here after isEmpty() check? example: node 6001
+        $node->field_teaser_media->entity->hasField('field_image') &&
+        !$node->field_teaser_media->entity->field_image->isEmpty()
+      ) {
+
+        $share_img_path = $node->field_teaser_media->entity->field_image->entity->getFileUri();
+        $share_img = ImageStyle::load(theme_get_setting('share_image_style'));
+        if (is_object($share_img)) {
+          $url = $share_img->buildUrl($share_img_path);
+          $variables['share_img_url'] = $url;
+        }
+      }
+    }
+    // Add 'show_contextual_links' variable.
+    /* @var User $user */
+    $user = Drupal::currentUser();
+    if ($user->hasPermission('access contextual links')) {
+      $variables['show_contextual_links'] = TRUE;
+    }
+  }
+
+  if ($bundle == "article") {
+    $field_seo_title = !empty($node->field_seo_title->getValue()[0]) ? $node->field_seo_title->getValue()[0]['value'] : '';
+    // Replace double quotes.
+    // @toDo check, where we have this case!
+    $variables['node_seo_title'] = str_replace('"', '', $field_seo_title);
+    // Clean up classes array - all classes will be added in
+    $variables['attributes']['class'] = array();
+
+    // Instantiate 'wrapper_attributes' attribute object to avoid collisions
+    // with actual node attributes.
+    if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'lazyloading') {
+      $variables['wrapper_attributes'] = new Attribute();
+    }
+  }
+}
 
 /**
  * Implements hook_preprocess_paragraphs().

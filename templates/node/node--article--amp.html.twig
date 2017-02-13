@@ -46,4 +46,22 @@
     {{ content.field_tags }}
     {{ content.field_ivw }}
 
+    {% block socials_horizontal_bar %}
+        <div class="socials socials-bar socials-horizontal-bar item-content__block">
+            {% embed '@infinite_amp/embeds/social_icons.html.twig' with {
+            'content': content,
+            facebook_share_button: 'Share',
+            whatsapp_share_button: 'Share',
+            pinterest_share_button: 'Pin',
+            twitter_share_button: 'Tweet',
+            twitter_share_via: '',
+            email_share_button: 'Mail',
+            whatsapp_share_text: 'I read this article and thought you might like it:',
+            email_share_text: 'I read this article and thought you might like it:',
+            email_subject: 'An article you might like:'
+            } %}
+            {% endembed %}
+        </div>
+    {% endblock %}
+
 {% endblock %}
