@@ -21,7 +21,7 @@
                       class="item-social icon-whatsapp"
                       type="whatsapp"
                       data-share-endpoint="whatsapp://send"
-                      data-param-text="{{ (whatsapp_share_text ~ label ~ ' - ' ~ url) | e('url') }}">
+                      data-param-text="{{ whatsapp_share_text ~ label ~ ' - ' ~ url }}">
         {% if whatsapp_share_button %}
             <span>{{ whatsapp_share_button }}</span>
         {% endif %}
@@ -46,8 +46,8 @@
 {% block social_twitter %}
     <amp-social-share width="{{ socials_size }}" height="{{ socials_size }}" class="item-social icon-twitter"
                       type="twitter"
-                      data-param-url="{{ url | e('html_attr') }}"
-                      data-param-text="{{ label | e('url') ~ '&url=' ~ url ~ '&via=' ~ twitter_share_via | e('url') }}">
+                      data-param-url="{{ url }}"
+                      data-param-text="{{ label ~ ' via @' ~ twitter_share_via }}">
 
         {% if twitter_share_button %}
             <span>{{ twitter_share_button }}</span>
@@ -58,13 +58,12 @@
 
 {% block social_email %}
     <amp-social-share width="{{ socials_size }}" height="{{ socials_size }}" class="item-social icon-email"
-                      data-param-body="{{ email_share_text | e('html_attr') }}"
-                      data-param-subject="{{ email_subject | e('html_attr') }}"
+                      data-param-body="{{ email_share_text ~ ' ' ~ url }}"
+                      data-param-subject="{{ email_subject }}"
                       type="email">
 
         {% if email_share_button %}
             <span>{{ email_share_button }}</span>
         {% endif %}
-
     </amp-social-share>
 {% endblock %}
