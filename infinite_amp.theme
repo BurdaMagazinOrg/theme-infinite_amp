@@ -1,7 +1,6 @@
 <?php
 
 use Drupal\views\ViewExecutable;
-use Drupal\Core\Url;
 use Drupal\image\Entity\ImageStyle;
 
 
@@ -31,7 +30,7 @@ function infinite_amp_preprocess(&$variables) {
 
 function infinite_amp_preprocess_node(&$variables) {
   /* @var Node $node */
-  $node = &$variables['elements']['#node'];
+  $node = $variables['node'];
 
   // share buttons received from theme settings
   $variables['facebook_share_button'] = theme_get_setting('facebook_share_button');
@@ -45,21 +44,15 @@ function infinite_amp_preprocess_node(&$variables) {
   $variables['email_subject'] = theme_get_setting('email_subject');
 
   $bundle = $node->bundle();
-  if ($bundle == "article" || $bundle == "page") {
+  if ($bundle == 'article' || $bundle == 'page') {
     // todo: switch later to publish date.
     $variables['datetime'] = \Drupal::service('date.formatter')
       ->format($node->created->value, 'html_datetime');
-    $variables['timestamp'] = \Drupal::service('date.formatter')
-      ->format($node->created->value, 'infinite_timestamp');
-
-    // Get absolute URL from node alias URL.
-    $absolute_url = \Drupal::service('path.alias_manager')
-      ->getAliasByPath('/node/' . $node->id());
-    $absolute_url = Url::fromUri('base:/' . $absolute_url, array('absolute' => TRUE));
+    $variables['timestamp'] = $node->created->value;
 
     // Override TWIG url with absolute alias URL.
     $variables['path'] = $variables['url'];  // used for lazy loading history API.
-    $variables['url'] = $absolute_url->toString();
+    $variables['url'] = $node->url('canonical', ['absolute' => TRUE]);
     $variables['nid'] = $node->id();
 
     // Get share image URL from teaser media.
@@ -88,7 +81,7 @@ function infinite_amp_preprocess_node(&$variables) {
     }
   }
 
-  if ($bundle == "article") {
+  if ($bundle == 'article') {
     $field_seo_title = !empty($node->field_seo_title->getValue()[0]) ? $node->field_seo_title->getValue()[0]['value'] : '';
     // Replace double quotes.
     // @toDo check, where we have this case!
