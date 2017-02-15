@@ -36,7 +36,7 @@
         </div>
     {% endif %}
 
-    {% if author_id != 0 %}
+    {% if author_id != 0 and (author_forename is not empty or author_surname is not empty) %}
         </a>
     {% endif %}
 </div>
