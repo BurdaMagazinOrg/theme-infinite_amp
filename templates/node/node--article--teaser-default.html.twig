@@ -1,3 +1,5 @@
 {% extends "@infinite/node/node--article--teaser-default.html.twig" %}
 
-{% block teaser_social_bar %}{% endblock %}
+{% block teaser_social_bar %}
+    {% embed '@infinite_amp/embeds/social_icons.html.twig' %}{% endembed %}
+{% endblock %}
