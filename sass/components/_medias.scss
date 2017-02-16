@@ -1,38 +1,9 @@
 .item-media {
-  amp-img {
-    margin-bottom: $gap-size-xxs;
-  }
-
-  .caption {
-    position: relative;
-    min-height: $socials-size-md;
-    padding-right: $item-image-socials-width + $grid-gutter-width;
-    word-wrap: break-word;
-    margin-top: 15px;
-  }
-
-  .text-description {
-    @extend %item-media__description;
-  }
-
-  .text-copyright {
-    @extend %label--copyright;
-  }
-
-  .socials-bar {
-    position: absolute;
-    right: 0;
-    top: 0;
-    white-space: nowrap;
-  }
+  @extend %item-media--amp;
 }
 
 .item-media--gallery {
   @extend %item-media--gallery-amp;
-
-  .text-copyright {
-    font-size: 10px;
-  }
 }
 
 .item-media--header {

@@ -22,11 +22,8 @@
             {{ author_teaser }}
         {% endblock %}
     {% endif %}
-{% endblock %}
 
-{% block content_body %}
-
-    <div class="socials socials-bar socials-vertical-bar">
+    <aside class="socials socials-bar socials-vertical-bar">
         {% block socials_vertical_bar %}
             {% embed '@infinite_amp/embeds/social_icons.html.twig' with {
             'url': url,
@@ -38,8 +35,10 @@
             } %}
             {% endembed %}
         {% endblock %}
-    </div>
+    </aside>
+{% endblock %}
 
+{% block content_body %}
     {% if content.field_paragraphs['#items'] %}
         {{ content.field_paragraphs }}
     {% endif %}
@@ -47,7 +46,7 @@
     {{ content.field_ivw }}
 
     {% block socials_horizontal_bar %}
-        <div class="socials socials-bar socials-horizontal-bar item-content__block">
+        <aside class="socials socials-bar socials-horizontal-bar item-content__block">
             {% embed '@infinite_amp/embeds/social_icons.html.twig' with {
             'content': content,
             'url': url,
@@ -63,7 +62,7 @@
             email_subject: 'An article you might like:'
             } %}
             {% endembed %}
-        </div>
+        </aside>
     {% endblock %}
 
 {% endblock %}

@@ -1,3 +1,11 @@
+%item-media--amp {
+  @include item-media--amp();
+}
+
 %item-media--gallery-amp {
   @include item-media--gallery-amp();
+}
+
+%caption-overlay-amp {
+  @include caption-overlay-amp();
 }

@@ -1,4 +1,5 @@
 @mixin item-content__header() {
+  margin: $item-content__header-margin--amp;
 
   .ratio-wrapper {
     @include item-media--header-ratio();
@@ -19,13 +20,25 @@
     }
   }
 
+  .author {
+    margin: $author__margin-mobile--content-header;
+  }
+
+  .breadcrumb {
+    margin: $item-content__header-breadcrumb-margin--amp;
+
+    li:before {
+      line-height: inherit;
+    }
+  }
+
   .title--page {
-    //text-align: center;
+    @extend %title--page-center;
     width: 100%;
   }
 
-  .author {
-    margin: $author__margin-mobile--content-header;
+  .socials {
+    margin: $item-content__header-socials-margin--amp;
   }
 }
 
