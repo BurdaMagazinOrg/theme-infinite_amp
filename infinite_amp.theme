@@ -146,6 +146,17 @@ function infinite_amp_preprocess_region(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_media().
+ */
+function infinite_amp_preprocess_media(&$variables) {
+  $variables['media'] = $variables['elements']['#media'];
+
+  if ($variables['media_type'] == 'nexx_video') {
+    $variables['omnia_id'] = \Drupal::config('nexx_integration.settings')->get('omnia_id');
+  }
+}
+
+/**
  * Implements hook_form_system_theme_settings_alter().
  *
  * Custom theme settings
