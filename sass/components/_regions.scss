@@ -11,10 +11,14 @@
   }
 }
 
-  .no-v-padding:first-child {
-    @include margin--v-region(-$gap-v-region-mobile);
-  }
+.no-v-padding:first-child {
+  @include margin--v-region(-$gap-v-region-mobile);
+}
+
+.region-header + .region-teaser-list, .region-marketing + .region-full-content {
+  margin-top: 0;
+}
 
 .region-teaser-list {
-  @extend %padding--v-region;
+  //@extend %padding--v-region;
 }

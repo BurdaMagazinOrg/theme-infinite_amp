@@ -1,4 +1,4 @@
-@mixin item-paragraphs--tracdelight() {
+@mixin item-paragraph--tracdelight() {
   .item-product {
     @include product__item-text();
     @include product__item--horizontal-block();
@@ -118,10 +118,6 @@
     margin-bottom: 0;
   }
 
-  //img {
-  //  @include img-full-responsive();
-  //}
-
   .socials-bar .item-social {
     @include socials-clean-horizontal-bar-item--light();
   }
@@ -134,10 +130,9 @@
     color: $spotlight__caption-color;
   }
 
-  .spotlight__anchor-nav {
-    @extend %item-anchor-navigation--full;
-  }
-
+  //.spotlight__anchor-nav {
+  //  @extend %item-anchor-navigation--full;
+  //}
 }
 
 @mixin item-paragraph--profile() {

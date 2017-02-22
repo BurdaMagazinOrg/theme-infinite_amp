@@ -1,8 +1,6 @@
 .socials {
   .item-social {
     @extend %socials-default-item;
-    //min-width: $socials-media-horizontal-bar-size-mobile;
-    //height: $socials-media-horizontal-bar-size-mobile;
     margin-left: $socials-media-left-gap;
     margin-top: $socials-media-left-gap;
   }
@@ -14,7 +12,3 @@
 .item-social.icon-email {
   background-size: $socials-icon-size-md + 9px;
 }
-
-//.socials-horizontal-bar {
-  //@include socials-labeled-horizontal-bar-text();
-//}

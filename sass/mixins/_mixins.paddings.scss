@@ -1,3 +1,7 @@
+@mixin _padding--v($direction: top, $gap: $gap-v-region-mobile) {
+  padding-#{$direction}: $gap-v-region-mobile;
+}
+
 @mixin gap__container--h-padding() {
   padding-left: $container-h-gap--mobile;
   padding-right: $container-h-gap--mobile;

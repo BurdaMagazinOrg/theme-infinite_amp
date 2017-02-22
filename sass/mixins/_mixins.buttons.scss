@@ -11,10 +11,6 @@
   display: inline-block;
   text-transform: $btn--small-text-transform;
   cursor: pointer;
-
-  &:hover {
-    @extend %btn--small--highlighted;
-  }
 }
 
 
@@ -31,8 +27,4 @@
   display: inline-block;
   text-transform: $btn--large-text-transform;
   cursor: pointer;
-
-  &:hover {
-    @extend %btn--large--highlighted;
-  }
 }

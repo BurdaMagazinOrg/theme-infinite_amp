@@ -289,7 +289,7 @@ function infinite_amp_preprocess_html(&$variables) {
   $variables['#attached']['library'][] = 'infinite_amp/amp.ad';
   $variables['#attached']['library'][] = 'infinite_amp/amp.social-share';
 
-  $css = file_get_contents(drupal_get_path('theme', 'infinite_amp') . '/css/infinite-amp-global.css');
+  $css = file_get_contents(drupal_get_path('theme', 'infinite_amp') . '/css/infinite-amp-base.css');
   if ($css) {
     $variables['amp_css'] = $css;
   }

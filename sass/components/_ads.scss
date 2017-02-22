@@ -1,12 +1,8 @@
 @include ads-native();
 
 .region-marketing {
-
+  @extend %margin--v-region;
   text-align: center;
-
-  //amp-ad {
-  //  text-align: left;
-  //}
 }
 
 .item-marketing-native {

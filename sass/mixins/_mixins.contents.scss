@@ -1,6 +1,10 @@
 @mixin item-content__header() {
   margin: $item-content__header-margin--amp;
 
+  .region-marketing {
+    margin-top: 0;
+  }
+
   .ratio-wrapper {
     @include item-media--header-ratio();
     position: relative;

@@ -3,9 +3,11 @@
 
 {% block content %}
     <div class="region-full-content region-marketing">
-        <amp-ad width=300 height=250
-                type="appnexus"
-                data-tagid="{{ smartphoneId }}">
-        </amp-ad>
+        <div class="container-content container-fixed-content container-marketing">
+            <amp-ad width=300 height=250
+                    type="appnexus"
+                    data-tagid="{{ smartphoneId }}">
+            </amp-ad>
+        </div>
     </div>
 {% endblock %}

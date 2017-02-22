@@ -1,5 +1,6 @@
 %item-author--amp {
   @include item-author();
+  display: block;
 
   amp-img {
     width: $author__profile-image-size--teaser-default;
