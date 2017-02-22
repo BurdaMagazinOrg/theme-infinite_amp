@@ -2,7 +2,6 @@
   @extend %item-content--article-amp;
 }
 
-//freundin
-//.item-content__block--meta-data {
-//  @extend %item-author--vita-short;
-//}
+.item-content__block--meta-data {
+  @extend %item-author--vita-short;
+}
