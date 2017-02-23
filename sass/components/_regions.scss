@@ -15,8 +15,10 @@
   @include margin--v-region(-$gap-v-region-mobile);
 }
 
-.region-header + .region-teaser-list, .region-marketing + .region-full-content {
-  margin-top: 0;
+@if ($region-v-lined == false) {
+  .region-header + .region-teaser-list, .region-marketing + .region-full-content {
+    margin-top: 0;
+  }
 }
 
 .region-teaser-list {
