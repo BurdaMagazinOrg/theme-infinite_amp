@@ -1,41 +1,41 @@
-@mixin tags--article() {
-  @include text-helper($tags__article-font-id);
-
-  .label {
-    display: inline-block;
-    margin-right: 7px;
-  }
-
-  ul {
-    display: inline;
-  }
-
-  li {
-    display: inline-block;
-    position: relative;
-    font-style: italic;
-    margin: $tags__item-margin-mobile;
-
-    &:last-child {
-      a:after {
-        content: none;
-      }
-    }
-  }
-
-  a {
-    @include text-helper-size($tags__article-font-id, $tags__article-text-size-mobile);
-    color: $color-highlighted;
-
-    &:after {
-      content: ",";
-      position: absolute;
-      right: -4px;
-      color: $text-highlighted;
-    }
-
-    &:hover {
-      color: $color-highlighted-hover;
-    }
-  }
-}
+//@mixin tags--article() {
+//  @include text-helper($tags__article-font-id);
+//
+//  .label {
+//    display: inline-block;
+//    margin-right: 7px;
+//  }
+//
+//  ul {
+//    display: inline;
+//  }
+//
+//  li {
+//    display: inline-block;
+//    position: relative;
+//    font-style: italic;
+//    margin: $tags__item-margin-mobile;
+//
+//    &:last-child {
+//      a:after {
+//        content: none;
+//      }
+//    }
+//  }
+//
+//  a {
+//    @include text-helper-size($tags__article-font-id, $tags__article-text-size-mobile);
+//    color: $color-highlighted;
+//
+//    &:after {
+//      content: ",";
+//      position: absolute;
+//      right: -4px;
+//      color: $text-highlighted;
+//    }
+//
+//    &:hover {
+//      color: $color-highlighted-hover;
+//    }
+//  }
+//}
