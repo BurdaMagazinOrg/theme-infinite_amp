@@ -3,6 +3,10 @@
     @extend %socials-default-item;
     margin-left: $socials-media-left-gap;
     margin-top: $socials-media-left-gap;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 
   //fb / whatsapp / instagram / etc
