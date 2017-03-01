@@ -94,7 +94,9 @@ function infinite_amp_preprocess_node(&$variables) {
     if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'lazyloading') {
       $variables['wrapper_attributes'] = new Attribute();
     }
+  }
 
+  if (isset($variables['content']['field_paragraphs'])) {
     foreach (Drupal\Core\Render\Element::children($variables['content']['field_paragraphs']) as $key) {
       $paragraph = $variables['content']['field_paragraphs'][$key]['#paragraph'];
       if (in_array($paragraph->bundle(), ['content_teaser', 'recent_content'])) {
@@ -109,10 +111,12 @@ function infinite_amp_preprocess_node(&$variables) {
  * Implements hook_preprocess_taxonomy_term().
  */
 function infinite_amp_preprocess_taxonomy_term(&$variables) {
-  foreach (Drupal\Core\Render\Element::children($variables['content']['field_paragraphs']) as $key) {
-    $paragraph = $variables['content']['field_paragraphs'][$key]['#paragraph'];
-    if (in_array($paragraph->bundle(), ['content_teaser', 'recent_content'])) {
-      $variables['content']['field_paragraphs'][$key] = ['#markup' => ''];
+  if (isset($variables['content']['field_paragraphs'])) {
+    foreach (Drupal\Core\Render\Element::children($variables['content']['field_paragraphs']) as $key) {
+      $paragraph = $variables['content']['field_paragraphs'][$key]['#paragraph'];
+      if (in_array($paragraph->bundle(), ['content_teaser', 'recent_content'])) {
+        $variables['content']['field_paragraphs'][$key] = ['#markup' => ''];
+      }
     }
   }
 }
