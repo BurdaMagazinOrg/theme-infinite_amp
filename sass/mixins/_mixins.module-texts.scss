@@ -23,20 +23,6 @@
 ** Teaser types
 **/
 
-@mixin teaser__text--default() {
-  .teaser__overhead {
-    @include text-helper($teaser__overhead-font-id--default);
-    @include text-helper-size($teaser__overhead-font-id--default, $teaser__overhead-size-mobile--default);
-    text-transform: uppercase;
-    color: $teaser__overhead-color--default;
-    letter-spacing: $teaser__overhead-letter-spacing--default;
-  }
-
-  .teaser__copy {
-    @extend %copytext--teaser-default;
-  }
-}
-
 @mixin teaser-feed-large-text($size-mobile: $feed-teaser-headline-size-mobile) {
   .teaser__title {
     @include text-headline-size($size-mobile);
