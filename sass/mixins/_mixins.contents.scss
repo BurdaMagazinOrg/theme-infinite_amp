@@ -49,6 +49,11 @@
 @mixin item-content--paragraphs-amp() {
   .item-content__content > .item-paragraph:first-child {
     margin-top: 0;
+
+  }
+
+  .item-content__content > .item-paragraph--spotlight:first-child {
+    @include margin--v-region(-$gap-v-region-mobile);
   }
 
   .item-paragraph {
@@ -71,5 +76,7 @@
 }
 
 @mixin item-content--taxonomy-amp() {
+  @extend %item-content--article-amp;
   @extend %item-content--paragraphs-amp;
+  @extend %container--v-padding;
 }

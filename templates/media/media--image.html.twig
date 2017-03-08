@@ -1,27 +1,3 @@
-<div{{ attributes.addClass('item-media item-media--image') }}>
-    {% if content %}
-        {{ content.field_image }}
+{% extends "media.html.twig" %}
 
-        <div class="caption">
-            {% block copyright_source_block %}
-                {% if content.field_copyright | plain_text or content.field_source | plain_text %}
-                    <div class="text-copyright">
-                        {% if content.field_copyright | plain_text %}
-                            <span>{{ content.field_copyright }}</span>
-                        {% endif %}
-                        {% if content.field_source | plain_text %}
-                            <span>{{ content.field_source }}</span>
-                        {% endif %}
-                    </div>
-                {% endif %}
-            {% endblock %}
-
-            {% if content.field_description %}
-                <div class="text-description">
-                    {{ content.field_description }}
-                </div>
-            {% endif %}
-
-        </div>
-    {% endif %}
-</div>
+{% set attributes = attributes.addClass('item-media item-media--image') %}
