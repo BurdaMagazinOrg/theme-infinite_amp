@@ -1,0 +1,19 @@
+@mixin h2--text-block() {
+  @include text-helper-size($title--text-block-font-id, $h2-size--text-block-mobile, $h-line-height--text-block-mobile);
+}
+
+@mixin h3--text-block() {
+  @include text-helper-size($title--text-block-font-id, $h3-size--text-block-mobile, $h-line-height--text-block-mobile);
+}
+
+@mixin h4--text-block() {
+  @include text-helper-size($title--text-block-font-id, $h4-size--text-block-mobile, $h-line-height--text-block-mobile);
+}
+
+@mixin h5--text-block() {
+  @include text-helper-size($title--text-block-font-id, $h5-size--text-block-mobile, $h-line-height--text-block-mobile);
+}
+
+@mixin h6--text-block() {
+  @include text-helper-size($title--text-block-font-id, $h6-size--text-block-mobile, $h-line-height--text-block-mobile);
+}
