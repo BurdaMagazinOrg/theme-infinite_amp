@@ -1,5 +1,5 @@
 {% if content.status %}
-    <a class="item-product" {{ data_attributes }} href="{{ content.product_url | raw | plain_text }}" target="_blank">
+    <a class="item-product" {{ data_attributes }} href="{{ advertising_product.product_url.uri }}" target="_blank">
         <div class="img-container">
             {{ content.product_image }}
         </div>
