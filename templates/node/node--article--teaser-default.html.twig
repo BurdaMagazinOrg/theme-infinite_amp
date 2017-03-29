@@ -1,5 +1,65 @@
-{% extends "@infinite/node/node--article--teaser-default.html.twig" %}
+{# Add wrapper classes #}
+{% set wrapper_classes = [
+'teaser',
+'contextual-region',
+] %}
 
-{% block teaser_social_bar %}
-    {% embed '@infinite_amp/embeds/social_icons.html.twig' %}{% endembed %}
-{% endblock %}
+{% if content.field_smart_teaser_class is defined and content.field_smart_teaser_class is not empty %}
+    {% set smart_teaser_class = content.field_smart_teaser_class|render %}
+    {% set wrapper_classes = wrapper_classes|merge([smart_teaser_class]) %}
+{% endif %}
+
+{% set attributes = attributes.setAttribute('data-nid', nid) %}
+
+<article{{ attributes.addClass(wrapper_classes) }}>
+    <div class="teaser__img-container" itemscope="" itemtype="http://schema.org/imageObject"
+         data-internal-url="{{ url }}">
+        {% block teaser_img_container %}
+            {% if (view_mode == 'presenter_half' and content.field_presenter_media['#items'] is not empty) %}
+                {{ content.field_presenter_media }}
+            {% else %}
+                {{ content.field_teaser_media }}
+            {% endif %}
+        {% endblock %}
+    </div>
+
+    {% block teaser_caption_block %}
+        <div class="teaser__caption">
+            {% block teaser_caption_channel %}
+                <div class="teaser__overhead">
+                    {{ content.field_channel }}
+                </div>
+            {% endblock %}
+
+            {% block sponsored %}
+                {% embed '@infinite/node/twig-block-sponsored.html.twig' %}
+                {% endembed %}
+            {% endblock %}
+
+            {% block teaser_text_headline %}
+                <h2 class="teaser__title text-headline">
+                    <a href="{{ url }}" target="_self" rel="bookmark">{{ label }}</a>
+                </h2>
+            {% endblock %}
+
+            {% block teaser_text %}{% endblock %}
+
+            {% block header_block %}
+                <header>
+                    {% block teaser_author %}
+                        {{ author_teaser }}
+                    {% endblock %}
+                    {% block teaser_content %}{% endblock %}
+                    <div class="socials socials-bar">
+                        {% block teaser_social_bar %}
+                            {% embed '@infinite_amp/embeds/social_icons.html.twig' %}{% endembed %}
+                        {% endblock %}
+                    </div>
+                </header>
+            {% endblock %}
+        </div>
+    {% endblock %}
+    {% if (show_contextual_links) %}
+        {{ title_suffix.contextual_links }}
+    {% endif %}
+</article>
