@@ -31,6 +31,10 @@ a {
   }
 }
 
+.text-copyright {
+  @extend %label--copyright;
+}
+
 strong, b, .text--highlighted {
   @include bold-settings();
 }
