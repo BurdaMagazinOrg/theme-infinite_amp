@@ -2,11 +2,12 @@
 {% set label = label|plain_text|trim %}
 {% set whatsapp_share_text = whatsapp_share_text|plain_text|trim %}
 {% set socials_size = socials_size|default(32) %}
+{% set url = url ~ "?utm_medium=social&utm_campaign=Sharing&utm_source=" %}
 
 {% block social_facebook %}
     <amp-social-share width="{{ socials_size }}" height="{{ socials_size }}" class="item-social icon-facebook"
                       type="facebook"
-                      data-param-url="{{ url | e('html_attr') }}"
+                      data-param-href="{{ url ~ "Sharing_Facebook" }}"
                       data-param-app_id="{{ fb_app_id }}">
 
     </amp-social-share>
@@ -17,7 +18,7 @@
                       class="item-social icon-whatsapp"
                       type="whatsapp"
                       data-share-endpoint="whatsapp://send"
-                      data-param-text="{{ whatsapp_share_text ~ label ~ ' - ' ~ url }}">
+                      data-param-text="{{ whatsapp_share_text ~ label ~ ' - ' ~ url ~ "Sharing_Whatsapp"}}">
 
     </amp-social-share>
 {% endblock %}
@@ -25,7 +26,7 @@
 {% block social_pinterest %}
     <amp-social-share width="{{ socials_size }}" height="{{ socials_size }}" class="item-social icon-pinterest"
                       type="pinterest"
-                      data-param-url="{{ url | e('html_attr') }}"
+                      data-param-url="{{ (url ~ "Sharing_Pinterest") | e('html_attr') }}"
                       data-param-media="{{ share_img_url | e('html_attr') }}"
                       data-param-description="{{ label | e('html_attr') }}">
 
@@ -35,7 +36,7 @@
 {% block social_twitter %}
     <amp-social-share width="{{ socials_size }}" height="{{ socials_size }}" class="item-social icon-twitter"
                       type="twitter"
-                      data-param-url="{{ url }}"
+                      data-param-url="{{ url ~ "Sharing_Twitter" }}"
                       data-param-text="{{ label ~ ' via @' ~ twitter_share_via }}">
 
     </amp-social-share>
@@ -43,7 +44,7 @@
 
 {% block social_email %}
     <amp-social-share width="{{ socials_size }}" height="{{ socials_size }}" class="item-social icon-email"
-                      data-param-body="{{ email_share_text ~ ' ' ~ url }}"
+                      data-param-body="{{ email_share_text ~ ' ' ~ url  ~ "Sharing_Email"}}"
                       data-param-subject="{{ email_subject }}"
                       type="email">
 
