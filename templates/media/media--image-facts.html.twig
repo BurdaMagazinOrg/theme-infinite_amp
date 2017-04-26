@@ -1,1 +1,15 @@
-{% include '@infinite/media/media--image-facts.html.twig' %}
+{% extends '@infinite/media/media--image-facts.html.twig' %}
+
+{% block copyright_block %}
+    {% if content.field_copyright | plain_text or content.field_source | plain_text %}
+        <div class="text-copyright">
+            Foto:
+            {% if content.field_copyright | plain_text %}
+                <span>{{ content.field_copyright }}</span>
+            {% endif %}
+            {% if content.field_source | plain_text %}
+                <span>{{ content.field_source }}</span>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
