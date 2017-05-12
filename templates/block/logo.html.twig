@@ -1,13 +1,23 @@
 {% set link_url = link_url | default("") %}
 
-{% if link_url != "" %}
-<a class="logo" href="{{ link_url }}" title="{{ 'Home'|t }}">
-{% endif %}
+<span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+    {% if link_url != "" %}
+    <a class="logo" href="{{ link_url }}" title="{{ 'Home'|t }}">
+        {% endif %}
 
-    <amp-img src="{{ logo }}" alt="{{ 'Home'|t }}" width="100" height="50">
-    </amp-img>
+        {#<meta itemprop="url" content="http://www.harpersbazaar.de/sites/default/files/images/2017-05/hb238-60.jpg">#}
+        {#<meta itemprop="width" content="238">#}
+        {#<meta itemprop="height" content="60">#}
+        {#<meta itemprop="name" content="Harper's BAZAAR">#}
 
-{% if use_link != "false" %}
-</a>
-{% endif %}
+        <amp-img src="{{ logo }}" alt="{{ 'Home'|t }}" width="100" height="50">
+        </amp-img>
+
+        {% if use_link != "false" %}
+    </a>
+    {% endif %}
+</span>
+
+
+</div>
 

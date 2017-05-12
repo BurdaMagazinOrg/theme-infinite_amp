@@ -1,6 +1,7 @@
 {% extends "@infinite/node/node.html.twig" %}
 
 {% block content_header %}
+    {#<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="http://www.harpersbazaar.de/beauty/sommer-teint-schminken"/>#}
 
     {% block article_header_blocks %}
         {{ content.field_header_blocks }}
@@ -11,17 +12,23 @@
         {% endembed %}
     {% endblock %}
 
-    {% if not has_spotlight_title %}
-        {% if has_header_block %}
-            <h2 class="title--article">{{ label }}</h2>
-        {% else %}
-            <h1 class="title--article">{{ label }}</h1>
-        {% endif %}
+    {% block article_title_blocks %}
+        {% if not has_spotlight_title %}
+            {% if has_header_block %}
+                <h2 class="title--article">{{ label }}</h2>
+            {% else %}
 
-        {% block author_teaser_block %}
-            {{ author_teaser }}
-        {% endblock %}
-    {% endif %}
+                {% block article_title_h1_blocks %}
+                    <h1 itemprop="headline" class="title--article">{{ label }}</h1>
+                {% endblock %}
+
+            {% endif %}
+
+            {% block author_teaser_block %}
+                {{ author_teaser }}
+            {% endblock %}
+        {% endif %}
+    {% endblock %}
 
     <aside class="socials socials-bar socials-vertical-bar">
         {% block socials_vertical_bar %}
