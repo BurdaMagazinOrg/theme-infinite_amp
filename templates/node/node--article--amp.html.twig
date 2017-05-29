@@ -1,7 +1,7 @@
 {% extends "@infinite/node/node.html.twig" %}
 
 {% block content_header %}
-    {#<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="http://www.harpersbazaar.de/beauty/sommer-teint-schminken"/>#}
+    <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ url }}"/>
 
     {% block article_header_blocks %}
         {{ content.field_header_blocks }}

@@ -4,7 +4,7 @@
 {% set attributes = attributes.setAttribute(itemscope) %}
 {% set attributes = attributes.setAttribute("itemtype", "https://schema.org/ImageObject") %}
 
-<div{{ attributes.addClass('item-media item-media--image') }}>
+<div{{ attributes.addClass('item-media item-media--image') }} itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
     {% if content %}
         {{ content.field_image }}
 
