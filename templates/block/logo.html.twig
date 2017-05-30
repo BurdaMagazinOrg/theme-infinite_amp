@@ -5,10 +5,8 @@
     <a class="logo" href="{{ link_url }}" title="{{ 'Home'|t }}">
         {% endif %}
 
-        {#<meta itemprop="url" content="http://www.harpersbazaar.de/sites/default/files/images/2017-05/hb238-60.jpg">#}
-        {#<meta itemprop="width" content="238">#}
-        {#<meta itemprop="height" content="60">#}
-        {#<meta itemprop="name" content="Harper's BAZAAR">#}
+        {% block publisher_data_block %}
+        {% endblock %}
 
         <amp-img src="{{ logo }}" alt="{{ 'Home'|t }}" width="100" height="50">
         </amp-img>
@@ -19,5 +17,5 @@
 </span>
 
 
-</div>
+{#</div>#}
 
