@@ -20,6 +20,43 @@
   @include item-paragraph--tracdelight();
 }
 
+.ecommerce-slider {
+
+  .ecommerce-slider__title {
+    @include text-helper($ecommerce-slider__item-text-headline-font-id, $ecommerce-slider__item-text-headline-size);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    background-color: #bbbbbb;
+    margin: 10px 0;
+  }
+
+  .ecommerce-slider__company {
+    text-align: center;
+    margin: $ecommerce-slider__company-margin;
+
+    & > .separator {
+      margin: $ecommerce-slider__brand-seperator-margin;
+      vertical-align: middle;
+    }
+
+    & > .brand > svg, & > .brand > img {
+      height: $ecommerce-slider__brand-height;
+      vertical-align: middle;
+    }
+  }
+
+  .i-amphtml-slides-container {
+    background-color: #ffffff;
+  }
+
+  .item-product {
+    @include product__item-text--ecommerce-slider();
+    @include product__item--ecommerce-slider();
+  }
+
+}
+
 .item-paragraph--spotlight {
   @include item-paragraph--spotlight();
 }
