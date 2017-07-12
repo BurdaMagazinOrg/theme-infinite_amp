@@ -1,8 +1,8 @@
-{% if content.logo %}
+{% if campaign_logo %}
     <div class="ecommerce-slider__company">
         <span class="separator">Sponsored by</span>
         <span class="brand">
-            {{ content.logo }}
+            {{ campaign_logo  | raw }}
         </span>
     </div>
 {% endif %}

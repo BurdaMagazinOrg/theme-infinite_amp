@@ -31,6 +31,21 @@
     margin: 10px 0;
   }
 
+  .ecommerce-slider__company {
+    text-align: center;
+    margin: $ecommerce-slider__company-margin;
+
+    & > .separator {
+      margin: $ecommerce-slider__brand-seperator-margin;
+      vertical-align: middle;
+    }
+
+    & > .brand > svg, & > .brand > img {
+      height: $ecommerce-slider__brand-height;
+      vertical-align: middle;
+    }
+  }
+
   .i-amphtml-slides-container {
     background-color: #ffffff;
   }
