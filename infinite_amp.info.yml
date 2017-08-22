@@ -10,3 +10,6 @@ regions:
   header: Header
   content: Content
   footer: Footer
+  dyn_blocks_taxonomy_term: 'Dynamic blocks for taxonomy terms'
+  dyn_blocks_node: 'Dynamic blocks for nodes'
+  hidden: Hidden
