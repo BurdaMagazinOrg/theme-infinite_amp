@@ -29,7 +29,7 @@
   letter-spacing: -1px;
 }
 
-@mixin title--text-block() {
+@mixin title--text-block($use-size: false) {
   @include text-helper($title--text-block-font-id);
   @include text-helper-size($title--text-block-font-id, $title--text-block-mobile);
   margin: $title-margin-mobile--text-block;
