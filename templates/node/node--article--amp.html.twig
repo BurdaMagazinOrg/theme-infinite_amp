@@ -1,5 +1,7 @@
 {% extends "@infinite/node/node.html.twig" %}
 
+{%  set attributes = attributes.addClass('no-v-padding') %}
+
 {% block content_header %}
     <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ url }}"/>
 
