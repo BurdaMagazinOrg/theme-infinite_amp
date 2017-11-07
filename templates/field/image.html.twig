@@ -10,7 +10,9 @@
  * @see template_preprocess_image()
  */
 #}
-<amp-img{{ attributes }} width="200" height="200" layout="responsive"> </amp-img>
+<div class="fixed-container">
+    <amp-img{{ attributes }} class="contain" layout="fill"></amp-img>
+</div>
 <meta itemprop="url" content="{{ uri }}">
 <meta itemprop="width" content="{{ width }}">
 <meta itemprop="height" content="{{ height }}">

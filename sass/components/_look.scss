@@ -1,0 +1,15 @@
+.fixed-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.fixed-height-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+amp-img.contain img {
+  object-fit: contain;
+}
