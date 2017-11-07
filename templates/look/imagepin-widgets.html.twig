@@ -1,4 +1,4 @@
-<h3 class="item-paragraph__title">{{ 'Shop-the-look: Mit diesen Produkten den Look easy nachstylen'|trans }}</h3>
+hallo<h3 class="item-paragraph__title">{{ 'Shop-the-look: Mit diesen Produkten den Look easy nachstylen'|trans }}</h3>
 <div class="look-amp">
      {% for widget in items %}
 
@@ -8,7 +8,7 @@
 
             {{ drupal_entity('advertising_product', product_id|striptags|render|trim , 'amp') }}
 
-
+      <div{{ widget.pin_attributes }}>{{ widget.pin_content }}</div>
 
     {% endfor %}
  </div>
