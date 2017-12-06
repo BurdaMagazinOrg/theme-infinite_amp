@@ -11,11 +11,11 @@
     {% endset %}
 
     {% if product_one|striptags|render|trim is not empty %}
-            <h6>{{ high }}</h6>
+            <h4 class="text-headline" id="look-center">{{ high }}</h4>
         {{ drupal_entity('advertising_product', product_one|striptags|render|trim, 'amp') }}
     {% endif %}
     {% if product_two|striptags|render|trim is not empty %}
-            <h6>{{ low }}</h6>
+            <h4 class="text-headline" id="look-center">{{ low }}</h4>
         {{ drupal_entity('advertising_product', product_two|striptags|render|trim, 'amp') }}
     {% endif %}
 
