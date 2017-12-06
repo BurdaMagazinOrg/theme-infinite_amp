@@ -14,7 +14,7 @@
 <amp-analytics{{ attributes }}>
   <script type="application/json">
 
-    {{ data_array|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}
+    {{ data|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}
 
   </script>
 </amp-analytics>
