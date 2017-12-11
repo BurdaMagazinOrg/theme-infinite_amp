@@ -19,11 +19,12 @@
  */
 #}
 {% if user.status %}
-    {% if content.user_picture|render is not empty %}
-        <div class="img-container container-avatar" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-            {{ content.user_picture }}
-        </div>
-    {% endif %}
+    {# Disable author image on AMP to fix broken AMP carousel #}
+    {#{% if content.user_picture|render is not empty %}#}
+        {#<div class="img-container container-avatar" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">#}
+            {#{{ content.user_picture }}#}
+        {#</div>#}
+    {#{% endif %}#}
     <div class="caption">  {# TODO: closed in author-teaser.html.twig #}
     {% if content.field_full_name|render is not empty %}
         <div class="text-author" itemprop="author" itemscope itemtype="https://schema.org/Person">von
