@@ -10,7 +10,17 @@
  * @see template_preprocess_image()
  */
 #}
-<amp-img{{ attributes }}></amp-img>
+{% if width is not empty %}
+    <amp-img{{ attributes }} ></amp-img>
+    <meta itemprop="url" content="{{ uri }}">
+    <meta itemprop="width" content="{{ width }}">
+    <meta itemprop="height" content="{{ height }}">
+{% endif %}
+{% if width is empty %}
+<div class="fixed-container">
+    <amp-img{{ attributes }} class="contain" layout="fill"></amp-img>
+</div>
 <meta itemprop="url" content="{{ uri }}">
 <meta itemprop="width" content="{{ width }}">
 <meta itemprop="height" content="{{ height }}">
+{% endif %}

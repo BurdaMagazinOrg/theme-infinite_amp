@@ -1,0 +1,19 @@
+#look-center{
+  text-align: center;
+}
+
+.fixed-container {
+  position: relative;
+  /* width: 500px;*/
+  height: 500px;
+}
+
+.fixed-height-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+amp-img.contain img {
+  object-fit: contain;
+}

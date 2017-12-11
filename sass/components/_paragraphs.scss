@@ -16,7 +16,7 @@
   @extend %item-paragraph--quote;
 }
 
-.item-paragraph--tracdelight, .item-paragraph--advertising-products-paragraph {
+.item-paragraph--tracdelight, .item-paragraph--advertising-products-paragraph, .look-amp {
   @include item-paragraph--tracdelight();
 }
 

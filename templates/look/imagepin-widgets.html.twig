@@ -1,0 +1,12 @@
+<h3 class="item-paragraph__title" id="look-center">{{ 'Shop-the-look: <br />Mit diesen Produkten den Look <br />easy nachstylen'|trans }}</h3>
+<div class="look-amp">
+{% for widget in items %}
+    {% set product_id %}
+        {{ widget.content }}
+    {% endset %}
+
+    {{ drupal_entity('advertising_product', product_id|striptags|render|trim , 'amp') }}
+
+
+{% endfor %}
+</div>
