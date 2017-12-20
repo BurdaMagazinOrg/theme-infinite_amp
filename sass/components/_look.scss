@@ -19,5 +19,15 @@ amp-img.contain img {
 }
 
 .look-amp {
-  margin-top: 15px !important;
+  margin-top: 15px;
 }
+
+.look-amp .item-product{
+  border-top: none;
+}
+
+.look-amp #look-center{
+  padding-top: 25px;
+  border-top: $h-line-style;
+}
+
