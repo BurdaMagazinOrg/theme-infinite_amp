@@ -11,11 +11,15 @@
     {% endset %}
 
     {% if product_one|striptags|render|trim is not empty %}
+            {% if product_one|striptags|render|trim is not empty and product_two|striptags|render|trim is not empty%}
             <h4 class="text-headline" id="look-center">{{ high }}</h4>
+            {% endif %}
         {{ drupal_entity('advertising_product', product_one|striptags|render|trim, 'amp') }}
     {% endif %}
     {% if product_two|striptags|render|trim is not empty %}
+        {% if product_one|striptags|render|trim is not empty and product_two|striptags|render|trim is not empty%}
             <h4 class="text-headline" id="look-center">{{ low }}</h4>
+        {% endif %}
         {{ drupal_entity('advertising_product', product_two|striptags|render|trim, 'amp') }}
     {% endif %}
 
