@@ -1,4 +1,4 @@
-@mixin product__item--horizontal-block {
+@mixin product__item--default {
   position: relative;
   overflow: hidden;
   margin-bottom: $gap-size-lg;
@@ -22,7 +22,8 @@
   }
 
   .text-headline {
-    //overflow: hidden;
+    height: $product__item-text-headline-height-mobile;
+    overflow: hidden;
   }
 
   .text-brand {

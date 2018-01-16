@@ -16,10 +16,6 @@
   @extend %item-paragraph--quote;
 }
 
-.item-paragraph--tracdelight, .item-paragraph--advertising-products-paragraph, .look-amp {
-  @include item-paragraph--tracdelight();
-}
-
 .ecommerce-slider {
 
   .ecommerce-slider__title {
