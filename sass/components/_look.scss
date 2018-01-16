@@ -1,5 +1,6 @@
-#look-center{
-  text-align: center;
+.look__subline {
+  //text-align: center;
+  @include text-helper($font-headline-bold-id, $font-size-base);
 }
 
 .fixed-container {
@@ -20,14 +21,26 @@ amp-img.contain img {
 
 .look-amp {
   margin-top: 15px;
+
+  .look-title,
+  .look-headline {
+    //text-align: center;
+    margin-bottom: 16px;
+  }
+}
+
+.look-amp__product-wrapper {
+  @extend %gap--v-region;
+  border-top: $h-line-style;
+
+
+  &:first-child {
+    border-top: 0;
+  }
 }
 
 .look-amp .item-product{
   border-top: none;
+  padding-top: 0;
+  margin-top: $gap-size-xs;
 }
-
-.look-amp #look-center{
-  padding-top: 25px;
-  border-top: $h-line-style;
-}
-

@@ -1,28 +1,28 @@
-<h3 class="item-paragraph__title" id="look-center">{{ 'Shop-the-look: <br />Mit diesen Produkten den Look <br />easy nachstylen'|trans }}</h3>
+<h3 class="item-paragraph__title look-title">{{ 'Shop-the-look'|trans }}</h3>
+<p class="look__subline">{{ 'Mit diesen Produkten den Look <br />easy nachstylen'|trans }}</p>
 <div class="look-amp">
 {% for widget in items %}
+    <div class="look-amp__product-wrapper">
+        {% set product_one %}
+            {{ widget.content.product_one }}
+        {% endset %}
 
-    {% set product_one %}
-        {{ widget.content.product_one }}
-    {% endset %}
+        {% set product_two %}
+            {{ widget.content.product_two }}
+        {% endset %}
 
-    {% set product_two %}
-        {{ widget.content.product_two }}
-    {% endset %}
-
-    {% if product_one|striptags|render|trim is not empty %}
-            {% if product_one|striptags|render|trim is not empty and product_two|striptags|render|trim is not empty%}
-            <h4 class="text-headline" id="look-center">{{ high }}</h4>
-            {% endif %}
-        {{ drupal_entity('advertising_product', product_one|striptags|render|trim, 'amp') }}
-    {% endif %}
-    {% if product_two|striptags|render|trim is not empty %}
-        {% if product_one|striptags|render|trim is not empty and product_two|striptags|render|trim is not empty%}
-            <h4 class="text-headline" id="look-center">{{ low }}</h4>
+        {% if product_one|striptags|render|trim is not empty %}
+                {% if product_one|striptags|render|trim is not empty and product_two|striptags|render|trim is not empty%}
+                <div class="text-headline look-headline">{{ high }}</div>
+                {% endif %}
+            {{ drupal_entity('advertising_product', product_one|striptags|render|trim, 'amp') }}
         {% endif %}
-        {{ drupal_entity('advertising_product', product_two|striptags|render|trim, 'amp') }}
-    {% endif %}
-
-
+        {% if product_two|striptags|render|trim is not empty %}
+            {% if product_one|striptags|render|trim is not empty and product_two|striptags|render|trim is not empty%}
+                <div class="text-headline look-headline">{{ low }}</div>
+            {% endif %}
+            {{ drupal_entity('advertising_product', product_two|striptags|render|trim, 'amp') }}
+        {% endif %}
+    </div>
 {% endfor %}
 </div>
