@@ -1,9 +1,5 @@
 {% set share_url = absolute_node_url ~ "?utm_medium=social&utm_campaign=Sharing&utm_source=" %}
 
-{% set attributes = attributes.setAttribute("itemprop", "image") %}
-{% set attributes = attributes.setAttribute("itemscope", "") %}
-{% set attributes = attributes.setAttribute("itemtype", "https://schema.org/ImageObject") %}
-
 <div{{ attributes.addClass('item-media item-media--image') }}>
     {% if content %}
         {{ content.field_image }}

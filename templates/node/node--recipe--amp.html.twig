@@ -1,7 +1,6 @@
 {% extends "@infinite/node/node.html.twig" %}
 
 {% block content_header %}
-    <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ url }}"/>
 
     {% block article_header_blocks %}
         {{ content.field_header_blocks }}
@@ -14,7 +13,7 @@
             {% else %}
 
                 {% block article_title_h1_blocks %}
-                    <h1 itemprop="headline" class="title--article">{{ label }}</h1>
+                    <h1 class="title--article">{{ label }}</h1>
                 {% endblock %}
 
             {% endif %}
