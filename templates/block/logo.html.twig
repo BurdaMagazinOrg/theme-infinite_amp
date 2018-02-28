@@ -1,6 +1,6 @@
 {% set link_url = link_url | default("") %}
 
-<span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+<span>
     {% if link_url != "" %}
     <a class="logo" href="{{ link_url }}" title="{{ 'Home'|t }}">
         {% endif %}

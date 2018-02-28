@@ -27,15 +27,13 @@
     {% if author_id != 0 %}
         {{ author_picture }}
         {% if timestamp %}
-            <time itemprop="datePublished" datetime="{{ timestamp|format_date('html_datetime') }}" title="">{{ timestamp|format_date('custom', 'd. F Y') }}</time>
-            <meta itemprop="dateModified" content="{{ changed_timestamp|format_date('html_datetime') }}"/>
+            <time datetime="{{ timestamp|format_date('html_datetime') }}" title="">{{ timestamp|format_date('custom', 'd. F Y') }}</time>
         {% endif %}
         </div> {# TODO: opened in user--author-teaser.html.twig #}
     {% else %}
         <div class="caption">
         {% if timestamp %}
-            <time itemprop="datePublished" datetime="{{ created_timestamp|format_date('html_datetime') }}" title="">{{ created_timestamp|format_date('custom', 'd. F Y') }}</time>
-            <meta itemprop="dateModified" content="{{ changed_timestamp|format_date('html_datetime') }}"/>
+            <time datetime="{{ created_timestamp|format_date('html_datetime') }}" title="">{{ created_timestamp|format_date('custom', 'd. F Y') }}</time>
         {% endif %}
         </div>
     {% endif %}
