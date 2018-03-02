@@ -27,7 +27,7 @@
     <amp-social-share width="{{ socials_size }}" height="{{ socials_size }}" class="item-social icon-pinterest"
                       type="pinterest"
                       data-param-url="{{ (url ~ "Sharing_Pinterest") | e('html_attr') }}"
-                      data-param-media="{{ share_img_url | e('html_attr') }}"
+                      data-param-media="{{ (pinterest_share_img_url|default(share_img_url)) | e('html_attr') }}"
                       data-param-description="{{ label | e('html_attr') }}">
 
     </amp-social-share>
