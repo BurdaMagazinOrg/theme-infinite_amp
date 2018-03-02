@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\infinite_media\MediaHelper;
 use Drupal\views\ViewExecutable;
 use Drupal\image\Entity\ImageStyle;
 
@@ -55,24 +56,17 @@ function infinite_amp_preprocess_node(&$variables) {
     $variables['url'] = $node->url('canonical', ['absolute' => TRUE]);
     $variables['nid'] = $node->id();
 
-    // Get share image URL from teaser media.
-    if ($node->hasField('field_teaser_media') &&
-      !$node->field_teaser_media->isEmpty()
-    ) {
+    $variables['share_img_url'] = MediaHelper::getImageUrlFromMediaReference(
+      $node,
+      'field_teaser_media',
+      theme_get_setting('share_image_style')
+    );
 
-      if (!empty($node->field_teaser_media->entity) &&  // todo: check wyh some media entity reference seems to be empty here after isEmpty() check? example: node 6001
-        $node->field_teaser_media->entity->hasField('field_image') &&
-        !$node->field_teaser_media->entity->field_image->isEmpty()
-      ) {
+    $variables['pinterest_share_img_url'] = MediaHelper::getImageUrlFromMediaReference(
+      $node,
+      'field_pinterest_image'
+    );
 
-        $share_img_path = $node->field_teaser_media->entity->field_image->entity->getFileUri();
-        $share_img = ImageStyle::load(theme_get_setting('share_image_style'));
-        if (is_object($share_img)) {
-          $url = $share_img->buildUrl($share_img_path);
-          $variables['share_img_url'] = $url;
-        }
-      }
-    }
     // Add 'show_contextual_links' variable.
     /* @var User $user */
     $user = Drupal::currentUser();
