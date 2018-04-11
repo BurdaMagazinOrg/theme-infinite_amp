@@ -135,20 +135,24 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
     }
   }
 
-  // update links to tiper products
-  /** @var \Drupal\Core\Url $url */
-  $url = \Drupal\Core\Url::fromUserInput($_SERVER['REQUEST_URI']);
-  $url->setAbsolute(true);
-  /** @var \Drupal\Core\Field\FieldItemList $fieldItemList */
-  $fieldItemList = $product->get('product_url');
-  /** @var \Drupal\link\Plugin\Field\FieldType\LinkItem $linkItem */
-  $linkItem = $fieldItemList->first();
-  $value = $linkItem->getValue();
+  // update links to tipser products
   if ('advertising_product_tipser' === $product->bundle()) {
+    /** @var \Drupal\Core\Field\FieldItemList $fieldItemList */
+    $fieldItemList = $product->get('product_url');
+    /** @var \Drupal\link\Plugin\Field\FieldType\LinkItem $linkItem */
+    $linkItem = $fieldItemList->first();
+    $value = $linkItem->getValue();
     $tipserProductId = str_replace('https://www.tipser.com/products/', '', $value['uri']);
-    $url->setOption('query', null);
-    $url->setOption('fragment', 'tipser-product:' . $tipserProductId);
-    $variables['tipser_url'] = $url->toString();
+    $variables['tipser_url'] = \Drupal\Core\Url::fromRoute('tipser_client.open_from_amp_page', [
+      'productId' => $tipserProductId,
+    ], [
+      'query' => [
+        'article' => \Drupal\Core\Url::fromUserInput($_SERVER['REQUEST_URI'])
+          ->setOption('query', null)
+          ->setAbsolute(true)
+          ->toString(),
+      ]
+    ]);
     $variables['link_target'] = '_self';
   } else {
     $variables['link_target'] = '_blank';
