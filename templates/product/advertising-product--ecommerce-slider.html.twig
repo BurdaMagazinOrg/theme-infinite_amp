@@ -1,6 +1,8 @@
 {% if content.status %}
     <div class="slide">
-        <a class="item-product" {{ data_attributes }} href="{{ advertising_product.product_url.uri }}" target="_blank">
+        <a class="item-product" {{ data_attributes }}
+           href="{{ tipser_url | default(advertising_product.product_url.uri) }}"
+           target="{{ link_target }}">
             <div class="img-container">
                 {{ content.product_image }}
             </div>
