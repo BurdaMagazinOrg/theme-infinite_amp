@@ -157,6 +157,8 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
   } else {
     $variables['link_target'] = '_blank';
   }
+  $provider = explode("_", $product->product_provider->value)[0];
+  $variables['provider'] = $provider;
 }
 
 /**

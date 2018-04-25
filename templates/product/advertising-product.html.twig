@@ -59,7 +59,7 @@
                     {% endif %}
                     <span class="text-price--current">{{ content.product_price }} {{ formatted_currency }}</span>
                 </div>
-                <div class="text-shop">Zum Shop</div>
+                {% include '@infinite_amp/product/advertising-product-button.html.twig' %}
             {% endif %}
         </div>
     </a>
