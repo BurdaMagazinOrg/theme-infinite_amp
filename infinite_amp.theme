@@ -137,12 +137,7 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
 
   // update links to tipser products
   if ('advertising_product_tipser' === $product->bundle()) {
-    /** @var \Drupal\Core\Field\FieldItemList $fieldItemList */
-    $fieldItemList = $product->get('product_url');
-    /** @var \Drupal\link\Plugin\Field\FieldType\LinkItem $linkItem */
-    $linkItem = $fieldItemList->first();
-    $value = $linkItem->getValue();
-    $tipserProductId = str_replace('https://www.tipser.com/products/', '', $value['uri']);
+    $tipserProductId = $product->get('product_id')->value;
     $variables['tipser_url'] = \Drupal\Core\Url::fromRoute('tipser_client.open_from_amp_page', [
       'productId' => $tipserProductId,
     ], [
