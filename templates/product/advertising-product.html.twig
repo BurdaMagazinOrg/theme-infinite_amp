@@ -30,7 +30,9 @@
 {% endif %}
 
 {% if content.status %}
-    <a {{ attributes.addClass(classes) }} {{ data_attributes }} href="{{ advertising_product.product_url.uri }}" target="_blank">
+    <a {{ attributes.addClass(classes) }} {{ data_attributes }}
+            href="{{ tipser_url | default(advertising_product.product_url.uri) }}"
+            target="{{ link_target }}">
         <div class="img-container">
             {{ content.product_image }}
         </div>
@@ -57,7 +59,7 @@
                     {% endif %}
                     <span class="text-price--current">{{ content.product_price }} {{ formatted_currency }}</span>
                 </div>
-                <div class="text-shop">Zum Shop</div>
+                {% include '@infinite_amp/product/advertising-product-button.html.twig' %}
             {% endif %}
         </div>
     </a>
