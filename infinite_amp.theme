@@ -356,3 +356,7 @@ function infinite_amp_views_pre_render(ViewExecutable $view) {
     $view->pager = [];
   }
 }
+
+function infinite_amp_preprocess_page(&$variables) {
+    $variables['site_name'] = \Drupal::config('system.site')->get('name');
+}
