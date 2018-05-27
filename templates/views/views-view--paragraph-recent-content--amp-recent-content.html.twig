@@ -1,0 +1,43 @@
+{{ title_prefix }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
+
+  {% if header %}
+    {{ header }}
+  {% endif %}
+  {% if exposed %}
+    {{ exposed }}
+  {% endif %}
+  {% if attachment_before %}
+    {{ attachment_before }}
+  {% endif %}
+
+  {% if rows %}
+    <div class="amp-recent-content">
+      {% block paragraph_recent_content_headline %}
+        <div class="label">Weitere Artikel zum Thema</div>
+      {% endblock %}
+      {{ rows }}
+    </div>
+  {% elseif empty %}
+    {{ empty }}
+  {% endif %}
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+  {% if attachment_after %}
+    {{ attachment_after }}
+  {% endif %}
+  {% if more %}
+    {{ more }}
+  {% endif %}
+  {% if footer %}
+    {{ footer }}
+  {% endif %}
+  {% if feed_icons %}
+    {{ feed_icons }}
+  {% endif %}
+
+{{ title_suffix }}
