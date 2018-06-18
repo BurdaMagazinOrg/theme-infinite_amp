@@ -22,7 +22,7 @@
   }
 
   .text-headline {
-    height: $product__item-text-headline-height-mobile;
+    height: ($product__item-text-headline-size * $product__item-text-headline-line-height) * 2;
     overflow: hidden;
   }
 
