@@ -1,0 +1,45 @@
+{% set wrapper_classes = [
+    'teaser-square-small', 'teaser', 'teaser--small', 'contextual-region'
+] %}
+
+{% if content.field_smart_teaser_class is defined and content.field_smart_teaser_class is not empty %}
+    {% set smart_teaser_class = content.field_smart_teaser_class|render %}
+    {% set wrapper_classes = wrapper_classes|merge([smart_teaser_class]) %}
+{% endif %}
+
+{% set attributes = attributes.setAttribute('data-nid', nid) %}
+{% set attributes = attributes.setAttribute('data-internal-url', url) %}
+{% set attributes = attributes.setAttribute('data-text-action', 'text-overflow') %}
+{% set attributes = attributes.setAttribute('data-text-action-target', '.teaser__caption') %}
+
+<article{{ attributes.addClass(wrapper_classes) }}>
+    <div class="teaser__img-container">
+        {% block teaser_img_container %}
+            {{ content.field_teaser_media }}
+        {% endblock %}
+    </div>
+
+    <div class="teaser__caption">
+
+        {% block teaser_caption_channel %}{% endblock %}
+
+        {% block sponsored %}
+            {% embed '@infinite/node/twig-block-sponsored.html.twig' %}
+            {% endembed %}
+        {% endblock %}
+
+        {% block teaser_author %}{% endblock %}
+
+        {% block teaser_text_headline %}
+            <h4 class="teaser__title text-headline">
+                <a href="{{ url }}" target="_self">{{ label }}</a>
+            </h4>
+        {% endblock %}
+
+    </div>
+
+    {% if (show_contextual_links) %}
+        {{ title_suffix.contextual_links }}
+    {% endif %}
+
+</article>

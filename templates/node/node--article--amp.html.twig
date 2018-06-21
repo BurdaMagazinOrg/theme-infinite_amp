@@ -1,75 +1,79 @@
 {% extends "@infinite/node/node.html.twig" %}
 
-{%  set attributes = attributes.addClass('no-v-padding') %}
+{% set attributes = attributes.addClass('no-v-padding') %}
 
 {% block content_header %}
 
-    {% block article_header_blocks %}
-        {{ content.field_header_blocks }}
-    {% endblock %}
+  {% block article_header_blocks %}
+    {{ content.field_header_blocks }}
+  {% endblock %}
 
-    {% block sponsored %}
-        {% embed '@infinite/node/twig-block-sponsored.html.twig' %}
-        {% endembed %}
-    {% endblock %}
+  {% block sponsored %}
+    {% embed '@infinite/node/twig-block-sponsored.html.twig' %}
+    {% endembed %}
+  {% endblock %}
 
-    {% block article_title_blocks %}
-        {% if not has_spotlight_title %}
-            {% if has_header_block %}
-                <h2 class="title--article">{{ label }}</h2>
-            {% else %}
+  {% block article_title_blocks %}
+    {% if not has_spotlight_title %}
+      {% if has_header_block %}
+        <h2 class="title--article">{{ label }}</h2>
+      {% else %}
 
-                {% block article_title_h1_blocks %}
-                    <h1 class="title--article">{{ label }}</h1>
-                {% endblock %}
-
-            {% endif %}
-
-            {% block author_teaser_block %}
-                {{ author_teaser }}
-            {% endblock %}
-
-            {% block publisher_data_block %}
-            {% endblock %}
-
-        {% endif %}
-    {% endblock %}
-
-    <aside class="socials socials-bar socials-vertical-bar">
-        {% block socials_vertical_bar %}
-            {% embed '@infinite_amp/embeds/social_icons.html.twig' with {
-            'url': url,
-            'label': label,
-            'twitter_share_via': twitter_share_via,
-            'email_share_text': email_share_text,
-            'email_subject': email_subject,
-            'whatsapp_share_text': whatsapp_share_text,
-            } %}
-            {% endembed %}
+        {% block article_title_h1_blocks %}
+          <h1 class="title--article">{{ label }}</h1>
         {% endblock %}
-    </aside>
+
+      {% endif %}
+
+      {% block author_teaser_block %}
+        {{ author_teaser }}
+      {% endblock %}
+
+      {% block publisher_data_block %}
+      {% endblock %}
+
+    {% endif %}
+  {% endblock %}
+
+  <aside class="socials socials-bar socials-vertical-bar">
+    {% block socials_vertical_bar %}
+      {% embed '@infinite_amp/embeds/social_icons.html.twig' with {
+        'url': url,
+        'label': label,
+        'twitter_share_via': twitter_share_via,
+        'email_share_text': email_share_text,
+        'email_subject': email_subject,
+        'whatsapp_share_text': whatsapp_share_text,
+      } %}
+      {% endembed %}
+    {% endblock %}
+  </aside>
 {% endblock %}
 
 {% block content_body %}
-    {% if content.field_paragraphs['#items'] %}
-        {{ content.field_paragraphs }}
-    {% endif %}
-    {{ content.field_tags }}
-    {{ content.field_ivw }}
+  {% if content.field_paragraphs['#items'] %}
+    {{ content.field_paragraphs }}
+  {% endif %}
+  {{ content.field_tags }}
+  {{ content.field_ivw }}
 
-    {% block socials_horizontal_bar %}
-        <aside class="socials socials-bar socials-horizontal-bar item-content__block">
-            {% embed '@infinite_amp/embeds/social_icons.html.twig' with {
-            'content': content,
-            'url': url,
-            'label': label,
-            twitter_share_via: '',
-            whatsapp_share_text: 'I read this article and thought you might like it:',
-            email_share_text: 'I read this article and thought you might like it:',
-            email_subject: 'An article you might like:'
-            } %}
-            {% endembed %}
-        </aside>
-    {% endblock %}
+  {% block socials_horizontal_bar %}
+    <aside class="socials socials-bar socials-horizontal-bar item-content__block">
+      {% embed '@infinite_amp/embeds/social_icons.html.twig' with {
+        'content': content,
+        'url': url,
+        'label': label,
+        twitter_share_via: '',
+        whatsapp_share_text: 'I read this article and thought you might like it:',
+        email_share_text: 'I read this article and thought you might like it:',
+        email_subject: 'An article you might like:'
+      } %}
+      {% endembed %}
+    </aside>
+  {% endblock %}
+
+  {% block paragraph_recent_content %}
+    {{ drupal_view('paragraph_recent_content', 'amp_recent_content') }}
+  {% endblock %}
 
 {% endblock %}
