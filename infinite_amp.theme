@@ -136,6 +136,26 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
       $variables['show_strikethrough_price'] = TRUE;
     }
   }
+
+  // update links to tipser products
+  if ('advertising_product_tipser' === $product->bundle()) {
+    $tipserProductId = $product->get('product_id')->value;
+    $variables['tipser_url'] = \Drupal\Core\Url::fromRoute('tipser_client.open_from_amp_page', [
+      'productId' => $tipserProductId,
+    ], [
+      'query' => [
+        'article' => \Drupal\Core\Url::fromUserInput($_SERVER['REQUEST_URI'])
+          ->setOption('query', null)
+          ->setAbsolute(true)
+          ->toString(),
+      ]
+    ]);
+    $variables['link_target'] = '_self';
+  } else {
+    $variables['link_target'] = '_blank';
+  }
+  $provider = explode("_", $product->product_provider->value)[0];
+  $variables['provider'] = $provider;
 }
 
 /**

@@ -1,6 +1,8 @@
 {% if content.status %}
     <div class="slide">
-        <a class="item-product" {{ data_attributes }} href="{{ advertising_product.product_url.uri }}" target="_blank">
+        <a class="item-product" {{ data_attributes }}
+           href="{{ tipser_url | default(advertising_product.product_url.uri) }}"
+           target="{{ link_target }}">
             <div class="img-container">
                 {{ content.product_image }}
             </div>
@@ -8,7 +10,7 @@
                 <div class="text-brand">{{ content.product_brand }}</div>
                 <div class="text-headline">{{ content.product_name }}</div>
                 <div class="text-price">{{ content.product_price }} {{ formatted_currency }}</div>
-                <div class="text-shop">Zum Shop</div>
+                {% include '@infinite_amp/product/advertising-product-button.html.twig' %}
             </div>
         </a>
     </div>
