@@ -93,8 +93,10 @@ function infinite_amp_preprocess_node(&$variables) {
   if (isset($variables['content']['field_paragraphs'])) {
     foreach (Drupal\Core\Render\Element::children($variables['content']['field_paragraphs']) as $key) {
       $paragraph = $variables['content']['field_paragraphs'][$key]['#paragraph'];
-      if (in_array($paragraph->bundle(), ['content_teaser', 'recent_content', 'term_teaser'])) {
-        $variables['content']['field_paragraphs'][$key] = ['#markup' => ''];
+      if ($paragraph) {
+        if (in_array($paragraph->bundle(), ['content_teaser', 'recent_content', 'term_teaser'])) {
+          $variables['content']['field_paragraphs'][$key] = ['#markup' => ''];
+        }
       }
     }
   }
