@@ -101,7 +101,6 @@
 
 @mixin item-paragraph--spotlight() {
   @include gap__container--h-negative();
-  @include item-content--spotlight-text();
   @include _spotlight--small();
 
   /** Defaults **/
@@ -121,6 +120,31 @@
 
   .spotlight__caption {
     color: $spotlight__caption-color;
+  }
+}
+
+@mixin _spotlight--small() {
+  @include item-content--spotlight-small-text();
+
+  .spotlight__caption {
+    @include container--v-padding();
+    padding-left: $gap-size-sm;
+    padding-right: $gap-size-sm;
+    padding-bottom: $gap-size-sm;
+    background: $spotlight__caption-bg;
+    position: relative;
+  }
+
+  .spotlight__title {
+    margin-bottom: $gap-size-xxs;
+  }
+
+  .spotlight__subtitle {
+    margin-bottom: $gap-size-xs;
+  }
+
+  .spotlight__copytext {
+    margin-bottom: $gap-size-lg;
   }
 }
 
