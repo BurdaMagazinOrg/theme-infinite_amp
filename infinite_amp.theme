@@ -3,6 +3,7 @@
 use Drupal\infinite_media\MediaHelper;
 use Drupal\views\ViewExecutable;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\views\Views;
 
 
 function infinite_amp_preprocess(&$variables) {
@@ -176,6 +177,20 @@ function infinite_amp_preprocess_paragraph(&$variables) {
     $variables['content']['amp_recent_content_view'] = array(
       '#markup' => $recent_content_view
     );
+  }
+
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+  switch ($paragraph->bundle()) {
+    case 'advertising_products_embed':
+      $view = Views::getView('advertising_products');
+      $view->setItemsPerPage((int) $paragraph->get('field_products_count')->value);
+      $view->setArguments([
+        'cat' => $paragraph->get('field_advertising_products_categ')->value
+      ]);
+
+      $variables['content']['embed_view'] = $view->render('amp_embed_in_advertising_products_paragraph');
+      break;
   }
 }
 
