@@ -53,26 +53,12 @@
 
 }
 
-.item-paragraph--spotlight {
-  @include item-paragraph--spotlight();
-}
 
-.item-paragraph--profile {
-  @include item-paragraph--profile();
+.item-paragraph--pinterest {
+  @extend %item-paragraph--pinterest;
 }
 
 .item-paragraph--seo-links {
-  @include item-paragraph--seo-links();
+  @extend %item-paragraph--seo-links;
 }
 
-.item-paragraph--pinterest {
-  @include item-paragraph--pinterest();
-}
-
-.item-paragraph--advertising-products-paragraph {
-  @extend %item-paragraph--tracdelight;
-}
-
-.item-paragraph--advertising-products-embed {
-  @extend %item-paragraph--tracdelight;
-}

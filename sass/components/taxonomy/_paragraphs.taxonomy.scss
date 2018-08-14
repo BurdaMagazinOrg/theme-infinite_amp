@@ -1,0 +1,15 @@
+.item-paragraph--advertising-products-paragraph {
+  @extend %item-paragraph--tracdelight;
+}
+
+.item-paragraph--advertising-products-embed {
+  @extend %item-paragraph--tracdelight;
+}
+
+.item-paragraph--spotlight {
+  @extend %item-paragraph--spotlight;
+}
+
+.item-paragraph--profile {
+  @extend %item-paragraph--profile;
+}

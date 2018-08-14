@@ -9,7 +9,7 @@
   }
 
   //fb / whatsapp / instagram / etc
-  @include socials-default-items();
+  @extend %socials-default-items;
 }
 
 .item-social.icon-email {

@@ -22,7 +22,10 @@
   }
 
   .text-headline {
-    height: ($product__item-text-headline-size * $product__item-text-headline-line-height) * 2;
+    height: (
+        $product__item-text-headline-size *
+          $product__item-text-headline-line-height
+      ) * 2;
     overflow: hidden;
   }
 
@@ -32,14 +35,9 @@
     margin-bottom: $product__item-text-brand-gap-bottom;
   }
 
-  .text-shipping, .text-price {
+  .text-price {
     position: absolute;
     width: 100%;
-  }
-
-  .text-shipping {
-    right: 0;
-    bottom: $product__item-text-shipping-pos-bottom;
   }
 
   .text-price {
@@ -54,9 +52,11 @@
 
   .img-container {
     text-align: center;
-    margin-bottom: $gap-size-xs;
-    height: 200px;
     overflow: hidden;
+    height: auto;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 24px;
 
     img {
       width: auto;
@@ -74,21 +74,13 @@
 
   .text-headline {
     margin-bottom: $product__item-text-headline-gap-bottom-mobile;
-    //height: $product__item-text-headline-height-mobile;
   }
 
-  .img-container, .caption {
+  .img-container,
+  .caption {
     @include make-column($grid-columns/2, 0);
   }
-
-  .img-container {
-    height: auto;
-    margin-bottom: 0;
-    padding-left: 0;
-    padding-right: 24px;
-  }
 }
-
 
 @mixin product__item--ecommerce-slider {
   position: relative;
@@ -123,7 +115,8 @@
     margin-bottom: $product__item-text-brand-gap-bottom;
   }
 
-  .text-shipping, .text-price {
+  .text-shipping,
+  .text-price {
     position: absolute;
     width: 100%;
   }
@@ -175,9 +168,7 @@
   }
 }
 
-
 @mixin product__item-text--ecommerce-slider() {
-
   &:hover {
     .text-shop {
       @extend %btn--small--highlighted;
@@ -185,12 +176,18 @@
   }
 
   .text-headline {
-    @include text-helper($ecommerce-slider__item-text-headline-font-id, $ecommerce-slider__item-text-headline-size);
+    @include text-helper(
+      $ecommerce-slider__item-text-headline-font-id,
+      $ecommerce-slider__item-text-headline-size
+    );
     color: $ecommerce-slider__item-text-headline-color;
   }
 
   .text-brand {
-    @include text-helper($ecommerce-slider__item-text-brand-font-id, $ecommerce-slider__item-text-brand-size);
+    @include text-helper(
+      $ecommerce-slider__item-text-brand-font-id,
+      $ecommerce-slider__item-text-brand-size
+    );
     text-transform: uppercase;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -198,12 +195,18 @@
   }
 
   .text-price {
-    @include text-helper($ecommerce-slider__item-text-price-font-id, $ecommerce-slider__item-text-price-size);
+    @include text-helper(
+      $ecommerce-slider__item-text-price-font-id,
+      $ecommerce-slider__item-text-price-size
+    );
     color: $ecommerce-slider__item-text-price-color;
   }
 
   .text-shipping {
-    @include text-helper($ecommerce-slider__item-text-shipping-font-id, $ecommerce-slider__item-text-shipping-size);
+    @include text-helper(
+      $ecommerce-slider__item-text-shipping-font-id,
+      $ecommerce-slider__item-text-shipping-size
+    );
     color: $ecommerce-slider__item-text-shipping-color;
   }
 
@@ -211,3 +214,17 @@
     @extend %btn--small;
   }
 }
+
+@mixin item-paragraph--tracdelight() {
+  @include products--horizontal-block();
+
+  .item-title {
+    @extend %title--content-block;
+  }
+  
+  .item-product {
+    @include product__item-text();
+    @include product__item--default();
+  }
+}
+

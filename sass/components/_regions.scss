@@ -11,16 +11,8 @@
   }
 }
 
-//.no-v-padding:first-child {
-//  @include margin--v-region(-$gap-v-region-mobile);
-//}
-
 @if ($region-v-lined == false) {
   .region-header + .region-teaser-list, .region-marketing + .region-full-content {
     margin-top: 0;
   }
-}
-
-.region-teaser-list {
-  //@extend %padding--v-region;
 }

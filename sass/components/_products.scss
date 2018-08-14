@@ -1,8 +1,6 @@
-.item-paragraph--tracdelight, .item-paragraph--advertising-products-paragraph,
-.look-amp,
-.item-paragraph--advertising-products-embed {
+.look-amp {
   .item-product {
     @include product__item-text();
-    @include product__item--default();
+    @extend %product__item--default;
   }
 }
