@@ -365,7 +365,6 @@ function infinite_amp_preprocess_html(&$variables) {
  * Implements hook_preprocess_block().
  */
 function infinite_amp_preprocess_block(&$variables) {
-  $variables['environment'] = ['systemType' =>  isset($_ENV['AH_SITE_ENVIRONMENT']) ? $_ENV['AH_SITE_ENVIRONMENT'] : 'local'];
   if ($variables['plugin_id'] === 'infinite_blocks_channel_presenter') {
     $variables['#attached']['library'][] = 'amp/amp.carousel';
   }
