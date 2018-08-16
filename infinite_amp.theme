@@ -28,6 +28,7 @@ function infinite_amp_preprocess(&$variables) {
       $variables['fb_app_id'] = $metatags['fb_app_id'];
     }
   }
+  $variables['environment'] = ['systemType' =>  isset($_ENV['AH_SITE_ENVIRONMENT']) ? $_ENV['AH_SITE_ENVIRONMENT'] : 'local'];
 }
 
 function infinite_amp_preprocess_node(&$variables) {
