@@ -104,3 +104,27 @@
     margin-top: 0;
   }
 }
+
+@mixin teaser-list-h() {
+  position: relative;
+  min-height: 1px;
+
+  .caption-teaser, .teaser__caption {
+    @include gap__caption-top--h-teaser();
+  }
+
+  .item-marketing-sponsored {
+    margin-bottom: 13px;
+  }
+
+  .item-marketing-native {
+    .logo, .brand {
+      height: 17px;
+    }
+  }
+
+  .teaser__img-container {
+    @extend %ratio-hide;
+    padding-bottom: $teaser__img-ratio-mobile--presenter-multi;
+  }
+}

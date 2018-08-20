@@ -17,8 +17,7 @@
   @extend %list__images--horizontal;
 
   .teaser {
-    //@extend %list__images--horizontal__item;
-    @extend %teaser-list-h;
+    @include teaser-list-h();
     @include teaser-list-h-text();
     @include teaser-list-h-amp();
   }

@@ -28,3 +28,17 @@
   text-transform: $btn--large-text-transform;
   cursor: pointer;
 }
+@mixin button--responsive-lg() {
+  @include button--md();
+}
+
+@mixin button--responsive-md() {
+  @include button--sm();
+}
+
+@mixin button--responsive-icon-pseudo-md($container: "&:before") {
+  #{$container} {
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+}
