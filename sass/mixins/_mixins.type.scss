@@ -1,3 +1,14 @@
+@mixin title--text-block($use-size: true, $use-next-elements: true) {
+  @include text-helper($title--text-block-font-id);
+  color: $title--text-block-color;
+  text-transform: $title--text-block-text-transform;
+  margin: $title-margin-mobile--text-block;
+  @if ($use-size) {
+    @include text-helper-size($title--text-block-font-id, $title--text-block-mobile);
+  }
+}
+
+
 @mixin h2--text-block() {
   @include text-helper-size($title--text-block-font-id, $h2-size--text-block-mobile, $h-line-height--text-block-mobile);
 }

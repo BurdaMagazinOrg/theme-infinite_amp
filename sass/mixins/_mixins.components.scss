@@ -1,0 +1,51 @@
+@mixin item-breadcrumb(
+  $sizes: (
+    $breadcrumb-size-mobile,
+    $breadcrumb-size-tablet,
+    $breadcrumb-size-desktop
+  )
+) {
+  $size-mobile: nth($sizes, 1);
+  $size-tablet: nth($sizes, 2);
+  $size-desktop: nth($sizes, 3);
+
+  li {
+    @include text-helper($breadcrumb-font-id);
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin: $breadcrumb__item-margin;
+    color: $breadcrumb-color;
+
+    &:before {
+      @include text-helper(
+        $breadcrumb-before-font-id,
+        $breadcrumb-before-size,
+        1
+      );
+      content: $breadcrumb-before-content;
+      color: $breadcrumb-before-color;
+      position: absolute;
+      left: $breadcrumb-before-left;
+      top: $breadcrumb-before-top;
+      margin: $breadcrumb-before-margin;
+    }
+
+    &:first-child {
+      margin-left: 0;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    &:last-child {
+      color: $breadcrumb-color-highlighted;
+    }
+  }
+
+  li {
+    @include text-helper-size($breadcrumb-font-id, $size-mobile);
+  }
+}
