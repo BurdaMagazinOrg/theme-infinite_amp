@@ -1,7 +1,9 @@
 <div class="ecommerce-slider">
-    <div class="affiliatelinks">
-     <a href="/affiliatelinks" target="_self">Affiliatelinks</a>
-    </div>
+    {% if content.field_suppress_affiliate_link[0]['#markup'] != '1' %}
+      <div class="affiliatelinks">
+       <a href="/affiliatelinks" target="_self">Affiliatelinks</a>
+      </div>
+    {% endif %}
     <h3 class="ecommerce-slider__title">{{ label }}</h3>
     <div class="ecommerce-slider__company">
         {{ content.field_campaign }}
