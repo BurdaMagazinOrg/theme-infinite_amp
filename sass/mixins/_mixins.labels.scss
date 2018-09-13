@@ -16,7 +16,7 @@
 }
 
 @mixin label--affiliate() {
-  @include text-helper($label--affiliate-font-id, $label--affiliate-size--desktop);
+  @include text-helper($label--affiliate-font-id);
   @include text-helper-size($label--affiliate-font-id, $label--affiliate-size--mobile);
   color: $label--affiliate-color;
   text-transform: $label--affiliate-text-transform;
