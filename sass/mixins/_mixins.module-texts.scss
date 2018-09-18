@@ -173,3 +173,34 @@
     @extend %copytext--teaser-default;
   }
 }
+
+@mixin product__item-text-shop--default() {
+  @include button;
+  @include button--md;
+  @include button--lined-colored;
+
+  &:hover {
+    @include button--lined-colored-hover;
+  }
+
+  &:active {
+    @include button--lined-colored-hover;
+  }
+
+  &:disabled, &.disabled {
+    @include button--disabled;
+  }
+
+  &.btn-text-shop--tipser {
+    @include button--lined-colored;
+    @include button--icon($tipser__buy-icon, 'right');
+
+    &:hover {
+      @include button--lined-colored-hover;
+    }
+
+    &:active {
+      @include button--lined-colored-hover;
+    }
+  }
+}

@@ -47,6 +47,7 @@
   }
 
   .text-shop {
+    @include product__item-text-shop--default();
     margin-top: 10px;
   }
 
