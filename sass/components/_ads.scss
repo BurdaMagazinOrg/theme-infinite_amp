@@ -3,11 +3,6 @@
 .region-full-content.region-marketing {
   padding-left: 0;
   padding-right: 0;
-
-  @media (min-width: 351px) {
-    padding-left: $padding;
-    padding-right: $padding;
-  }
 }
 
 .region-marketing {
