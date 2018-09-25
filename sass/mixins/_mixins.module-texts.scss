@@ -178,6 +178,7 @@
   @include button;
   @include button--md;
   @include button--lined-colored;
+  display: inline-block;
 
   &:hover {
     @include button--lined-colored-hover;

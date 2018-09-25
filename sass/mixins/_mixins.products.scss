@@ -34,14 +34,11 @@
     display: block;
     margin-bottom: $product__item-text-brand-gap-bottom;
   }
-
+  
   .text-price {
     position: absolute;
-    width: 100%;
-  }
-
-  .text-price {
-    left: 0;
+    right: 0;
+    left: 16px;
     color: $product__item-text-price-color;
     bottom: $product__item-text-price-pos-bottom;
   }
