@@ -212,7 +212,7 @@
   }
 
   .text-shop {
-    @extend %btn--small;
+    @include product__item-text-shop--default();
   }
 }
 
