@@ -188,13 +188,14 @@
     @include button--lined-colored-hover;
   }
 
-  &:disabled, &.disabled {
+  &:disabled,
+  &.disabled {
     @include button--disabled;
   }
 
   &.btn-text-shop--tipser {
     @include button--lined-colored;
-    @include button--icon($tipser__buy-icon, 'right');
+    @include button--icon($tipser__buy-icon, "right");
 
     &:hover {
       @include button--lined-colored-hover;
@@ -203,5 +204,12 @@
     &:active {
       @include button--lined-colored-hover;
     }
+  }
+}
+
+@mixin product__item-hover--default() {
+  .text-shop,
+  .btn-text-shop--tipser {
+    @include button--lined-colored-hover;
   }
 }

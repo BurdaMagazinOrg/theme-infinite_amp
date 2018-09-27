@@ -168,9 +168,7 @@
 
 @mixin product__item-text--ecommerce-slider() {
   &:hover {
-    .text-shop {
-      @extend %btn--small--highlighted;
-    }
+    @include product__item-hover--default();
   }
 
   .text-headline {
