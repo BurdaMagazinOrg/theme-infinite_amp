@@ -179,6 +179,9 @@ function infinite_amp_preprocess_paragraph(&$variables) {
       '#markup' => $recent_content_view
     );
   }
+  else if ($variables['paragraph']->getType() === 'iframe') {
+    $variables['#attached']['library'][] = 'amp/amp.iframe';
+  }
 }
 
 /**
