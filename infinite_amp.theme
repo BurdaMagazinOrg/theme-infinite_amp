@@ -354,6 +354,7 @@ function infinite_amp_preprocess_html(&$variables) {
   $variables['#attached']['library'][] = 'infinite_amp/amp.ad';
   $variables['#attached']['library'][] = 'infinite_amp/amp.social-share';
   $variables['#attached']['library'][] = 'infinite_amp/amp.amp-carousel';
+  $variables['#attached']['library'][] = 'infinite_amp/amp.amp-iframe';
 
   $css = file_get_contents(drupal_get_path('theme', 'infinite_amp') . '/css/infinite-amp-base.css');
   if ($css) {
