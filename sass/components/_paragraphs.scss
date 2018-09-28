@@ -18,6 +18,10 @@
 
 .ecommerce-slider {
 
+  .affiliatelinks {
+    @include label--affiliate();
+  }
+
   .ecommerce-slider__title {
     @include text-helper($ecommerce-slider__item-text-headline-font-id, $ecommerce-slider__item-text-headline-size);
     color: #ffffff;

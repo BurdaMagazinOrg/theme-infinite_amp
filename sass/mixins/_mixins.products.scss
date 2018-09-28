@@ -220,6 +220,10 @@
 @mixin item-paragraph--tracdelight() {
   @include products--horizontal-block();
 
+  .affiliatelinks {
+    @include label--affiliate();
+  }
+
   .item-title {
     @extend %title--content-block;
   }
