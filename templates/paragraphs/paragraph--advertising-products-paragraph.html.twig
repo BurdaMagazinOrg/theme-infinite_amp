@@ -1,1 +1,4 @@
+{% if content.field_e_view_mode[0]['#markup'] != 'single_product' %}
+    {% set showAffiliateLink = false %}
+{% endif %}
 {% extends "@infinite/paragraphs/paragraph--advertising-products-paragraph.html.twig" %}
