@@ -96,7 +96,7 @@ function infinite_amp_preprocess_node(&$variables) {
     foreach (Drupal\Core\Render\Element::children($variables['content']['field_paragraphs']) as $key) {
       $paragraph = $variables['content']['field_paragraphs'][$key]['#paragraph'];
       if ($paragraph) {
-        if (in_array($paragraph->bundle(), ['content_teaser', 'recent_content', 'term_teaser'])) {
+        if (in_array($paragraph->bundle(), ['recent_content', 'term_teaser'])) {
           $variables['content']['field_paragraphs'][$key] = ['#markup' => ''];
         }
       }
@@ -113,7 +113,7 @@ function infinite_amp_preprocess_taxonomy_term(&$variables) {
     foreach (Drupal\Core\Render\Element::children($variables['content']['field_paragraphs']) as $key) {
       $paragraph = $variables['content']['field_paragraphs'][$key]['#paragraph'];
       if ($paragraph) {
-        if (in_array($paragraph->bundle(), ['content_teaser', 'recent_content'])) {
+        if (in_array($paragraph->bundle(), ['recent_content'])) {
           $variables['content']['field_paragraphs'][$key] = ['#markup' => ''];
         }
       }
