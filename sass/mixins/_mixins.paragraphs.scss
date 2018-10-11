@@ -1,3 +1,11 @@
+@mixin item-paragraph--term-teaser() {
+  @include item-paragraph--content-teaser();
+}
+
+@mixin item-paragraph--recent-content() {
+  @include item-paragraph--content-teaser();
+}
+
 @mixin item-paragraph--content-teaser() {
   .text-title {
     @extend %title--content-block;

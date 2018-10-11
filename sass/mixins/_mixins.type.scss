@@ -28,3 +28,63 @@
 @mixin h6--text-block() {
   @include text-helper-size($title--text-block-font-id, $h6-size--text-block-mobile, $h-line-height--text-block-mobile);
 }
+
+@mixin text-content-html() {
+  @extend %headline-gaps--text-block !optional;
+
+  & > p, & > .text-label {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  & > p, .btn, .btn--small, .btn--large {
+    margin-top: $text-content__children-margin-top--mobile;
+  }
+
+  h2, h3, h4, h5, h6 {
+    @include title--text-block(false);
+  }
+
+  h2 {
+    @extend %h2--text-block;
+  }
+
+  h3 {
+    @extend %h3--text-block;
+  }
+
+  h4 {
+    @extend %h4--text-block;
+  }
+
+  h5 {
+    @extend %h5--text-block;
+  }
+
+  h6 {
+    @extend %h6--text-block;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  ul {
+    @extend %list-ul--text-block;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul, ol {
+    @extend %list--text-block;
+  }
+
+  table {
+    margin-top: 1em;
+
+    @extend %table--text-block;
+  }
+}

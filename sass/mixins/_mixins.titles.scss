@@ -80,13 +80,13 @@
 }
 
 @mixin headline-gaps--text-block() {
-  @for $index from 2 through 6 {
-    h#{$index} {
-      @if ($index <= 5) {
-        & + h#{$index + 1} {
-          margin: $title__headline-margin-mobile--text-block;
-        }
-      }
-    }
-  }
+  // @for $index from 2 through 6 {
+  //   h#{$index} {
+  //     @if ($index <= 5) {
+  //       & + h#{$index + 1} {
+  //         margin: $title__headline-margin-mobile--text-block;
+  //       }
+  //     }
+  //   }
+  // }
 }

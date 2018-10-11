@@ -9,8 +9,12 @@
             <div class="caption">
                 <div class="text-brand">{{ content.product_brand }}</div>
                 <div class="text-headline">{{ content.product_name }}</div>
-                <div class="text-price">{{ content.product_price }} {{ formatted_currency }}</div>
-                {% include '@infinite_amp/product/advertising-product-button.html.twig' %}
+                {% if sold_out %}
+                    <div class="text-shop text-sold-out">Ausverkauft</div>
+                {% else %}
+                    <div class="text-price">{{ content.product_price }} {{ formatted_currency }}</div>
+                    {% include '@infinite_amp/product/advertising-product-button.html.twig' %}
+                {% endif %}
             </div>
         </a>
     </div>
