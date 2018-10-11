@@ -1,6 +1,8 @@
 <?php
 
+use Drupal\Core\Url;
 use Drupal\infinite_media\MediaHelper;
+use Drupal\node\NodeInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\views\Views;
@@ -146,18 +148,18 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
     $tipserProductId = $product->get('product_id')->value;
     // add request uri
     $query = [
-      'article' => \Drupal\Core\Url::fromUserInput($_SERVER['REQUEST_URI'])
+      'article' => Url::fromUserInput($_SERVER['REQUEST_URI'])
         ->setOption('query', null)
         ->setAbsolute(true)
         ->toString(),
     ];
     // add node title (if we are on a node)
     $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node instanceof \Drupal\node\NodeInterface) {
+    if ($node instanceof NodeInterface) {
       $query['title'] = $node->getTitle();
     }
 
-    $variables['tipser_url'] = \Drupal\Core\Url::fromRoute('tipser_client.open_from_amp_page', [
+    $variables['tipser_url'] = Url::fromRoute('tipser_client.open_from_amp_page', [
       'productId' => $tipserProductId,
     ], [
       'query' => $query
