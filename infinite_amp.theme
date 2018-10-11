@@ -144,16 +144,25 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
   // update links to tipser products
   if ('advertising_product_tipser' === $product->bundle()) {
     $tipserProductId = $product->get('product_id')->value;
+    // add request uri
+    $query = [
+      'article' => \Drupal\Core\Url::fromUserInput($_SERVER['REQUEST_URI'])
+        ->setOption('query', null)
+        ->setAbsolute(true)
+        ->toString(),
+    ];
+    // add node title (if we are on a node)
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      $query['title'] = $node->getTitle();
+    }
+
     $variables['tipser_url'] = \Drupal\Core\Url::fromRoute('tipser_client.open_from_amp_page', [
       'productId' => $tipserProductId,
     ], [
-      'query' => [
-        'article' => \Drupal\Core\Url::fromUserInput($_SERVER['REQUEST_URI'])
-          ->setOption('query', null)
-          ->setAbsolute(true)
-          ->toString(),
-      ]
+      'query' => $query
     ]);
+
     $variables['link_target'] = '_self';
   } else {
     $variables['link_target'] = '_blank';
