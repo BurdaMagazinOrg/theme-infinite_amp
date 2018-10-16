@@ -1,0 +1,7 @@
+{% set showAffiliateLinksLabel = content.field_suppress_affiliate_link[0]['#markup'] != '1' %}
+{% set showAffiliateLinkLabel = false %}
+
+{% set inheritClasses = [
+  content.field_suppress_affiliate_link[0]['#markup'] == '1' ? 'affiliatelinks--hide'
+] %}
+{% extends "paragraph.html.twig" %}
