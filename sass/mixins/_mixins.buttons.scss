@@ -1,33 +1,3 @@
-@mixin btn--small($size-mobile: $btn__label-size-mobile--small, $font: $btn--small-font-id) {
-  @include text-helper($font);
-  @include transition-default();
-  @include text-helper-size($font, $size-mobile);
-  padding: $btn--small-padding-mobile;
-  background-color: $btn--small-bg-color;
-  color: $btn--small-color;
-  border: $btn--small-border;
-  border-radius: $btn--small-radius;
-  letter-spacing: $btn--small-letter-spacing;
-  display: inline-block;
-  text-transform: $btn--small-text-transform;
-  cursor: pointer;
-}
-
-
-@mixin btn--large($size-mobile: $btn__label-size-mobile--large, $font: $btn--large-font-id) {
-  @include text-helper($font);
-  @include transition-default();
-  @include text-helper-size($font, $size-mobile);
-  padding: $btn--large-padding-mobile;
-  background-color: $btn--large-bg-color;
-  color: $btn--large-color;
-  border: $btn--large-border;
-  border-radius: $btn--large-radius;
-  letter-spacing: $btn--large-letter-spacing;
-  display: inline-block;
-  text-transform: $btn--large-text-transform;
-  cursor: pointer;
-}
 @mixin button--responsive-lg() {
   @include button--md();
 }
