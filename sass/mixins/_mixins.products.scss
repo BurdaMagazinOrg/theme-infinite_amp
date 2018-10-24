@@ -167,7 +167,7 @@
 }
 
 @mixin product__item-text--ecommerce-slider() {
-  &:hover {
+  &:hover:not(.item-product--sold-out) {
     .text-shop {
       @include product__button--hover();
     }
