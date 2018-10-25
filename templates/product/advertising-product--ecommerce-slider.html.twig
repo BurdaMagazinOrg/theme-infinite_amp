@@ -1,6 +1,17 @@
+{% set classes = [
+    'item-product',
+] %}
+{% if show_strikethrough_price %}
+    {% set attributes = attributes.addClass('item-product--strikethrough') %}
+{% endif %}
+
+{% if sold_out %}
+    {% set attributes = attributes.addClass('item-product--sold-out') %}
+{% endif %}
+
 {% if content.status %}
     <div class="slide">
-        <a class="item-product" {{ data_attributes }}
+        <a {{ attributes.addClass(classes) }} {{ data_attributes }}
            href="{{ tipser_url | default(advertising_product.product_url.uri) }}"
            target="{{ link_target }}">
             <div class="img-container">

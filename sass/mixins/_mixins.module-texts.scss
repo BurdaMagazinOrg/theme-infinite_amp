@@ -116,14 +116,9 @@
   }
 
   .item-media__btn-download--file {
-    @include btn--large(
-      (
-        $media__btn-download-size-mobile--file,
-        $media__btn-download-size-tablet--file,
-        $media__btn-download-size-desktop--file
-      ),
-      $media__btn-download-font-id--file
-    );
+    @include button();
+    @include button--lg();
+    @include button--dark();
   }
 }
 
@@ -174,38 +169,6 @@
   }
 }
 
-@mixin product__item-text-shop--default() {
-  @include button;
-  @include button--md;
-  @include button--lined-colored;
-  display: inline-block;
-
-  &:hover {
-    @include button--lined-colored-hover;
-  }
-
-  &:active {
-    @include button--lined-colored-hover;
-  }
-
-  &:disabled,
-  &.disabled {
-    @include button--disabled;
-  }
-
-  &.btn-text-shop--tipser {
-    @include button--lined-colored;
-    @include button--icon($tipser__buy-icon, "right");
-
-    &:hover {
-      @include button--lined-colored-hover;
-    }
-
-    &:active {
-      @include button--lined-colored-hover;
-    }
-  }
-}
 
 @mixin product__item-hover--default() {
   .text-shop,
