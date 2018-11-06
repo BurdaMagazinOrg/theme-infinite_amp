@@ -369,6 +369,15 @@ function infinite_amp_preprocess_html(&$variables) {
   $variables['#attached']['library'][] = 'infinite_amp/amp.social-share';
   $variables['#attached']['library'][] = 'infinite_amp/amp.amp-carousel';
 
+  if (in_array(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), [
+    '/shop-it',
+    '/shop-it-elle',
+  ])) {
+    $variables['#attached']['library'][] = 'infinite_amp/amp.list';
+    $variables['#attached']['library'][] = 'infinite_amp/amp.mustache';
+    $variables['#attached']['library'][] = 'infinite_amp/amp.bind';
+  }
+
   $css = file_get_contents(drupal_get_path('theme', 'infinite_amp') . '/css/infinite-amp-base.css');
   if ($css) {
     $variables['amp_css'] = $css;

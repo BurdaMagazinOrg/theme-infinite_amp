@@ -30,3 +30,36 @@ amp.social-share:
     gpl-compatible: false
   js:
     https://cdn.ampproject.org/v0/amp-social-share-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-social-share", async: true } }
+
+amp.list:
+  remote: https://cdn.ampproject.org
+  header: true
+  version: 0.1
+  license:
+    name: apache
+    url: https://github.com/ampproject/amphtml/blob/master/LICENSE
+    gpl-compatible: false
+  js:
+    https://cdn.ampproject.org/v0/amp-list-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-list", async: true } }
+
+amp.mustache:
+  remote: https://cdn.ampproject.org
+  header: true
+  version: 0.1
+  license:
+    name: apache
+    url: https://github.com/ampproject/amphtml/blob/master/LICENSE
+    gpl-compatible: false
+  js:
+    https://cdn.ampproject.org/v0/amp-mustache-0.1.js: { type: external, minified: true, attributes: { custom-template: "amp-mustache", async: true } }
+
+amp.bind:
+  remote: https://cdn.ampproject.org
+  header: true
+  version: 0.1
+  license:
+    name: apache
+    url: https://github.com/ampproject/amphtml/blob/master/LICENSE
+    gpl-compatible: false
+  js:
+    https://cdn.ampproject.org/v0/amp-bind-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-bind", async: true } }
