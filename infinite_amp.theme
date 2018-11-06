@@ -409,3 +409,16 @@ function infinite_amp_views_pre_render(ViewExecutable $view) {
 function infinite_amp_preprocess_page(&$variables) {
     $variables['site_name'] = \Drupal::config('system.site')->get('name');
 }
+
+function _infinite_amp_append_css($css, $fileName, $purifiedPath) {
+  if (file_exists($purifiedPath)) {
+    $css .= file_get_contents($purifiedPath);
+  } else {
+    $standardPath = __DIR__ . '/css/' . $fileName;
+    if (file_exists($standardPath)) {
+      $css .= file_get_contents($standardPath);
+    }
+  }
+
+  return $css;
+}
