@@ -20,6 +20,9 @@
 {% set classes = [
     'item-product',
 ] %}
+
+{% set product_url = advertising_product.product_url.uri %}
+
 {% if show_strikethrough_price %}
     {% set attributes = attributes.addClass('item-product--strikethrough') %}
 {% endif %}
@@ -29,12 +32,16 @@
     {% set data_attributes = data_attributes.removeAttribute('data-external-url') %}
 {% endif %}
 
+{% if provider == 'tracdelight' and advertising_product.product_id is not empty %}
+    {% set product_url = product_url ~ '&suibid=' ~ advertising_product.product_id.0.value %}
+{% endif %}
+
 {% if content.status %}
     <div class="affiliatelinks">
         <a href="/affiliatelinks" rel="nofollow" target="_self">Affiliatelink</a>
     </div>
     <a {{ attributes.addClass(classes) }} {{ data_attributes }}
-            href="{{ tipser_url | default(advertising_product.product_url.uri) }}"
+            href="{{ tipser_url | default(product_url) }}"
             target="{{ link_target }}">
         <div class="img-container">
             {{ content.product_image }}
