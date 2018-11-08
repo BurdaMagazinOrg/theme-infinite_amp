@@ -24,7 +24,9 @@
   margin-top: $gap-v-region-mobile;
 
   .more-button {
-    @extend %btn--large;
+    @extend %button;
+    @extend %button--md;
+    @extend %button--dark;
     display: block;
     width: 100%;
     text-align: center;
