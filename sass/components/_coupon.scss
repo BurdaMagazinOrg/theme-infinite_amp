@@ -1,0 +1,18 @@
+.item-paragraph--amp-content-reference {
+  text-align: center;
+  position: relative;
+  @include coupon--content-reference--normal();
+  .coupon {
+    &__tnc-details {
+      margin-top: $grid-unit-2;
+    }
+    &__code--wrapper {
+      margin-top: $grid-unit-2;
+    }
+    &__button {
+      @include coupon-button();
+      margin-top: $grid-unit-1;
+      margin-bottom: $grid-unit-1;
+    }
+  }
+}
