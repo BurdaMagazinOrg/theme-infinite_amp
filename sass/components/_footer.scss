@@ -1,0 +1,9 @@
+.region-footer {
+  padding-bottom: $grid-unit-2;
+  .data-protection {
+    a {
+      font-size: $grid-unit-1 + $grid-unit-half;
+      padding: $grid-unit-half;
+    }
+  }
+}
