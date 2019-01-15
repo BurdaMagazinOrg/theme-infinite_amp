@@ -1,14 +1,14 @@
-@import "../../../contrib/infinite/sass/variables.base";
-@import "../../../contrib/infinite/sass/variables.components";
+@import "infinite_theme/variables.base";
+@import "infinite_theme/variables.components";
 @import "variables.base";
 @import "variables.components";
 
 @import "base";
 
-@import "../../../contrib/infinite/sass/mixins";
+@import "infinite_theme/mixins";
 @import "mixins";
 
-@import "../../../contrib/infinite/sass/extends";
+@import "infinite_theme/extends";
 @import "extends";
 
-@import "../../../contrib/infinite/sass/fonts";
+@import "infinite_theme/fonts";
