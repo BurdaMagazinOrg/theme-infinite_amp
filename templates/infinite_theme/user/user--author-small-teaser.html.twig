@@ -1,0 +1,15 @@
+{% if user.status %}
+    <div class="item-author item-author--teaser-small-detail" data-internal-url="{{ url('entity.user.canonical', {'user': user.id}) }}">
+        {% if content.user_picture | render is not empty %}
+            <div class="img-container item-author__profile-image">
+                {{ content.user_picture }}
+            </div>
+        {% endif %}
+
+        <div class="item-author__caption">
+            <div class="item-author__job">{{ content.field_job_title }}</div>
+            <div class="item-author__name"><span>{{ content.field_full_name }}</span></div>
+            <div class="item-author__short-info">{{ content.field_teaser_text }}</div>
+        </div>
+    </div>
+{% endif %}

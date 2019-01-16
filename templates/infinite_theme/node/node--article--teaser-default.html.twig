@@ -1,0 +1,77 @@
+{# Add wrapper classes #}
+{% set wrapper_classes = [
+  'teaser',
+  'contextual-region',
+] %}
+
+{% if content.field_smart_teaser_class is defined and content.field_smart_teaser_class is not empty %}
+    {% set smart_teaser_class = content.field_smart_teaser_class | render %}
+    {% set wrapper_classes = wrapper_classes | merge([smart_teaser_class]) %}
+{% endif %}
+
+{% if dataViewType is not defined %}
+    {% set dataViewType = 'teaserFeedView' %}
+{% endif %}
+
+{% set attributes = attributes.setAttribute('data-view-type', dataViewType) %}
+{% set attributes = attributes.setAttribute('data-nid', nid) %}
+{{ attach_library('infinite/infinite.views.teaser-feed-view') }}
+
+<article{{ attributes.addClass(wrapper_classes) }}>
+    {% block teaser_img_container_wrapper %}
+        <div class="teaser__img-container" data-internal-url="{{ url }}">
+            {% block teaser_img_container %}
+                {% if (view_mode == 'presenter_half' and content.field_presenter_media['#items'] is not empty) %}
+                    {{ content.field_presenter_media }}
+                {% else %}
+                    {{ content.field_teaser_media }}
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+
+    {% block teaser_caption_block %}
+        <div class="teaser__caption">
+            {% block teaser_caption_channel %}
+                <div class="teaser__overhead">
+                    {{ content.field_channel }}
+                </div>
+            {% endblock %}
+
+            {% block sponsored %}
+                {% embed '@infinite_amp/../../infinite_theme/node/twig-block-sponsored.html.twig' %}{% endembed %}
+            {% endblock %}
+
+            {% block teaser_text_headline %}
+                <h3 class="teaser__title text-headline">
+                    <a href="{{ url }}" target="_self" rel="bookmark">{{ label }}</a>
+                </h3>
+            {% endblock %}
+
+            {% block teaser_text %}{% endblock %}
+
+            {% block header_block %}
+                <header>
+                    {% block teaser_author %}
+                        {{ author_teaser }}
+                    {% endblock %}
+                    {% block teaser_content %}{% endblock %}
+                    <div class="socials socials-bar">
+                        {% block teaser_social_bar %}
+                            {% embed '@infinite_amp/../../infinite_theme/embeds/social_icons.html.twig' with {
+                                'facebook_share_button' : '',
+                                'whatsapp_share_button' : '',
+                                'pinterest_share_button' : '',
+                                'twitter_share_button' : '',
+                                'email_share_button' : ''
+                            } %}{% endembed %}
+                        {% endblock %}
+                    </div>
+                </header>
+            {% endblock %}
+        </div>
+    {% endblock %}
+    {% if (show_contextual_links) %}
+        {{ title_suffix.contextual_links }}
+    {% endif %}
+</article>
