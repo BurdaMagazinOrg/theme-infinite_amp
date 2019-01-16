@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\GeneratedLink;
 use Drupal\Core\Url;
 use Drupal\infinite_media\MediaHelper;
 use Drupal\node\NodeInterface;
@@ -391,6 +392,21 @@ function infinite_amp_preprocess_html(&$variables) {
 function infinite_amp_preprocess_block(&$variables) {
   if ($variables['plugin_id'] === 'infinite_blocks_channel_presenter') {
     $variables['#attached']['library'][] = 'amp/amp.carousel';
+  }
+}
+
+/**
+ * Implements hook_preprocess_file_link() to remove type from a-tag for AMP.
+ *
+ * @see INREL-5303
+ */
+function infinite_amp_preprocess_file_link(&$variables) {
+  if ($variables['link'] instanceof GeneratedLink) {
+    $doc = new DOMDocument();
+    $doc->loadHTML($variables['link']->getGeneratedLink(), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+    $node = $doc->getElementsByTagName('a')[0];
+    $node->removeAttribute('type');
+    $variables['link']->setGeneratedLink(trim($doc->saveHTML()));
   }
 }
 
