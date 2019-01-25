@@ -191,6 +191,13 @@ function infinite_amp_preprocess_paragraph(&$variables) {
   } else if ($variables['paragraph']->getType() === 'iframe') {
     $variables['#attached']['library'][] = 'amp/amp.iframe';
   }
+
+  if (
+    $variables['paragraph']->hasField('field_progress_navigation') &&
+    !$variables['paragraph']->field_progress_navigation->isEmpty()
+  ) {
+    $variables['paragraph']->set('field_progress_navigation', NULL);
+  }
 }
 
 /**
