@@ -5,9 +5,7 @@ use Drupal\Core\Url;
 use Drupal\infinite_media\MediaHelper;
 use Drupal\node\NodeInterface;
 use Drupal\views\ViewExecutable;
-use Drupal\image\Entity\ImageStyle;
 use Drupal\views\Views;
-
 
 function infinite_amp_preprocess(&$variables) {
 
@@ -31,7 +29,7 @@ function infinite_amp_preprocess(&$variables) {
       $variables['fb_app_id'] = $metatags['fb_app_id'];
     }
   }
-  $variables['environment'] = ['systemType' =>  isset($_ENV['AH_SITE_ENVIRONMENT']) ? $_ENV['AH_SITE_ENVIRONMENT'] : 'local'];
+  $variables['environment'] = ['systemType' => isset($_ENV['AH_SITE_ENVIRONMENT']) ? $_ENV['AH_SITE_ENVIRONMENT'] : 'local'];
 }
 
 function infinite_amp_preprocess_node(&$variables) {
@@ -57,7 +55,7 @@ function infinite_amp_preprocess_node(&$variables) {
     $variables['timestamp'] = $node->created->value;
 
     // Override TWIG url with absolute alias URL.
-    $variables['path'] = $variables['url'];  // used for lazy loading history API.
+    $variables['path'] = $variables['url']; // used for lazy loading history API.
     $variables['url'] = $node->url('canonical', ['absolute' => TRUE]);
     $variables['nid'] = $node->id();
 
@@ -133,13 +131,13 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
 
   $price = $product->product_price->value;
   $sold_out = $product->product_sold_out->value;
-  if($price <= 0 || $sold_out){
+  if ($price <= 0 || $sold_out) {
     $variables['sold_out'] = TRUE;
   }
 
   $original_price = $product->product_original_price->value;
-  if(!isset($variables['sold_out']) || !$variables['sold_out']) {
-    if($price < $original_price){
+  if (!isset($variables['sold_out']) || !$variables['sold_out']) {
+    if ($price < $original_price) {
       $variables['show_strikethrough_price'] = TRUE;
     }
   }
@@ -163,7 +161,7 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
     $variables['tipser_url'] = Url::fromRoute('tipser_client.open_from_amp_page', [
       'productId' => $tipserProductId,
     ], [
-      'query' => $query
+      'query' => $query,
     ]);
 
     $variables['link_target'] = '_self';
@@ -188,11 +186,17 @@ function infinite_amp_preprocess_paragraph(&$variables) {
     $embed_view = paragraphs_starterkit_recent_content_views_embed_view('paragraph_recent_content', 'amp_recent_content', $items);
     $recent_content_view = \Drupal::service('renderer')->render($embed_view);
     $variables['content']['amp_recent_content_view'] = array(
-      '#markup' => $recent_content_view
+      '#markup' => $recent_content_view,
     );
-  }
-  else if ($variables['paragraph']->getType() === 'iframe') {
+  } else if ($variables['paragraph']->getType() === 'iframe') {
     $variables['#attached']['library'][] = 'amp/amp.iframe';
+  }
+
+  if (
+    $variables['paragraph']->hasField('field_progress_navigation') &&
+    !$variables['paragraph']->field_progress_navigation->isEmpty()
+  ) {
+    $variables['paragraph']->set('field_progress_navigation', NULL);
   }
 }
 
@@ -385,7 +389,6 @@ function infinite_amp_preprocess_html(&$variables) {
   }
 }
 
-
 /**
  * Implements hook_preprocess_block().
  */
@@ -423,14 +426,14 @@ function infinite_amp_views_pre_render(ViewExecutable $view) {
 }
 
 function infinite_amp_preprocess_page(&$variables) {
-    $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
 }
 
 function _infinite_amp_append_css($css, $purifiedPath, $standardPath) {
   if (file_exists($purifiedPath)) {
     $css .= file_get_contents($purifiedPath);
   } elseif (file_exists($standardPath)) {
-      $css .= file_get_contents($standardPath);
+    $css .= file_get_contents($standardPath);
   }
 
   return $css;
