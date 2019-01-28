@@ -37,7 +37,7 @@
  */
 #}
 {% set classes = [
-    'item-paragraph--' ~ (paragraph.bundle ~ '-' ~ text_position )|clean_class,
+    'p--' ~ (paragraph.bundle ~ '-' ~ text_position )|clean_class,
 ] %}
 
 {% if (content.field_bg_overlay_disabled | plain_text | trim ) %}

@@ -1,19 +1,19 @@
-.item-paragraph {
-  .item-title, .item-paragraph__title {
+.p {
+  .item-title, .p__title {
     @extend %title--content-block;
   }
 }
 
-.item-paragraph--recent-content, .item-paragraph--content-teaser, .item-paragraph--term-teaser {
-  @extend %item-paragraph--recent-content;
+.p--recent-content, .p--content-teaser, .p--term-teaser {
+  @extend %p--recent-content;
 }
 
-.item-paragraph--text {
-  @extend %item-paragraph--text;
+.p--text {
+  @extend %p--text;
 }
 
-.item-paragraph--quote {
-  @extend %item-paragraph--quote;
+.p--quote {
+  @extend %p--quote;
 }
 
 .ecommerce-slider {
@@ -58,15 +58,15 @@
 }
 
 
-.item-paragraph--pinterest {
-  @extend %item-paragraph--pinterest;
+.p--pinterest {
+  @extend %p--pinterest;
 }
 
-.item-paragraph--seo-links {
-  @extend %item-paragraph--seo-links;
+.p--seo-links {
+  @extend %p--seo-links;
 }
 
-.item-paragraph--amp.item-paragraph--advertising-products-paragraph .item-product {
+.p--amp.p--advertising-products-paragraph .item-product {
   .caption {
     padding-left: $grid-unit-2;
   }

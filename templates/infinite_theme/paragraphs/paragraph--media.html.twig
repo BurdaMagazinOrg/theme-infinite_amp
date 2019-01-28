@@ -37,7 +37,7 @@
  */
 #}
 {% set classes = [
-'item-paragraph--' ~ paragraph.bundle|clean_class ~ '--' ~ media_bundle|clean_class,
+'p--' ~ paragraph.bundle|clean_class ~ '--' ~ media_bundle|clean_class,
 ] %}
 
 {% set attributes = attributes.addClass(classes) %}

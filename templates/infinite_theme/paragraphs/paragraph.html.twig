@@ -42,9 +42,9 @@
 {% set classes = inheritClasses ? inheritClasses : [] %}
 {%
 set classes = classes|merge([
-'item-paragraph',
-view_mode ? 'item-paragraph--' ~ view_mode|clean_class,
-'item-paragraph--' ~ paragraph.bundle|clean_class,
+'p',
+view_mode ? 'p--' ~ view_mode|clean_class,
+'p--' ~ paragraph.bundle|clean_class,
 ])
 %}
 

@@ -37,9 +37,9 @@
  */
 #}
 {% set classes = [
-'item-paragraph',
-'item-paragraph--' ~ paragraph.bundle|clean_class,
-view_mode ? 'item-paragraph--' ~ view_mode|clean_class,
+'p',
+'p--' ~ paragraph.bundle|clean_class,
+view_mode ? 'p--' ~ view_mode|clean_class,
 ] %}
 
 {% if paragraph.field_anchor is not empty %}
