@@ -1,0 +1,5 @@
+@import "../../shared";
+
+.p--spotlight {
+  @include p--spotlight();
+}

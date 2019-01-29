@@ -1,6 +1,22 @@
+@mixin p--text() {
+  @include text-content-html;
+
+  .button {
+    @include margin--v-sm;
+    text-decoration: none;
+  }
+
+
+  & > iframe, .instagram-media {
+    //TODO check if important is necessary - when it is we have to override it in the amp themes
+    margin-top: $grid-unit-4;
+  }
+}
+
 @mixin p--term-teaser() {
   @include p--content-teaser();
 }
+
 
 @mixin p--recent-content() {
   @include p--content-teaser();
@@ -164,12 +180,6 @@
     margin-bottom: $profile__title-gap-bottom;
   }
 
-  //.img-container {
-  //  img {
-  //    @extend %img-full-responsive;
-  //  }
-  //}
-
   .caption {
     padding-top: $gap-size-xxs;
   }
@@ -187,6 +197,18 @@
 
   tr {
     @include p--profile__fact-item();
+  }
+}
+
+@mixin p--profile__fact-item() {
+  th {
+    border-top: $h-line-style;
+    padding-top: $gap-size-xxs;
+    margin-top: $gap-size-xxs;
+  }
+
+  td {
+    margin-top: $gap-size-xxs;
   }
 }
 

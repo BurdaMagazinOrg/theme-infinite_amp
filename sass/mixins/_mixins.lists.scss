@@ -18,7 +18,7 @@
   margin-right: -$gap-mobile;
 }
 
-@mixin list__images--horizontal__item($gap-mobile: $teaser__gap--list-horizontal-mobile) {
+@mixin list__images--horizontal__item($gap-mobile: $teaser__gap--list-horizontal-mobile, $count: $teaser-list-horizontal-count-default) {
   padding-left: $gap-mobile;
   padding-right: $gap-mobile;
 }

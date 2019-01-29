@@ -1,3 +1,27 @@
+@mixin p--profile-text() {
+  .title {
+    @extend %text-label;
+    @include text-label-size($profile__title-size);
+    text-transform: uppercase;
+    color: $profile__title-color;
+  }
+
+  .col--right {
+    text-align: center;
+  }
+
+  th {
+    @extend %text-label;
+    @include text-label-size($profile__th-size);
+    color: $profile__th-color;
+    text-transform: uppercase;
+  }
+
+  td {
+    color: $profile__td-color;
+  }
+}
+
 @mixin seo-linker-text() {
   .seo-linker__item-title {
     @include text-helper($seo-linker__item-title-font-id);
