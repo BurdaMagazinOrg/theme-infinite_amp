@@ -1,5 +1,6 @@
 @mixin p--text() {
   @include text-content-html;
+  @include copytext--text-block;
 
   .button {
     @include margin--v-sm;
