@@ -219,7 +219,7 @@
   }
 }
 
-@mixin item-paragraph--tracdelight() {
+@mixin p--tracdelight() {
   @include products--horizontal-block();
 
   .affiliatelinks {

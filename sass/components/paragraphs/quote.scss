@@ -1,0 +1,5 @@
+@import "../../shared";
+
+.p--quote {
+  @include p--quote;
+}

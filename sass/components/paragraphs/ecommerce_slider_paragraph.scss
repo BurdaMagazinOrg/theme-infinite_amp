@@ -1,20 +1,4 @@
-.item-paragraph {
-  .item-title, .item-paragraph__title {
-    @extend %title--content-block;
-  }
-}
-
-.item-paragraph--recent-content, .item-paragraph--content-teaser, .item-paragraph--term-teaser {
-  @extend %item-paragraph--recent-content;
-}
-
-.item-paragraph--text {
-  @extend %item-paragraph--text;
-}
-
-.item-paragraph--quote {
-  @extend %item-paragraph--quote;
-}
+@import "../../shared";
 
 .ecommerce-slider {
 
@@ -55,19 +39,4 @@
     @include product__item--ecommerce-slider();
   }
 
-}
-
-
-.item-paragraph--pinterest {
-  @extend %item-paragraph--pinterest;
-}
-
-.item-paragraph--seo-links {
-  @extend %item-paragraph--seo-links;
-}
-
-.item-paragraph--amp.item-paragraph--advertising-products-paragraph .item-product {
-  .caption {
-    padding-left: $grid-unit-2;
-  }
 }

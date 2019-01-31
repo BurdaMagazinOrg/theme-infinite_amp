@@ -1,7 +1,7 @@
 @import "shared";
 @import "reset";
-@import "compass/reset";
+// @import "compass/reset";
 
-@import "../../../contrib/infinite/sass/fonts";
+@import "infinite_theme/fonts";
 
 @import "components.base";
