@@ -12,7 +12,14 @@
  * @see template_preprocess_region()
  */
 #}
-<div{{ attributes }}>
-    <a class="more-button" href="/">Mehr von {{ site_name }}</a>
+<div{{attributes.addClass('region-footer')}}>
+  <a class="more-button" href="/">
+    Mehr von
+    {{ site_name }}
+  </a>
+  <div class="data-protection centered">
+    <a href="/datenschutz" class="block link">Datenschutzbestimmungen</a>
+    <a href="/impressum" class="block link">Impressum</a>
+  </div>
   {{ content }}
 </div>

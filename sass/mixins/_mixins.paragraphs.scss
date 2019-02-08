@@ -1,12 +1,29 @@
-@mixin item-paragraph--term-teaser() {
-  @include item-paragraph--content-teaser();
+@mixin p--text() {
+  @include text-content-html;
+  @include copytext--text-block;
+
+  .button {
+    @include margin--v-sm;
+    text-decoration: none;
+  }
+
+
+  & > iframe, .instagram-media {
+    //TODO check if important is necessary - when it is we have to override it in the amp themes
+    margin-top: $grid-unit-4;
+  }
 }
 
-@mixin item-paragraph--recent-content() {
-  @include item-paragraph--content-teaser();
+@mixin p--term-teaser() {
+  @include p--content-teaser();
 }
 
-@mixin item-paragraph--content-teaser() {
+
+@mixin p--recent-content() {
+  @include p--content-teaser();
+}
+
+@mixin p--content-teaser() {
   .text-title {
     @extend %title--content-block;
   }
@@ -39,7 +56,7 @@
   //}
 }
 
-@mixin item-paragraph--quote() {
+@mixin p--quote() {
   @extend %center-block;
   text-align: $quote__text-align--article;
   position: relative;
@@ -107,7 +124,7 @@
   }
 }
 
-@mixin item-paragraph--spotlight() {
+@mixin p--spotlight() {
   @include gap__container--h-negative();
   @include _spotlight--small();
 
@@ -156,19 +173,13 @@
   }
 }
 
-@mixin item-paragraph--profile() {
-  @include item-paragraph--profile-text;
+@mixin p--profile() {
+  @include p--profile-text;
   @include _profile--small();
 
   .title {
     margin-bottom: $profile__title-gap-bottom;
   }
-
-  //.img-container {
-  //  img {
-  //    @extend %img-full-responsive;
-  //  }
-  //}
 
   .caption {
     padding-top: $gap-size-xxs;
@@ -186,11 +197,23 @@
   }
 
   tr {
-    @include item-paragraph--profile__fact-item();
+    @include p--profile__fact-item();
   }
 }
 
-@mixin item-paragraph--seo-links() {
+@mixin p--profile__fact-item() {
+  th {
+    border-top: $h-line-style;
+    padding-top: $gap-size-xxs;
+    margin-top: $gap-size-xxs;
+  }
+
+  td {
+    margin-top: $gap-size-xxs;
+  }
+}
+
+@mixin p--seo-links() {
   @include seo-linker-text();
 
   .seo-linker__item--image {
@@ -208,11 +231,11 @@
   }
 }
 
-@mixin item-paragraph--instagram() {
+@mixin p--instagram() {
 
 }
 
-@mixin item-paragraph--pinterest() {
+@mixin p--pinterest() {
   text-align: center;
 
   amp-pinterest {

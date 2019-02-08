@@ -47,16 +47,16 @@
 }
 
 @mixin item-content--paragraphs-amp() {
-  .item-content__content > .item-paragraph:first-child {
+  .item-content__content > .p:first-child {
     margin-top: 0;
 
   }
 
-  .item-content__content > .item-paragraph--spotlight:first-child {
+  .item-content__content > .p--spotlight:first-child {
     @include margin--v-region(-$gap-v-region-mobile);
   }
 
-  .item-paragraph {
+  .p {
     margin-top: $gap-v-region-mobile;
   }
 

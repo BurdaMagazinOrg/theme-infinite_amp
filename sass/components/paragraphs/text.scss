@@ -1,0 +1,5 @@
+@import "../../shared";
+
+.p--text {
+  @include p--text();
+}

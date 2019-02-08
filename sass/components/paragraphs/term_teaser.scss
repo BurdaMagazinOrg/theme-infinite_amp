@@ -1,0 +1,5 @@
+@import "../../shared";
+
+.p--term-teaser {
+  @include p--recent-content;
+}

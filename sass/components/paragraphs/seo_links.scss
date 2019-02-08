@@ -1,0 +1,5 @@
+@import "../../shared";
+
+.p--seo-links {
+  @include p--seo-links();
+}

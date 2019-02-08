@@ -1,44 +1,23 @@
-// Reset the box-sizing
-//
-// Heads up! This reset may cause conflicts with some third-party widgets.
-// For recommendations on resolving such conflicts, see
-// http://getbootstrap.com/getting-started/#third-box-sizing
-* {
-  @include box-sizing(border-box);
-}
-*:before,
-*:after {
-  @include box-sizing(border-box);
+html {
+  box-sizing: border-box;
 }
 
-// Reset fonts for relevant elements
-input,
-button,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-
-// Figures
-//
-// We reset this here because previously Normalize had no `figure` margins. This
-// ensures we don't break anyone's use of the element.
-
-figure {
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: inherit;
 }
 
+ol, ul {
+  list-style: none;
+}
 
-// Images
-
-//img {
-//  vertical-align: middle;
-//}
-
-// Responsive images (ensure images don't scale beyond their parents)
-//.img-responsive {
-//  @include img-responsive;
-//}
+img {
+  max-width: 100%;
+  height: auto;
+}

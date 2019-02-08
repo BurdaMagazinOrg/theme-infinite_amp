@@ -1,0 +1,5 @@
+.p {
+  .item-title, .p__title {
+    @extend %title--content-block;
+  }
+}

@@ -38,9 +38,17 @@ db_offline ? 'db-offline',
     <title>{{ head_title|safe_join(' | ') }}</title>
     <style amp-boilerplate>{% spaceless %}{% include '@amptheme/amp-css/amp-boilerplate-styles-min.html.twig' %}{% endspaceless %}</style><noscript><style amp-boilerplate>{% spaceless %}{% include '@amptheme/amp-css/amp-boilerplate-styles-noscript-min.html.twig' %}{% endspaceless %}</style></noscript>
       {% block custom_link_block %}{% endblock %}
-      <style amp-custom>
-      {{ amp_css|raw }}
-    </style>
+      {% block style_block %}
+        <style amp-custom>
+          /* START GLOBAL CSS */
+          {{ amp_css|raw }}
+          /* END GLOBAL CSS */
+
+          /* START BUNDLE CSS */
+          {{ bundle_css|raw }}
+          /* END BUNDLE CSS */
+        </style>
+      {% endblock %}
     {# Only JS from an AMP library is processed in the placeholder. #}
     <js-placeholder token="{{ placeholder_token|raw }}">
     <script async src="https://cdn.ampproject.org/v0.js"></script>

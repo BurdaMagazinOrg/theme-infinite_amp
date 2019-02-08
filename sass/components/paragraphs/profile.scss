@@ -1,0 +1,5 @@
+@import "../../shared";
+
+.p--profile {
+  @include p--profile();
+}

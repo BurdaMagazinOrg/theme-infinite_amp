@@ -1,0 +1,5 @@
+@import "../../shared";
+
+.p--pinterest {
+  @include p--pinterest();
+}
