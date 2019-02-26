@@ -1,7 +1,6 @@
+@import "variables/variables.newsletter";
+
 $author__profile-image-size--teaser-default: 44px;
-
-//$label--copyright-size--mobile: 10px;
-
 $media__description-size-mobile: 13px;
 $media__description-margin: 2px 0 0 0;
 
@@ -12,3 +11,4 @@ $quote__author-padding--article: 10px 0 0 0;
 $item-content__header-margin--amp: $gap-v-region-mobile 0 $gap-size-sm 0 !default;
 $item-content__header-socials-margin--amp: $author__margin-mobile--content-header;
 $item-content__header-breadcrumb-margin--amp: 0 0 $container-padding-sm-top-mobile 0 !default;
+

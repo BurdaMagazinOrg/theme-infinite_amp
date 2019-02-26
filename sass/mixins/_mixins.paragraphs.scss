@@ -1,4 +1,4 @@
-@mixin p--content-reference() {
+@mixin p--content-reference() { 
   text-align: center;
   position: relative;
   @include coupon--content-reference--normal();
@@ -15,6 +15,46 @@
       margin-bottom: $grid-unit-1;
     }
   }
+
+  .newsletter {
+    background-color: $newsletter__contianer-form-bg;
+    padding: $grid-unit-3;
+    
+    .newsletter__title {
+      @include text-helper(
+        $newsletter__title-font-id,
+        $newsletter__title-size-mobile--default
+      );
+      letter-spacing: $newsletter__title-letter-spacing;
+      margin-bottom: $grid-unit-3;
+    }
+
+    .newsletter__input-wrapper {
+      @include flexbox();
+      @include justify-content();
+  
+
+      .newsletter__input-field {
+        @include text-helper(
+          $newsletter__input-font-id,
+          $newsletter__input-text-size
+        );
+        color: $newsletter__text-color;
+        height: $grid-unit-4;
+        vertical-align: top;
+        margin-right: -4px;
+        min-width: 214px;
+        padding: $grid-unit-1 $grid-unit-2;
+        border: none;
+      }
+
+      .newsletter__btn {
+       @include button();
+       @include button--md();
+       @include button--dark();
+      } 
+    }
+  }  
 }
 
 @mixin p--text() {

@@ -63,3 +63,14 @@ amp.bind:
     gpl-compatible: false
   js:
     https://cdn.ampproject.org/v0/amp-bind-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-bind", async: true } }
+
+amp.form:
+  remote: https://cdn.ampproject.org
+  header: true
+  version: 0.1
+  license:
+    name: apache
+    url: https://github.com/ampproject/amphtml/blob/master/LICENSE
+    gpl-compatible: false
+  js:
+    https://cdn.ampproject.org/v0/amp-form-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-form", async: true } }

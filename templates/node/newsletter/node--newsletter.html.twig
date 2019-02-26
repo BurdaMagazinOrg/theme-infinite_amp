@@ -1,0 +1,29 @@
+{{ attach_library('infinite_amp/amp.form') }}
+
+
+<section class="newsletter__section newsletter">
+  <div class="newsletter__title">{{content.field_text}}</div>
+
+    <form method="post"
+      action-xhr="https://sso-service.de/v1/newsletter/subscribe"
+      target="_top">
+      <div class="newsletter__input-wrapper">
+        <input type="email"
+          name="email"
+          placeholder="Deine E-Mail-Adresse"
+          class="newsletter__input-field"
+          required>
+        <input type="submit" value="OK" class="newsletter__btn">
+      </div>
+      <div submit-success>
+        <template type="amp-mustache">
+          Subscription successful!
+        </template>
+      </div>
+      <div submit-error>
+        <template type="amp-mustache">
+          Subscription failed!
+        </template>
+      </div>
+    </form>
+</section>
