@@ -7,6 +7,14 @@ use Drupal\node\NodeInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Views;
 
+/**
+ * Implements template_theme_suggestions_HOOK_alter() for dfp_amp ad entities.
+ */
+function infinite_amp_theme_suggestions_dfp_amp_alter(array &$suggestions, array $variables, $hook) {
+  $ad_entity = $variables['ad_entity'];
+  $suggestions[] = $hook . '__' . $ad_entity->id();
+}
+
 function infinite_amp_preprocess(&$variables) {
 
   if (\Drupal::moduleHandler()->moduleExists('metatag')) {
