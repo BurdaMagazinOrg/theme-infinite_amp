@@ -33,7 +33,7 @@
 {% endif %}
 
 {% if provider == 'tracdelight' and advertising_product.product_id is not empty %}
-    {% set product_url = product_url ~ '&suibid=' ~ advertising_product.product_id.0.value %}
+    {% set product_url = product_url ~ '&subid=' ~ advertising_product.product_id.0.value %}
 {% endif %}
 
 {% if content.status %}
