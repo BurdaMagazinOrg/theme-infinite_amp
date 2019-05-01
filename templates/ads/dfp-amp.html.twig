@@ -1,7 +1,12 @@
+{% if rtc_config %}
+    {% set rtc_config = rtc_config|merge({aps: {"PUB_ID": "3690","PARAMS":{"amp":"1"}}}) %}
+    {% set rtc_config_value = rtc_config|json_encode(constant('JSON_HEX_TAG') b-or constant('JSON_HEX_APOS') b-or constant('JSON_HEX_QUOT') b-or constant('JSON_UNESCAPED_UNICODE')) %}
+{% endif %}
+
 <amp-ad{{ attributes }}
         json='{{ json|json_encode(constant('JSON_HEX_TAG') b-or constant('JSON_HEX_APOS') b-or constant('JSON_HEX_QUOT') b-or constant('JSON_UNESCAPED_UNICODE'))|raw }}'
         {% if rtc_config %}
-            rtc-config='{{ rtc_config|json_encode(constant('JSON_HEX_TAG') b-or constant('JSON_HEX_APOS') b-or constant('JSON_HEX_QUOT') b-or constant('JSON_UNESCAPED_UNICODE'))|raw }}'
+            rtc-config='{{ rtc_config_value|raw }}'
         {% endif %}
 >
     <div placeholder></div>
