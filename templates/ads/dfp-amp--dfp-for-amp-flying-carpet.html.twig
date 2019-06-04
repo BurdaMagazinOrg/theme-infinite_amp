@@ -1,7 +1,7 @@
 {{ attach_library('infinite_amp/amp.fx-flying-carpet') }}
 
 <amp-fx-flying-carpet height="300px">
-  <amp-ad{{attributes}} json='{{ json|json_encode|raw }}'>
+  <amp-ad{{attributes}} json='{{ json|json_encode(constant('JSON_HEX_TAG') b-or constant('JSON_HEX_APOS') b-or constant('JSON_HEX_QUOT') b-or constant('JSON_UNESCAPED_UNICODE'))|raw }}'>
     <div fallback></div>
   </amp-ad>
 </amp-fx-flying-carpet>
