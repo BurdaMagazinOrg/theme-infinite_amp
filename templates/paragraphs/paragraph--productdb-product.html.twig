@@ -49,7 +49,7 @@
     {% endif %}
 {% endif %}
 
-{% set attributes = attributes.addClass('p--' ~ content.field_e_view_mode | render | striptags | trim | replace('_', '-')) %}
+{% set attributes = attributes.addClass('p--' ~ content.field_e_view_mode | render | striptags | trim | replace('_', '-'), 'p--advertising-products-paragraph') %}
 {% set containerAttributes = create_attribute({'class': ['container-content']}) %}
 {% if false == showAffiliateLinkLabel %}
     {% set containerAttributes = containerAttributes.addClass('affiliatelinks--hide') %}
@@ -77,7 +77,7 @@
                           items="docs">
                     <template type="amp-mustache">
                         {{#_source}}
-                        <div class="item-product--strikethrough item-product"
+                        <a class="item-product--strikethrough item-product"
                              data-vars-product-name="{{ title }}"
                              data-vars-product-shop="{{ shop_name }}"
                              data-vars-product-price="{{ price }}"
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="text-shop">Zum Shop</div>
                             </div>
-                        </div>
+                        </a>
                         {{/_source}}
                     </template>
                 </amp-list>
