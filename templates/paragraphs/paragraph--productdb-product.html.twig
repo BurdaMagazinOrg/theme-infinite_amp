@@ -69,13 +69,13 @@
                 </div>
             {% endif %}
             <div {{ containerAttributes }}>
-                {% verbatim %}
                 <amp-list width="auto"
                           height="100"
                           layout="fixed-height"
-                          src="https://products-dev.harpersbazaar.de/api/productdb/get-products?uuids=1b85e69d-9872-4b59-80c8-e499db149aaf+30be99bd-b965-4b18-8311-a38d3bed0eaf+d594a16d-06d7-436a-9c3d-fb45dde12fc2"
+                          src="https://products-dev.harpersbazaar.de/api/productdb/get-products?uuids={{ content.field_product_uuid }}"
                           items="docs">
                     <template type="amp-mustache">
+                        {% verbatim %}
                         {{#_source}}
                         <a class="item-product--strikethrough item-product"
                              data-vars-product-name="{{ title }}"
@@ -105,9 +105,9 @@
                             </div>
                         </a>
                         {{/_source}}
+                        {% endverbatim %}
                     </template>
                 </amp-list>
-                {% endverbatim %}
 {#                {{ content|without('field_title', 'field_e_view_mode', 'field_text', 'field_p_view_mode', 'field_view_mode', 'field_suppress_affiliate_link') }}#}
             </div>
 
