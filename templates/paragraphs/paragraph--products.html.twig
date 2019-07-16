@@ -69,11 +69,11 @@
                 </div>
             {% endif %}
             <div {{ containerAttributes }}>
-                <amp-list width="auto"
-                          height="100"
-                          layout="fixed-height"
-                          src="{{ content.field_products }}"
-                          items="docs">
+                <amp-list layout="fixed-height"
+                  width="auto"
+                  height="100"
+                  src="{{ content.field_products }}"
+                  items="docs">
                     <template type="amp-mustache">
                         {% verbatim %}
                         {{#_source}}
@@ -89,7 +89,7 @@
                              data-vars-product-provider="{{ provider }}"
                              data-vars-product-view-mode="amp"
                              data-vars-product-position="undefined"
-                             href="{{ shop_url }}&amp;subid={{ provider_identifier }}"
+                             href="{{#amp_shopping_link}}{{amp_shopping_link}}{{/amp_shopping_link}}{{^amp_shopping_link}}{{ shop_url }}&amp;subid={{ provider_identifier }}{{/amp_shopping_link}}"
                              target="_blank"
                              style="margin-bottom: 16px">
                             <div class="img-container">
@@ -98,17 +98,21 @@
                                 <div class="text-brand">{{ brand }}</div>
                                 <div class="text-headline">{{ title }}</div>
                                 <div class="text-price">
-                                    <span class="text-price--strikethrough">{{ original_price }} {{ original_currency_code }}</span>
+                                    {{#display_strikethrough}}
+                                      <span class="text-price--strikethrough">{{ original_price }} {{ original_currency_code }}</span>
+                                    {{/display_strikethrough}}
                                     <span class="text-price--current">{{ price }} {{ original_currency_code }}</span>
                                 </div>
-                                <div class="text-shop">Zum Shop</div>
+                                <div class="text-shop">
+                                  {{#stock_availability}}Zum Shop{{/stock_availability}}
+                                  {{^stock_availability}}Ausverkauft{{/stock_availability}}
+                                </div>
                             </div>
                         </a>
                         {{/_source}}
                         {% endverbatim %}
                     </template>
                 </amp-list>
-{#                {{ content|without('field_title', 'field_e_view_mode', 'field_text', 'field_p_view_mode', 'field_view_mode', 'field_suppress_affiliate_link') }}#}
             </div>
 
             {% if content.field_text | render is not empty %}
