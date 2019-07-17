@@ -58,6 +58,9 @@
 {% extends "paragraph.html.twig" %}
 
 {% block content_block %}
+
+    {% set current_url = url('<current>') | render | render %}
+
     {% if content | render %}
         <div class="container-wrapper">
             {% if content.field_title|render %}
@@ -90,8 +93,8 @@
                              data-vars-product-provider="{{ provider }}"
                              data-vars-product-view-mode="amp"
                              data-vars-product-position="undefined"
-                             href="{{#amp_shopping_link}}{{amp_shopping_link}}{{/amp_shopping_link}}{{^amp_shopping_link}}{{ shop_url }}&amp;subid={{ provider_identifier }}{{/amp_shopping_link}}"
-                             target="_blank"
+                             href="{{#amp_shopping_link}}{{amp_shopping_link}}&#x3f;article={% endverbatim %}{{current_url}}{% verbatim %}{{/amp_shopping_link}}{{^amp_shopping_link}}{{ shop_url }}&amp;subid={{ provider_identifier }}{{/amp_shopping_link}}"
+                             target="{{#amp_shopping_link}}_self{{/amp_shopping_link}}{{^amp_shopping_link}}_blank{{/amp_shopping_link}}"
                              style="margin-bottom: 16px">
                             <div class="img-container">
                                 <amp-img layout="responsive" src="{{ image_style_product_300x324 }}" width="200" height="200" alt="{{ title }}"></amp-img></div>
