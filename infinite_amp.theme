@@ -206,6 +206,11 @@ function infinite_amp_preprocess_paragraph(&$variables) {
   ) {
     $variables['paragraph']->set('field_progress_navigation', NULL);
   }
+
+  // Add title of parent entity.
+  $title = $variables['paragraph']->getParentEntity()->getTitle();
+  // Clean it up for use in tracking urls.
+  $variables['parent_title'] = str_replace('"', '', $title);
 }
 
 /**
