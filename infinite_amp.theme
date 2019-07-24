@@ -208,7 +208,7 @@ function infinite_amp_preprocess_paragraph(&$variables) {
   }
 
   // Add title of parent entity.
-  $title = $variables['paragraph']->getParentEntity()->getTitle();
+  $title = $variables['paragraph']->getParentEntity()->label();
   // Clean it up for use in tracking urls.
   $variables['parent_title'] = str_replace('"', '', $title);
 }
