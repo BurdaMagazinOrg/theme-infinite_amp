@@ -58,7 +58,6 @@
 {% extends "paragraph.html.twig" %}
 
 {% block content_block %}
-
     {% set current_url = url('<current>') | render | render %}
 
     {% if content | render %}
@@ -93,7 +92,7 @@
                              data-vars-product-provider="{{ provider }}"
                              data-vars-product-view-mode="amp"
                              data-vars-product-position="undefined"
-                             href="{{#amp_shopping_link}}{{amp_shopping_link}}&#x3f;article={% endverbatim %}{{current_url}}{% verbatim %}{{/amp_shopping_link}}{{^amp_shopping_link}}{{ shop_url }}&amp;subid={{ provider_identifier }}{{/amp_shopping_link}}"
+                             href="{{#amp_shopping_link}}{{amp_shopping_link}}&#x3f;article={% endverbatim %}{{current_url}}&amp;title={{parent_title | url_encode(true)}}{% verbatim %}{{/amp_shopping_link}}{{^amp_shopping_link}}{{ shop_url }}&amp;subid={{ provider_identifier }}{{/amp_shopping_link}}"
                              target="{{#amp_shopping_link}}_self{{/amp_shopping_link}}{{^amp_shopping_link}}_blank{{/amp_shopping_link}}"
                              style="margin-bottom: 16px">
                             <div class="img-container">
@@ -108,7 +107,14 @@
                                     <span class="text-price--current">{{ price }} {{ original_currency_code }}</span>
                                 </div>
                                 <div class="text-shop">
-                                  {{#stock_availability}}Zum Shop{{/stock_availability}}
+                                  {{#stock_availability}}
+                                    {{#amp_shopping_link}}
+                                      Kaufen
+                                    {{/amp_shopping_link}}
+                                    {{^amp_shopping_link}}
+                                      Zum Shop
+                                    {{/amp_shopping_link}}
+                                  {{/stock_availability}}
                                   {{^stock_availability}}Ausverkauft{{/stock_availability}}
                                 </div>
                             </div>
