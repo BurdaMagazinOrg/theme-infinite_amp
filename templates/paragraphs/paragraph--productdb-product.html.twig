@@ -1,0 +1,121 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   - id: The paragraph ID.
+ *   - bundle: The type of the paragraph, for example, "image" or "text".
+ *   - authorid: The user ID of the paragraph author.
+ *   - createdtime: Formatted creation date. Preprocess functions can
+ *     reformat it by calling format_date() with the desired parameters on
+ *     $variables['paragraph']->getCreatedTime().
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if showAffiliateLinksLabel is not defined %}
+    {% if 'single_product' == content.field_e_view_mode[0]['#markup'] %}
+        {% set showAffiliateLinksLabel = false %}
+    {% else %}
+        {% set showAffiliateLinksLabel = content.field_suppress_affiliate_link[0]['#markup'] != '1' %}
+    {% endif %}
+{% endif %}
+{% if showAffiliateLinkLabel is not defined %}
+    {% if 'single_product' == content.field_e_view_mode[0]['#markup'] %}
+        {% set showAffiliateLinkLabel = content.field_suppress_affiliate_link[0]['#markup'] != '1' %}
+    {% endif %}
+{% endif %}
+
+{% set attributes = attributes.addClass('p--' ~ content.field_e_view_mode | render | striptags | trim | replace('_', '-'), 'p--advertising-products-paragraph') %}
+{% set containerAttributes = create_attribute({'class': ['container-content']}) %}
+{% if false == showAffiliateLinkLabel %}
+    {% set containerAttributes = containerAttributes.addClass('affiliatelinks--hide') %}
+{% endif %}
+
+{% extends "paragraph.html.twig" %}
+
+{% block content_block %}
+    {% if content | render %}
+        <div class="container-wrapper">
+            {% if content.field_title|render %}
+                <h3 class="text-headline item-title">{{ content.field_title | plain_text }}</h3>
+            {% endif %}
+            {% if showAffiliateLinksLabel %}
+                <div class="affiliatelinks">
+                    <a href="/affiliatelinks" rel="nofollow" target="_self">Affiliatelinks</a>
+                </div>
+            {% endif %}
+            <div {{ containerAttributes }}>
+                <amp-list width="auto"
+                          height="100"
+                          layout="fixed-height"
+                          src="https://products-dev.harpersbazaar.de/api/productdb/get-products?uuids={{ content.field_product_uuid }}"
+                          items="docs">
+                    <template type="amp-mustache">
+                        {% verbatim %}
+                        {{#_source}}
+                        <a class="item-product--strikethrough item-product"
+                             data-vars-product-name="{{ title }}"
+                             data-vars-product-shop="{{ shop_name }}"
+                             data-vars-product-price="{{ price }}"
+                             data-vars-product-currency="{{ original_currency_code }}"
+                             data-vars-product-uuid="{{ uuid }}"
+                             data-vars-product-id="{{ provider_identifier }}"
+                             data-vars-product-category="{{ category }}"
+                             data-vars-product-sold-out="0"
+                             data-vars-product-provider="{{ provider }}"
+                             data-vars-product-view-mode="amp"
+                             data-vars-product-position="undefined"
+                             href="{{ shop_url }}&amp;subid=pqo85snzlfa1ykhu"
+                             target="_blank"
+                             style="margin-bottom: 16px">
+                            <div class="img-container">
+                                <amp-img layout="responsive" src="https://products.harpersbazaar.de{{ image_url }}" width="200" height="200" alt="{{ title }}"></amp-img></div>
+                            <div class="caption">
+                                <div class="text-brand">{{ brand }}</div>
+                                <div class="text-headline">{{ title }}</div>
+                                <div class="text-price">
+                                    <span class="text-price--strikethrough">{{ original_price }} {{ original_currency_code }}</span>
+                                    <span class="text-price--current">{{ price }} {{ original_currency_code }}</span>
+                                </div>
+                                <div class="text-shop">Zum Shop</div>
+                            </div>
+                        </a>
+                        {{/_source}}
+                        {% endverbatim %}
+                    </template>
+                </amp-list>
+{#                {{ content|without('field_title', 'field_e_view_mode', 'field_text', 'field_p_view_mode', 'field_view_mode', 'field_suppress_affiliate_link') }}#}
+            </div>
+
+            {% if content.field_text | render is not empty %}
+                <div class="products__info-box--grid">
+                    {{ content.field_text }}
+                </div>
+            {% endif %}
+    {% endif %}
+    </div>
+{% endblock %}

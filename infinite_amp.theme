@@ -206,6 +206,11 @@ function infinite_amp_preprocess_paragraph(&$variables) {
   ) {
     $variables['paragraph']->set('field_progress_navigation', NULL);
   }
+
+  // Add title of parent entity.
+  $title = $variables['paragraph']->getParentEntity()->label();
+  // Clean it up for use in tracking urls.
+  $variables['parent_title'] = str_replace('"', '', $title);
 }
 
 /**
@@ -379,15 +384,15 @@ function infinite_amp_form_system_theme_settings_alter(&$form, &$form_state) {
  */
 function infinite_amp_preprocess_html(&$variables) {
   $variables['#attached']['library'][] = 'infinite_amp/amp.ad';
-  $variables['#attached']['library'][] = 'infinite_amp/amp.social-share';
   $variables['#attached']['library'][] = 'infinite_amp/amp.amp-carousel';
+  $variables['#attached']['library'][] = 'infinite_amp/amp.list';
+  $variables['#attached']['library'][] = 'infinite_amp/amp.mustache';
+  $variables['#attached']['library'][] = 'infinite_amp/amp.social-share';
 
   if (in_array(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), [
     '/shop-it',
     '/shop-it-elle',
   ])) {
-    $variables['#attached']['library'][] = 'infinite_amp/amp.list';
-    $variables['#attached']['library'][] = 'infinite_amp/amp.mustache';
     $variables['#attached']['library'][] = 'infinite_amp/amp.bind';
   }
 
