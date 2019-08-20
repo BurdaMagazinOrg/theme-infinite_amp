@@ -9,8 +9,68 @@
         {{ content.field_campaign }}
     </div>
     <div class="ecommerce-slider__container">
+    {% if content.field_products | render is not empty %}
+    <amp-list layout="fixed-height"
+              width="auto"
+              height="100"
+              src="{{ content.field_products }}"
+              items="docs">
+      <amp-carousel height="600" layout="fixed-height" type="slides" >
+	<template type="amp-mustache">
+          {% verbatim %}
+          {{#_source}}
+	  <div class="slide">
+            <a class="item-product--strikethrough item-product"
+               data-vars-product-name="{{ title }}"
+               data-vars-product-shop="{{ shop_name }}"
+               data-vars-product-price="{{ price }}"
+               data-vars-product-currency="{{ original_currency_code }}"
+               data-vars-product-uuid="{{ uuid }}"
+               data-vars-product-id="{{ provider_identifier }}"
+               data-vars-product-category="{{ category }}"
+               data-vars-product-sold-out="{{#stock_availability}}0{{/stock_availability}}{{^stock_availability}}1{{/stock_availability}}"
+               data-vars-product-stock-availability="{{stock_availability}}"
+               data-vars-product-provider="{{ provider }}"
+               data-vars-product-view-mode="amp"
+               data-vars-product-position="undefined"
+               href="{{#amp_shopping_link}}{{amp_shopping_link}}&#x3f;article={% endverbatim %}{{current_url}}&amp;title={{parent_title | url_encode(true)}}{% verbatim %}{{/amp_shopping_link}}{{^amp_shopping_link}}{{ shop_url }}&amp;subid={{ provider_identifier }}{{/amp_shopping_link}}"
+               target="{{#amp_shopping_link}}_self{{/amp_shopping_link}}{{^amp_shopping_link}}_blank{{/amp_shopping_link}}"
+               style="margin-bottom: 16px">
+              <div class="img-container">
+		<amp-img layout="responsive" src="{{ image_style_product_300x324 }}" width="200" height="200" alt="{{ title }}"></amp-img></div>
+              <div class="caption">
+		<div class="text-brand">{{ brand }}</div>
+		<div class="text-headline">{{ title }}</div>
+		<div class="text-price">
+                  {{#display_strikethrough}}
+                  <span class="text-price--strikethrough">{{ original_price }} {{ original_currency_code }}</span>
+                  {{/display_strikethrough}}
+                  <span class="text-price--current">{{ price }} {{ original_currency_code }}</span>
+		</div>
+		<div class="text-shop">
+                  {{#stock_availability}}
+                  {{#amp_shopping_link}}
+                  Kaufen
+                  {{/amp_shopping_link}}
+                  {{^amp_shopping_link}}
+                  Zum Shop
+                  {{/amp_shopping_link}}
+                  {{/stock_availability}}
+                  {{^stock_availability}}Ausverkauft{{/stock_availability}}
+		</div>
+              </div>
+            </a>
+          </div>
+          {{/_source}}
+          {% endverbatim %}
+	</template>
+      </amp-carousel>
+    </amp-list>
+    {% endif %}
+    {% if content.field_advertising_products | render is not empty %}
         <amp-carousel height="600" layout="fixed-height" type="slides">
             {{ content.field_advertising_products }}
         </amp-carousel>
+    {% endif %}
     </div>
 </div>
