@@ -32,10 +32,7 @@
           </amp-carousel>
         </template>
       </amp-list>
-    {% endif %}
-
-
-    {% if content.field_advertising_products | render is not empty %}
+    {% elseif content.field_advertising_products | render is not empty %}
         <amp-carousel height="600" layout="fixed-height" type="slides">
             {{ content.field_advertising_products }}
         </amp-carousel>
