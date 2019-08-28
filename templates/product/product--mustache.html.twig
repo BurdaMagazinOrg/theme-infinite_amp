@@ -11,15 +11,40 @@
   {{amp_shopping_link}}?article={{article_url}}{{article_title}}
 {% endset %} 
 
+{#
+  Twig and mustache.js use similar syntax to render variables. How `Inverted Sections` (conditional
+  rendering) is handled by Mustache, is desribed here:
+  http://mustache.github.io/mustache.5.html#Inverted-Sections
+  
+  The below, will render the following html including the Mustache template:
+
+  {{#amp_shopping_link}}
+      http://link.com?article=https%3A%2F%2Flink.com%2Farticle&title=Something%20about%20fashion
+  {{/amp_shopping_link}}
+#}
 {% set tipser_product_link_mustache %}
-  {% verbatim %}{{#amp_shopping_link}}{% endverbatim %} ~ tipser_product_link ~ {% verbatim %}{{/amp_shopping_link}}{% endverbatim %}
+  {% verbatim %}{{#amp_shopping_link}}{% endverbatim %}
+    {{ tipser_product_link }}
+  {% verbatim %}{{/amp_shopping_link}}{% endverbatim %}
 {% endset %} 
 
+{#
+  Renders:
+
+  {{^amp_shopping_link}}
+    {{shop_url}}&amp;subid={{ provider_identifier }}
+  {{/amp_shopping_link}}
+#}
 {% set normal_product_link_mustache %}
-  {% verbatim %}{{^amp_shopping_link}}{{shop_url}}&amp;subid={{ provider_identifier }}{{/amp_shopping_link}}{% endverbatim %}
+  {% verbatim %}
+    {{^amp_shopping_link}}
+      {{shop_url}}&amp;subid={{ provider_identifier }}
+    {{/amp_shopping_link}}
+  {% endverbatim %}
 {% endset %} 
 
 {% set href = (tipser_product_link_mustache ~ normal_product_link_mustache) | replace({' ':'', "\n":'', "\r":''}) %} 
+
 {% verbatim %}
 <a class="item-product item-product--strikethrough" 
       data-vars-product-name="{{ title }}"
