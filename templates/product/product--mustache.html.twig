@@ -8,7 +8,7 @@
 {% set article_title = parent_title | url_encode(true) %}
 
 {% set tipser_product_link %}
-  {{amp_shopping_link}}?article={{article_url}}{{article_title}}
+  {% verbatim %}{{amp_shopping_link}}{% endverbatim %}?article={{article_url}}{{article_title}}
 {% endset %} 
 
 {#
