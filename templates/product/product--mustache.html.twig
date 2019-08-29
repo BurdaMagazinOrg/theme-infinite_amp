@@ -4,7 +4,8 @@
   "item-product--strikethrough",
 ] %}
 
-{% set article_url = current_url ~ "&amp;title=" %}
+{% set url = url('<current>') | render | render %}
+{% set article_url = url ~ "&amp;title=" %}
 {% set article_title = parent_title | url_encode(true) %}
 
 {% set tipser_product_link %}
