@@ -12,10 +12,10 @@
         {{ image_style(media.field_preview_image.entity.field_image, 'landscape_l', {layout: 'fill'}) }}
     </amp-iframe>
     <div class="caption">
-        {% if content.field_copyright|render  %}
+        {% if not media.field_copyright.isEmpty()  %}
             <div class="text-copyright">{{ content.field_copyright }}</div>
         {% endif %}
-        {% if content.field_description|render %}
+        {% if not media.field_description.isEmpty() %}
             <div class="text-description">{{ content.field_description }}</div>
         {% endif %}
     </div>

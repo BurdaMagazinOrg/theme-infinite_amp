@@ -58,9 +58,9 @@
 {% extends "paragraph.html.twig" %}
 
 {% block content_block %}
-    {% if content | render %}
+    {% if content %}
         <div class="container-wrapper">
-            {% if content.field_title|render %}
+            {% if not paragraph.field_title.isEmpty() %}
                 <h3 class="text-headline item-title">{{ content.field_title | plain_text }}</h3>
             {% endif %}
             {% if showAffiliateLinksLabel %}
