@@ -86,32 +86,34 @@ function infinite_amp_preprocess_node(&$variables) {
     }
   }
 
-  if ($bundle == 'article') {
-    $field_seo_title = !empty($node->field_seo_title->getValue()[0]) ? $node->field_seo_title->getValue()[0]['value'] : '';
-    // Replace double quotes.
-    // @toDo check, where we have this case!
-    $variables['node_seo_title'] = str_replace('"', '', $field_seo_title);
-    // Clean up classes array - all classes will be added in
-    $variables['attributes']['class'] = array();
-
-    // Instantiate 'wrapper_attributes' attribute object to avoid collisions
-    // with actual node attributes.
-    if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'lazyloading') {
-      $variables['wrapper_attributes'] = new Attribute();
-    }
-  }
-
   if (isset($variables['content']['field_paragraphs'])) {
     foreach (Drupal\Core\Render\Element::children($variables['content']['field_paragraphs']) as $key) {
-      $paragraph = $variables['content']['field_paragraphs'][$key]['#paragraph'];
-      if ($paragraph) {
+      if ($paragraph = $variables['content']['field_paragraphs'][$key]['#paragraph']) {
         if (in_array($paragraph->bundle(), ['recent_content', 'term_teaser'])) {
           $variables['content']['field_paragraphs'][$key] = ['#markup' => ''];
         }
       }
     }
   }
+}
 
+/**
+ * Implements hook_preprocess_node() for article.
+ */
+function infinite_amp_preprocess_node__article(&$variables) {
+  $node = $variables['node'];
+  $field_seo_title = !empty($node->field_seo_title->getValue()[0]) ? $node->field_seo_title->getValue()[0]['value'] : '';
+  // Replace double quotes.
+  // @toDo check, where we have this case!
+  $variables['node_seo_title'] = str_replace('"', '', $field_seo_title);
+  // Clean up classes array - all classes will be added in
+  $variables['attributes']['class'] = array();
+
+  // Instantiate 'wrapper_attributes' attribute object to avoid collisions
+  // with actual node attributes.
+  if (in_array($variables['view_mode'], ['full', 'lazyloading'])) {
+    $variables['wrapper_attributes'] = new Attribute();
+  }
 }
 
 /**
@@ -120,9 +122,8 @@ function infinite_amp_preprocess_node(&$variables) {
 function infinite_amp_preprocess_taxonomy_term(&$variables) {
   if (isset($variables['content']['field_paragraphs'])) {
     foreach (Drupal\Core\Render\Element::children($variables['content']['field_paragraphs']) as $key) {
-      $paragraph = $variables['content']['field_paragraphs'][$key]['#paragraph'];
-      if ($paragraph) {
-        if (in_array($paragraph->bundle(), ['recent_content'])) {
+      if ($paragraph = $variables['content']['field_paragraphs'][$key]['#paragraph']) {
+        if ($paragraph->bundle() == 'recent_content') {
           $variables['content']['field_paragraphs'][$key] = ['#markup' => ''];
         }
       }
@@ -248,12 +249,8 @@ function infinite_amp_preprocess_region(&$variables) {
 /**
  * Implements hook_preprocess_media().
  */
-function infinite_amp_preprocess_media(&$variables) {
-  $variables['media'] = $variables['elements']['#media'];
-
-  if ($variables['media_type'] == 'nexx_video') {
-    $variables['omnia_id'] = \Drupal::config('nexx_integration.settings')->get('omnia_id');
-  }
+function infinite_amp_preprocess_media__nexx_video(&$variables) {
+  $variables['omnia_id'] = \Drupal::config('nexx_integration.settings')->get('omnia_id');
 }
 
 /**
@@ -402,15 +399,6 @@ function infinite_amp_preprocess_html(&$variables) {
   $css = file_get_contents(drupal_get_path('theme', 'infinite_amp') . '/css/infinite-amp-base.css');
   if ($css) {
     $variables['amp_css'] = $css;
-  }
-}
-
-/**
- * Implements hook_preprocess_block().
- */
-function infinite_amp_preprocess_block(&$variables) {
-  if ($variables['plugin_id'] === 'infinite_blocks_channel_presenter') {
-    $variables['#attached']['library'][] = 'amp/amp.carousel';
   }
 }
 
