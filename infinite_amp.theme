@@ -112,6 +112,19 @@ function infinite_amp_preprocess_node(&$variables) {
     }
   }
 
+  if ($bundle == 'ecommerce_slider') {
+    if (($node_from_url = \Drupal::routeMatch()->getParameter('node')) && $node_from_url instanceof NodeInterface) {
+      if ($node_from_url->id() != $node->id()) {
+        $variables['parent_title'] = str_replace('"', '', $node_from_url->label());
+      }
+      else {
+        $variables['parent_title'] = str_replace('"', '', $node->label());
+      }
+    }
+    else if (($term_from_url = \Drupal::routeMatch()->getParameter('taxonomy_term')) && $term_from_url instanceof TermInterface) {
+      $variables['parent_title'] = str_replace('"', '', $term_from_url->label());
+    }
+  }
 }
 
 /**

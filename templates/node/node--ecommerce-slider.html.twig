@@ -9,8 +9,33 @@
         {{ content.field_campaign }}
     </div>
     <div class="ecommerce-slider__container">
+    
+    {% if content.field_products | render is not empty %}
+      <amp-list layout="fixed-height"
+          width="auto"
+          height="600"
+          src="{{ content.field_products }}"
+          items="." single-item=".">
+        <template type="amp-mustache">
+          <amp-carousel height="600"
+          layout="fixed-height"
+          type="slides">
+                {% verbatim %}
+                    {{#docs}}
+                      {{#_source}}
+                      {% endverbatim %}
+                            {% include '@infinite_amp/product/product--mustache.html.twig' %}
+                        {% verbatim %}
+                            {{/_source}}
+                    {{/docs}}
+                {% endverbatim %}
+          </amp-carousel>
+        </template>
+      </amp-list>
+    {% elseif content.field_advertising_products | render is not empty %}
         <amp-carousel height="600" layout="fixed-height" type="slides">
             {{ content.field_advertising_products }}
         </amp-carousel>
+    {% endif %}
     </div>
 </div>
