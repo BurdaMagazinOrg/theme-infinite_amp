@@ -5,11 +5,11 @@
 ] %}
 
 {% set url = url('<current>') | render | render %}
-{% set article_url = url ~ "&amp;title=" %}
+{% set article_url = url ~ "&title=" %}
 {% set article_title = parent_title | url_encode(true) %}
 
 {% set tipser_product_link %}
-  {% verbatim %}{{amp_shopping_link}}{% endverbatim %}?article={{article_url}}{{article_title}}
+  {% verbatim %}{{amp_shopping_link}}{% endverbatim %}?article={{article_url | raw}}{{article_title}}
 {% endset %} 
 
 {#
@@ -33,13 +33,18 @@
   Renders:
 
   {{^amp_shopping_link}}
-    {{shop_url}}&amp;subid={{ provider_identifier }}
+    {{shop_url}}&subid={{ provider_identifier }}
   {{/amp_shopping_link}}
 #}
 {% set normal_product_link_mustache %}
   {% verbatim %}
     {{^amp_shopping_link}}
-      {{shop_url}}&amp;subid={{ provider_identifier }}
+      {{shop_url}}
+      {{#is_provider}}
+        {{#tracdelight}}
+          &subid={{provider_identifier}}
+        {{/tracdelight}}
+      {{/is_provider}}
     {{/amp_shopping_link}}
   {% endverbatim %}
 {% endset %} 
