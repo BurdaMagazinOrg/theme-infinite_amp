@@ -1,4 +1,4 @@
-{% extends "@infinite_amp/infinite_theme/node/node.html.twig" %}
+{% extends "@infinite/node/node.html.twig" %}
 
 {% set attributes = attributes.addClass('no-v-padding') %}
 
@@ -9,7 +9,7 @@
   {% endblock %}
 
   {% block sponsored %}
-    {% embed '@infinite_amp/infinite_theme/node/twig-block-sponsored.html.twig' %}
+    {% embed '@infinite/node/twig-block-sponsored.html.twig' %}
     {% endembed %}
   {% endblock %}
 
