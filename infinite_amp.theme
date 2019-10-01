@@ -227,6 +227,19 @@ function infinite_amp_preprocess_paragraph(&$variables) {
     // Clean it up for use in tracking urls.
     $variables['parent_title'] = str_replace('"', '', $title);
   }
+
+  // Get the default amazon associates_id and overwrite it if set.
+  $variables['amazon_tag'] = \Drupal::config('amazon.settings')->get('associates_id');
+  if ('products' === $variables['paragraph']->bundle()) {
+    $node_entity = \Drupal::routeMatch()->getParameter('node');
+    if (
+      $node_entity instanceof \Drupal\node\Entity\Node
+      && $node_entity->hasField('field_amazon_tag')
+      && strlen($node_entity->get('field_amazon_tag')->value) > 3
+    ) {
+      $variables['amazon_tag'] = $node_entity->get('field_amazon_tag')->value;
+    }
+  }
 }
 
 /**
