@@ -1,2 +1,5 @@
 @import '../../shared';
-@import 'advertising_products_paragraph.scss';
+
+.p--products {
+  @include products();
+}

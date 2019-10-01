@@ -49,7 +49,7 @@
     {% endif %}
 {% endif %}
 
-{% set attributes = attributes.addClass('p--' ~ content.field_e_view_mode | render | striptags | trim | replace('_', '-'), 'p--advertising-products-paragraph') %}
+{% set attributes = attributes.addClass('p--' ~ content.field_e_view_mode | render | striptags | trim | replace('_', '-')) %}
 {% set containerAttributes = create_attribute({'class': ['container-content']}) %}
 {% if false == showAffiliateLinkLabel %}
     {% set containerAttributes = containerAttributes.addClass('affiliatelinks--hide') %}
