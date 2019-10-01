@@ -124,6 +124,11 @@ function infinite_amp_preprocess_node(&$variables) {
     else if (($term_from_url = \Drupal::routeMatch()->getParameter('taxonomy_term')) && $term_from_url instanceof TermInterface) {
       $variables['parent_title'] = str_replace('"', '', $term_from_url->label());
     }
+
+    // Get the default amazon associates_id if not set.
+    if (!isset($variables['amazon_tag'])) {
+      $variables['amazon_tag'] = \Drupal::config('amazon.settings')->get('associates_id');
+    }
   }
 }
 
