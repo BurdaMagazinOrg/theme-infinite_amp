@@ -1,3 +1,19 @@
+@mixin products {
+  @include p--tracdelight();
+
+  .item-product {
+    .caption {
+      padding-left: $grid-unit-2;
+    }
+  }
+
+  [data-vars-product-sold-out='1'] {
+    .caption .text-shop {
+      @include button--disabled();
+    }
+  }
+}
+
 @mixin product__item--default {
   position: relative;
   overflow: hidden;

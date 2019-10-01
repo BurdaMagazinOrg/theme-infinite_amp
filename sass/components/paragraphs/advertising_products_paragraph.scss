@@ -1,17 +1,5 @@
 @import '../../shared';
 
 .p--advertising-products-paragraph {
-  @include p--tracdelight();
-}
-
-.p--amp.p--advertising-products-paragraph .item-product {
-  .caption {
-    padding-left: $grid-unit-2;
-  }
-}
-
-[data-vars-product-sold-out='1'] {
-  .caption .text-shop {
-    @include button--disabled();
-  }
+  @include products();
 }
