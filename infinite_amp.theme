@@ -242,7 +242,7 @@ function infinite_amp_preprocess_paragraph(&$variables) {
       && strlen($node_entity->get('field_amazon_tag')->value) > 3
     ) {
       $variables['amazon_tag'] = $node_entity->get('field_amazon_tag')->value;
-      $variables['#attached']['drupalSettings']['amazon']['associatesId'] = $variables['amazon_tag'];
+      $variables['#attached']['drupalSettings']['amazon']['associatesIdOverriden'] = $variables['amazon_tag'];
     }
   }
 }
@@ -492,6 +492,6 @@ function _infinite_amp_append_css($css, $purifiedPath, $standardPath) {
 function _infinite_amp_add_amazon_id(&$variables) {
   if (!isset($variables['amazon_tag'])) {
     $variables['amazon_tag'] = \Drupal::config('amazon.settings')->get('associates_id');
-    $variables['#attached']['drupalSettings']['amazon']['associatesId'] = $variables['amazon_tag'];
+    $variables['#attached']['drupalSettings']['amazon']['associatesIdDefault'] = $variables['amazon_tag'];
   }
 }
