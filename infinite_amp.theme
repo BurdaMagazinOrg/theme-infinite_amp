@@ -231,6 +231,8 @@ function infinite_amp_preprocess_paragraph(&$variables) {
     $variables['parent_title'] = str_replace('"', '', $title);
   }
 
+  // Initialise amazon id.
+  _infinite_add_amazon_id($variables);
   // Overwrite amazon id it if set.
   if ('products' === $variables['paragraph']->bundle() || 'ecommerce_slider_paragraph' === $variables['paragraph']->bundle()) {
     $node_entity = \Drupal::routeMatch()->getParameter('node');
