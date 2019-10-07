@@ -485,7 +485,7 @@ function _infinite_amp_append_css($css, $purifiedPath, $standardPath) {
 }
 
 /**
- * Helper function to add amazon id to variables and JS settings.
+ * Helper function to add amazon id to variables and JS settings. 
  */
 function _infinite_amp_add_amazon_id(&$variables) {
   if (!isset($variables['amazon_tag'])) {
