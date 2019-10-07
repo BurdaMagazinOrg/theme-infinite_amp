@@ -98,6 +98,7 @@ function infinite_amp_preprocess_node(&$variables) {
     // with actual node attributes.
     if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'lazyloading') {
       $variables['wrapper_attributes'] = new Attribute();
+      _infinite_amp_add_amazon_id($variables);
     }
   }
 
@@ -125,11 +126,7 @@ function infinite_amp_preprocess_node(&$variables) {
       $variables['parent_title'] = str_replace('"', '', $term_from_url->label());
     }
 
-    // Get the default amazon associates_id if not set.
-    if (!isset($variables['amazon_tag'])) {
-      $variables['amazon_tag'] = \Drupal::config('amazon.settings')->get('associates_id');
-      $variables['#attached']['drupalSettings']['amazon']['associatesId'] = $variables['amazon_tag'];
-    }
+    _infinite_amp_add_amazon_id($variables);
   }
 }
 
@@ -234,9 +231,7 @@ function infinite_amp_preprocess_paragraph(&$variables) {
     $variables['parent_title'] = str_replace('"', '', $title);
   }
 
-  // Get the default amazon associates_id and overwrite it if set.
-  $variables['amazon_tag'] = \Drupal::config('amazon.settings')->get('associates_id');
-  $variables['#attached']['drupalSettings']['amazon']['associatesId'] = $variables['amazon_tag'];
+  // Overwrite amazon id it if set.
   if ('products' === $variables['paragraph']->bundle() || 'ecommerce_slider_paragraph' === $variables['paragraph']->bundle()) {
     $node_entity = \Drupal::routeMatch()->getParameter('node');
     if (
@@ -487,4 +482,14 @@ function _infinite_amp_append_css($css, $purifiedPath, $standardPath) {
   }
 
   return $css;
+}
+
+/**
+ * Helper function to add amazon id to variables and JS settings.
+ */
+function _infinite_amp_add_amazon_id(&$variables) {
+  if (!isset($variables['amazon_tag'])) {
+    $variables['amazon_tag'] = \Drupal::config('amazon.settings')->get('associates_id');
+    $variables['#attached']['drupalSettings']['amazon']['associatesId'] = $variables['amazon_tag'];
+  }
 }
