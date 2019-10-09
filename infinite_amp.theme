@@ -98,6 +98,7 @@ function infinite_amp_preprocess_node(&$variables) {
     // with actual node attributes.
     if ($variables['view_mode'] === 'full' || $variables['view_mode'] === 'lazyloading') {
       $variables['wrapper_attributes'] = new Attribute();
+      _infinite_amp_add_amazon_id($variables);
     }
   }
 
@@ -124,6 +125,8 @@ function infinite_amp_preprocess_node(&$variables) {
     else if (($term_from_url = \Drupal::routeMatch()->getParameter('taxonomy_term')) && $term_from_url instanceof TermInterface) {
       $variables['parent_title'] = str_replace('"', '', $term_from_url->label());
     }
+
+    _infinite_amp_add_amazon_id($variables);
   }
 }
 
@@ -226,6 +229,20 @@ function infinite_amp_preprocess_paragraph(&$variables) {
     $title = $parent->label();
     // Clean it up for use in tracking urls.
     $variables['parent_title'] = str_replace('"', '', $title);
+  }
+
+  // Initialise amazon id.
+  _infinite_amp_add_amazon_id($variables);
+  // Overwrite amazon id it if set.
+  if ('products' === $variables['paragraph']->bundle() || 'ecommerce_slider_paragraph' === $variables['paragraph']->bundle()) {
+    $node_entity = \Drupal::routeMatch()->getParameter('node');
+    if (
+      $node_entity instanceof \Drupal\node\Entity\Node
+      && $node_entity->hasField('field_amazon_tag')
+      && strlen($node_entity->get('field_amazon_tag')->value) > 3
+    ) {
+      $variables['amazon_tag'] = $node_entity->get('field_amazon_tag')->value;
+    }
   }
 }
 
@@ -466,4 +483,13 @@ function _infinite_amp_append_css($css, $purifiedPath, $standardPath) {
   }
 
   return $css;
+}
+
+/**
+ * Helper function to add amazon id to variables and JS settings.
+ */
+function _infinite_amp_add_amazon_id(&$variables) {
+  if (!isset($variables['amazon_tag'])) {
+    $variables['amazon_tag'] = \Drupal::config('amazon.settings')->get('associates_id');
+  }
 }

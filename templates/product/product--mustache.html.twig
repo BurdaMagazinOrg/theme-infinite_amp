@@ -44,6 +44,9 @@
         {{#tracdelight}}
           &subid={{provider_identifier}}
         {{/tracdelight}}
+          {{#amazon}}
+            &tag={% endverbatim %}{{amazon_tag}}{% verbatim %}
+        {{/amazon}}
       {{/is_provider}}
     {{/amp_shopping_link}}
   {% endverbatim %}
