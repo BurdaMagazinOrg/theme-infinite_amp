@@ -234,7 +234,11 @@ function infinite_amp_preprocess_paragraph(&$variables) {
   // Initialise amazon id.
   _infinite_amp_add_amazon_id($variables);
   // Overwrite amazon id it if set.
-  if ('products' === $variables['paragraph']->bundle() || 'ecommerce_slider_paragraph' === $variables['paragraph']->bundle()) {
+  if ('products' === $variables['paragraph']->bundle()
+    || 'advertising_products_paragraph' === $variables['paragraph']->bundle()
+    || 'advertising_products_embed' === $variables['paragraph']->bundle()
+    || 'ecommerce_slider_paragraph' === $variables['paragraph']->bundle()) {
+
     $node_entity = \Drupal::routeMatch()->getParameter('node');
     if (
       $node_entity instanceof \Drupal\node\Entity\Node
