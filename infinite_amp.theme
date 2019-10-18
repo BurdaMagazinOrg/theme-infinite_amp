@@ -178,7 +178,9 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
     ];
     // add node title (if we are on a node or term page)
     $entity = \Drupal::routeMatch()->getParameter('node');
-    if (null === $entity) $entity = \Drupal::routeMatch()->getParameter('taxonomy_term');
+    if (null === $entity) {
+      $entity = \Drupal::routeMatch()->getParameter('taxonomy_term');
+    }
     if ($entity) {
       $query['title'] = $entity->get('field_seo_title')->value;
     }
