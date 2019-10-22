@@ -176,10 +176,13 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
         ->setAbsolute(true)
         ->toString(),
     ];
-    // add node title (if we are on a node)
-    $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node instanceof NodeInterface) {
-      $query['title'] = $node->get('field_seo_title')->value;
+    // add node title (if we are on a node or term page)
+    $entity = \Drupal::routeMatch()->getParameter('node');
+    if (null === $entity) {
+      $entity = \Drupal::routeMatch()->getParameter('taxonomy_term');
+    }
+    if ($entity) {
+      $query['title'] = $entity->get('field_seo_title')->value;
     }
 
     $variables['tipser_url'] = Url::fromRoute('tipser_client.open_from_amp_page', [
