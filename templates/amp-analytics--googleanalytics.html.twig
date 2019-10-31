@@ -1,1 +1,80 @@
-{# Overriden on platform level #}
+{#
+/**
+ * @file
+ * Template for amp-analytics.
+ *
+ * Available variables:
+ * - account: The analytics account ID.
+ * - attributes: The HTML attributes for amp-analytics, primarily:
+ *   - type: The type of analytics account.
+ *
+ * @see template_preprocess_amp_iframe()
+ */
+#}
+<!-- Google Tag Manager -->
+<amp-analytics
+  config="https://www.googletagmanager.com/amp.json?id=GTM-M6DHS7P&gtm_auth={{gtm_auth}}&gtm_preview={{gtm_preview}}&gtm_cookies_win=x&gtm.url=SOURCE_URL"
+  data-credentials="include">
+  <script type="application/json">
+    {
+      "vars": {
+        "entityID": "{{ datalayer.page.entityID }}",
+        "entityType": "{{ datalayer.page.entityType }}",
+        "articleName": "{{ datalayer.page.name }}",
+        "contentType": "{{ datalayer.page.contentType }}",
+        "contentSubType": {{ datalayer.page.contentSubType|json_encode|raw }},
+        "articlePublishDate": "{{ datalayer.page.articlePublishDate }}",
+        "authorName": "{{ datalayer.page.authorName }}",
+        "categoryChannel": "{{ datalayer.page.category }}",
+        "subCategoryChannel": "{{ datalayer.page.subCategory }}",
+        "sponsorType": "{{ datalayer.page.sponsorType }}"
+      }
+    }
+  </script>
+</amp-analytics>
+
+<!-- Google Analytics -->
+<amp-analytics type="googleanalytics">
+  <script type="application/json">
+    {
+      "vars": {
+        "account": "{{ gaProperty }}"
+      },
+      "triggers": {
+        "productClick": {
+          "on": "click",
+          "request": "event",
+          "vars": {
+            "eventCategory": "ecommerce",
+            "eventAction": "product_click",
+            "eventLabel": "${sourcePath}"
+          },
+          "extraUrlParams": {
+            "cd9": "{{ datalayer.page.name }}",
+            "cd10": "{{ datalayer.page.contentType }}",
+            "cd11": {{ datalayer.page.contentSubType|json_encode|raw }},
+            "cd12": "{{ datalayer.page.articlePublishDate }}",
+            "cd13": "{{ datalayer.page.authorName }}",
+            "cd14": "{{ datalayer.page.category }}",
+            "cd15": "{{ datalayer.page.subCategory }}",
+            "cd19": "${productCategory}",
+            "cd20": "{{ datalayer.page.entityType }}",
+            "cd25": "${productProvider}",
+            "cd29": "${productSoldOut}",
+            "cd33": "{{ datalayer.page.sponsorType }}",
+            "pa": "click",
+            "pal": "${productViewMode}",
+            "pr1id": "${productId}",
+            "pr1nm": "${productName}",
+            "pr1br": "${productBrand}",
+            "pr1ca": "${productShop}",
+            "pr1pr": "${productPrice}",
+            "pr1ps": "${productPosition}",
+            "cu": "${productCurrency}"
+          },
+          "selector": ".item-product"
+        }
+      }
+    }
+  </script>
+</amp-analytics>
