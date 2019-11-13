@@ -11,6 +11,14 @@
         allowfullscreen>
         {{ image_style(media.field_preview_image.entity.field_image, 'landscape_l', {layout: 'fill'}) }}
     </amp-iframe>
+    {% spaceless %}
+        {% if content.field_description|render %}
+            <meta itemprop="description" content="{{ content.field_description | render | striptags | trim | replace({"\n":' ', "\r":' '})}}" />
+        {% endif %}
+        <meta itemprop="name" content="{{ content.name | render | striptags | trim }}" />
+    {% endspaceless %}
+    <meta itemprop="thumbnailURL" content="{{ content.field_preview_image | render | trim }}" />
+    <meta itemprop="uploadDate" content="{{ content.created }}" />
     <div class="caption">
         {% if content.field_copyright|render  %}
             <div class="text-copyright">{{ content.field_copyright }}</div>
