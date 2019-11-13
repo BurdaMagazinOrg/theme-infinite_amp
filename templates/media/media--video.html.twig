@@ -20,15 +20,7 @@
     <div class="item-media">
         <div class="embed-responsive embed-responsive-16by9 video-container" itemscope=""
              itemtype="http://schema.org/videoObject">
-            {% spaceless %}
-            {% if content.field_description|render %}
-                <meta itemprop="description" content="{{ content.field_description | render | striptags | trim | replace({"\n":' ', "\r":' '})}}" />
-            {% endif %}
-            <meta itemprop="name" content="{{ content.name | render | striptags | trim }}" />
-            {% endspaceless %}
-            <meta itemprop="thumbnailURL" content="{{ content.field_preview_image | render | trim }}" />
-            <meta itemprop="uploadDate" content="{{ content.created }}" />
-            {{ content|without('field_copyright', 'field_description', 'field_preview_image', 'created', 'name')}}
+                {{ content | without('field_description', 'field_copyright', 'field_source') }}
         </div>
         <div class="caption">
             {% if content.field_copyright | render is not empty or content.field_source | render is not empty %}
