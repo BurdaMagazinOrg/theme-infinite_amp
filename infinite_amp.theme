@@ -232,6 +232,12 @@ function infinite_amp_preprocess_paragraph(&$variables) {
     $title = $parent->label();
     // Clean it up for use in tracking urls.
     $variables['parent_id'] = $parent->id();
+    if ($parent->getEntityTypeId() === 'taxonomy_term') {
+      $variables['parent_type'] = 'term';
+    }
+    else if ($parent->getEntityTypeId() === 'node') {
+      $variables['parent_type'] = 'node';
+    }
     $variables['parent_title'] = str_replace('"', '', $title);
   }
 
