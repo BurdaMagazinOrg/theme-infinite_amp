@@ -228,11 +228,11 @@ function infinite_amp_preprocess_paragraph(&$variables) {
 
   // Add title and id of parent entity.
   $variables['parent_title'] = '';
+  $variables['parent_id'] = 0;
+  $variables['parent_type'] = '';
   if (($parent = $variables['paragraph']->getParentEntity())) {
-    $title = $parent->label();
-    // Clean it up for use in tracking urls.
     $variables['parent_id'] = $parent->id();
-    $variables['parent_type'] = '';
+    $title = $parent->label();
     if ($parent->getEntityTypeId() === 'taxonomy_term') {
       $variables['parent_type'] = 'taxonomy_term';
     }
@@ -242,6 +242,7 @@ function infinite_amp_preprocess_paragraph(&$variables) {
     else if ($parent->getEntityTypeId() === 'user') {
       $variables['parent_type'] = 'user';
     }
+    // Clean it up for use in tracking urls.
     $variables['parent_title'] = str_replace('"', '', $title);
   }
 
