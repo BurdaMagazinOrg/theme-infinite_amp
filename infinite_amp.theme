@@ -232,10 +232,7 @@ function infinite_amp_preprocess_paragraph(&$variables) {
     $variables['paragraph']->set('field_progress_navigation', NULL);
   }
 
-  // Add title and id of parent entity.
-  $variables['parent_title'] = '';
-  $variables['parent_id'] = 0;
-  $variables['parent_type'] = '';
+  // Add title, type and id of parent entity
   if (($parent = $variables['paragraph']->getParentEntity())) {
     $variables['parent_id'] = $parent->id();
     if ($parent->getEntityTypeId() === 'taxonomy_term') {
