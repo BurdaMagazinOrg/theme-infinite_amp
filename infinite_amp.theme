@@ -189,6 +189,8 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
     }
     if ($entity) {
       $query['title'] = $entity->get('field_seo_title')->value;
+      $query['parent_id'] = $entity->id();
+      $query['parent_type'] = $entity->getEntityTypeId();
     }
 
     $variables['tipser_url'] = Url::fromRoute('tipser_client.open_from_amp_page', [
