@@ -117,12 +117,18 @@ function infinite_amp_preprocess_node(&$variables) {
     if (($node_from_url = \Drupal::routeMatch()->getParameter('node')) && $node_from_url instanceof NodeInterface) {
       if ($node_from_url->id() != $node->id()) {
         $variables['parent_title'] = str_replace('"', '', $node_from_url->label());
+        $variables['parent_id'] = $node_from_url->id();
+        $variables['parent_type'] = 'node';
       }
       else {
+        $variables['parent_id'] = $node->id();
+        $variables['parent_type'] = 'node';
         $variables['parent_title'] = str_replace('"', '', $node->label());
       }
     }
     else if (($term_from_url = \Drupal::routeMatch()->getParameter('taxonomy_term')) && $term_from_url instanceof TermInterface) {
+      $variables['parent_id'] = $term_from_url->id();
+      $variables['parent_type'] = 'taxonomy_term';
       $variables['parent_title'] = str_replace('"', '', $term_from_url->label());
     }
 
@@ -183,6 +189,8 @@ function infinite_amp_preprocess_advertising_product(&$variables) {
     }
     if ($entity) {
       $query['title'] = $entity->get('field_seo_title')->value;
+      $query['parent_id'] = $entity->id();
+      $query['parent_type'] = $entity->getEntityTypeId();
     }
 
     $variables['tipser_url'] = Url::fromRoute('tipser_client.open_from_amp_page', [
@@ -226,9 +234,18 @@ function infinite_amp_preprocess_paragraph(&$variables) {
     $variables['paragraph']->set('field_progress_navigation', NULL);
   }
 
-  // Add title of parent entity.
-  $variables['parent_title'] = '';
+  // Add title, type and id of parent entity
   if (($parent = $variables['paragraph']->getParentEntity())) {
+    $variables['parent_id'] = $parent->id();
+    if ($parent->getEntityTypeId() === 'taxonomy_term') {
+      $variables['parent_type'] = 'taxonomy_term';
+    }
+    else if ($parent->getEntityTypeId() === 'node') {
+      $variables['parent_type'] = 'node';
+    }
+    else if ($parent->getEntityTypeId() === 'user') {
+      $variables['parent_type'] = 'user';
+    }
     $title = $parent->label();
     // Clean it up for use in tracking urls.
     $variables['parent_title'] = str_replace('"', '', $title);
