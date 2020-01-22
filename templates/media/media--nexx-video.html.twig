@@ -1,16 +1,16 @@
 {% if content %}
 <div class="item-media item-media--nexx-video" itemscope="" itemtype="http://schema.org/videoObject">
     {{ attach_library('amp/amp.iframe') }}
-    <amp-iframe
-        width="940"
+    <amp-video-iframe
+        allowfullscreen
         height="528"
-        src="https://embed.nexx.cloud/{{ omnia_id }}/{{ media.field_video.hash }}?amp=1"
-        frameborder="0"
-        sandbox="allow-scripts allow-same-origin allow-popups"
         layout="responsive"
-        allowfullscreen>
-        {{ image_style(media.field_preview_image.entity.field_image, 'landscape_l', {layout: 'fill'}) }}
-    </amp-iframe>
+        poster="{{ image_style(media.field_preview_image.entity.field_image, 'landscape_l', {layout: 'fill'}) }}"
+        src="https://embed.nexx.cloud/{{ omnia_id }}/{{ media.field_video.hash }}?amp=1"
+        width="940"
+        >
+        
+    </amp-video-iframe>
     {% spaceless %}
         <meta itemprop="description" content="{{ content.field_description | render | striptags | trim | replace({"\n":' ', "\r":' '})}}" />
         <meta itemprop="name" content="{{ content.name | render | striptags | trim }}" />

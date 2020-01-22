@@ -445,6 +445,7 @@ function infinite_amp_preprocess_html(&$variables) {
   $variables['#attached']['library'][] = 'infinite_amp/amp.list';
   $variables['#attached']['library'][] = 'infinite_amp/amp.mustache';
   $variables['#attached']['library'][] = 'infinite_amp/amp.social-share';
+  $variables['#attached']['library'][] = 'infinite_amp/amp.amp-video-iframe';
 
   if (in_array(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), [
     '/shop-it',
