@@ -1,11 +1,17 @@
 <div class="outbrain_div_container">
+{% if outbrain.widget_ids %}
+{% for widget_id in outbrain.widget_ids %}
+<div class="outbrain_div_container">
     <amp-embed
         width="100" height="100"
         type="outbrain"
         layout="responsive"
-        data-widgetIds="AMP_1"
+        data-widgetIds="{{ widget_id }}"
         data-htmlURL="{{ canonical_url }}"
         data-ampURL="{{ amp_url }}"
     >
     </amp-embed>
+</div>
+{% endfor %}
+{% endif %}
 </div>
