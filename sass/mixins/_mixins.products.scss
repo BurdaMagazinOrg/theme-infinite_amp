@@ -119,10 +119,6 @@
     margin-bottom: 0;
   }
 
-  .text-headline {
-    //overflow: hidden;
-  }
-
   .text-brand {
     overflow: hidden;
     display: block;
@@ -171,8 +167,9 @@
   }
 
   .text-headline {
+    height: $product__item-text-headline-height-mobile--ecommerce-slider-amp;
     margin-bottom: $product__item-text-headline-gap-bottom-mobile;
-    //height: $product__item-text-headline-height-mobile;
+    overflow: hidden;
   }
 
   .img-container {
