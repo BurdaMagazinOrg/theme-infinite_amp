@@ -45,7 +45,7 @@
 {% block social_email %}
     <amp-social-share width="{{ socials_size }}" height="{{ socials_size }}" class="item-social icon-email"
                       data-param-body="{{ email_share_text ~ ' ' ~ url  ~ "Sharing_Email"}}"
-                      data-param-subject="{{ email_subject }}"
+                      data-param-subject="{{ email_subject ~ ' ' ~ label}}"
                       type="email">
 
     </amp-social-share>
