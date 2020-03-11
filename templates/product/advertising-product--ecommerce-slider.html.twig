@@ -28,10 +28,22 @@
                 <div class="text-brand">{{ content.product_brand }}</div>
                 <div class="text-headline">{{ content.product_name }}</div>
                 {% if sold_out %}
-                    <div class="text-shop text-sold-out">Ausverkauft</div>
+                  <div class="text-price">
+                    <span class="text-price--current">
+                      {% if product_price_set %}
+                        {{ content.product_price }} {{ formatted_currency }}
+                      {% endif %}
+                    </span>
+                  </div>
+                  <div class="text-shop text-sold-out">Ausverkauft</div>
                 {% else %}
-                    <div class="text-price">{{ content.product_price }} {{ formatted_currency }}</div>
-                    {% include '@infinite_amp/product/advertising-product-button.html.twig' %}
+                  <div class="text-price">
+                      {% if show_strikethrough_price %}
+                          <span class="text-price--strikethrough">{{ content.product_original_price }} {{ formatted_currency }}</span>
+                      {% endif %}
+                      <span class="text-price--current">{{ content.product_price }} {{ formatted_currency }}</span>
+                  </div>
+                  {% include '@infinite_amp/product/advertising-product-button.html.twig' %}
                 {% endif %}
             </div>
         </a>
