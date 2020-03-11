@@ -18,3 +18,7 @@
     padding-left: $container-h-gap--mobile;
   }
 }
+
+.nexx-separator {
+  @include nexx-separator--amp();
+}
