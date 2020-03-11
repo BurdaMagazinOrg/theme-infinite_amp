@@ -94,7 +94,7 @@
   min-height: 0;
 }
 
-@mixin nexx-separator-amp {
+@mixin nexx-separator--amp {
   font-family: $nexx-separator-font;
   font-size: getFontSize(14px);
   letter-spacing: 0;
