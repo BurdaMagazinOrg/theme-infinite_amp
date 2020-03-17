@@ -54,6 +54,9 @@
   {% if content.field_paragraphs['#items'] %}
     {{ content.field_paragraphs }}
   {% endif %}
+  
+  {% block static_nexx_block %}{% endblock %}
+  
   {{ content.field_tags }}
   {{ content.field_ivw }}
 
