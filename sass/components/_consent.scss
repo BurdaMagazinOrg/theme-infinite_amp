@@ -1,0 +1,37 @@
+amp-consent {
+  background-color: $color-white;
+  box-shadow: 0 -8px 20px 0 rgba(0, 0, 0, 0.2);
+  opacity: 0.97;
+}
+
+#consent-ui {
+  padding: 1.5rem;
+
+  p {
+    margin-bottom: $grid-unit-2;
+  }
+
+  .content__button-wrapper {
+    display: flex;
+  }
+
+  button {
+    @include button();
+    @include button--md();
+  }
+
+  .consent__button--ok {
+    background-color: #3f7edf;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    flex: 1;
+  }
+
+  .consent__button--no {
+    @include button--plain-colored();
+    margin-left: $grid-unit-1;
+  }
+}

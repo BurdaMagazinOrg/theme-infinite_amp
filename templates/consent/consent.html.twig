@@ -1,0 +1,16 @@
+<amp-consent layout="nodisplay" id="consent-element">
+  <script type="application/json">
+    {
+      "consentInstanceId": "my-consent",
+      "consentRequired": true,
+      "promptUI": "consent-ui"
+    }
+  </script>
+  <div id="consent-ui">
+    <p>Diese Webseite verwendet u.a. Cookies zur Analyse und Verbesserung der Webseite, zum Ausspielen personalisierter Anzeigen und zum Teilen von Artikeln in sozialen Netzwerken. Unter Datenschutz erhalten Sie weitere Informationen und Möglichkeiten, diese Cookies auszuschalten.</p>
+    <div class="content__button-wrapper">
+      <button class="consent__button--ok" on="tap:consent-element.accept" role="button">Ok</button>
+      <button class="consent__button--no" on="tap:consent-element.dismiss" role="button">Nein</button>
+    </div>
+  </div>
+</amp-consent>
