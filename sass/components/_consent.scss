@@ -31,7 +31,6 @@ amp-consent {
   }
 
   .consent__button--no {
-    @include button--plain-colored();
     margin-left: $grid-unit-1;
   }
 }
