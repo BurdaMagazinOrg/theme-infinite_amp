@@ -9,6 +9,10 @@ amp-consent {
 
   p {
     margin-bottom: $grid-unit-2;
+
+    a {
+      text-decoration: underline;
+    }
   }
 
   .content__button-wrapper {
