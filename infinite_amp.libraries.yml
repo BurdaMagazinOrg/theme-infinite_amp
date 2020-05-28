@@ -23,7 +23,28 @@ amp.amp-carousel:
     url: https://github.com/ampproject/amphtml/blob/master/LICENSE
     gpl-compatible: false
   js:
-    https://cdn.ampproject.org/v0/amp-carousel-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-carousel", async: true } }
+    https://cdn.ampproject.org/v0/amp-carousel-0.1.js:
+      {
+        type: external,
+        minified: true,
+        attributes: { custom-element: 'amp-carousel', async: true },
+      }
+
+amp.amp-consent:
+  remote: https://cdn.ampproject.org
+  header: true
+  version: 0.1
+  license:
+    name: apache
+    url: https://github.com/ampproject/amphtml/blob/master/LICENSE
+    gpl-compatible: false
+  js:
+    https://cdn.ampproject.org/v0/amp-consent-0.1.js:
+      {
+        type: external,
+        minified: true,
+        attributes: { custom-element: 'amp-consent', async: true },
+      }
 
 amp.nexxtv-player:
   remote: https://cdn.ampproject.org
@@ -34,7 +55,12 @@ amp.nexxtv-player:
     url: https://github.com/ampproject/amphtml/blob/master/LICENSE
     gpl-compatible: false
   js:
-    https://cdn.ampproject.org/v0/amp-nexxtv-player-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-nexxtv-player", async: true } }
+    https://cdn.ampproject.org/v0/amp-nexxtv-player-0.1.js:
+      {
+        type: external,
+        minified: true,
+        attributes: { custom-element: 'amp-nexxtv-player', async: true },
+      }
 
 amp.social-share:
   remote: https://cdn.ampproject.org
@@ -45,7 +71,12 @@ amp.social-share:
     url: https://github.com/ampproject/amphtml/blob/master/LICENSE
     gpl-compatible: false
   js:
-    https://cdn.ampproject.org/v0/amp-social-share-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-social-share", async: true } }
+    https://cdn.ampproject.org/v0/amp-social-share-0.1.js:
+      {
+        type: external,
+        minified: true,
+        attributes: { custom-element: 'amp-social-share', async: true },
+      }
 
 amp.list:
   remote: https://cdn.ampproject.org
@@ -56,7 +87,12 @@ amp.list:
     url: https://github.com/ampproject/amphtml/blob/master/LICENSE
     gpl-compatible: false
   js:
-    https://cdn.ampproject.org/v0/amp-list-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-list", async: true } }
+    https://cdn.ampproject.org/v0/amp-list-0.1.js:
+      {
+        type: external,
+        minified: true,
+        attributes: { custom-element: 'amp-list', async: true },
+      }
 
 amp.mustache:
   remote: https://cdn.ampproject.org
@@ -67,7 +103,12 @@ amp.mustache:
     url: https://github.com/ampproject/amphtml/blob/master/LICENSE
     gpl-compatible: false
   js:
-    https://cdn.ampproject.org/v0/amp-mustache-0.2.js: { type: external, minified: true, attributes: { custom-template: "amp-mustache", async: true } }
+    https://cdn.ampproject.org/v0/amp-mustache-0.2.js:
+      {
+        type: external,
+        minified: true,
+        attributes: { custom-template: 'amp-mustache', async: true },
+      }
 
 amp.bind:
   remote: https://cdn.ampproject.org
@@ -78,7 +119,12 @@ amp.bind:
     url: https://github.com/ampproject/amphtml/blob/master/LICENSE
     gpl-compatible: false
   js:
-    https://cdn.ampproject.org/v0/amp-bind-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-bind", async: true } }
+    https://cdn.ampproject.org/v0/amp-bind-0.1.js:
+      {
+        type: external,
+        minified: true,
+        attributes: { custom-element: 'amp-bind', async: true },
+      }
 
 amp.fx-flying-carpet:
   remote: https://cdn.ampproject.org
@@ -89,7 +135,12 @@ amp.fx-flying-carpet:
     url: https://github.com/ampproject/amphtml/blob/master/LICENSE
     gpl-compatible: false
   js:
-    https://cdn.ampproject.org/v0/amp-fx-flying-carpet-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-fx-flying-carpet", async: true } }
+    https://cdn.ampproject.org/v0/amp-fx-flying-carpet-0.1.js:
+      {
+        type: external,
+        minified: true,
+        attributes: { custom-element: 'amp-fx-flying-carpet', async: true },
+      }
 
 amp.sticky:
   remote: https://cdn.ampproject.org
@@ -100,4 +151,9 @@ amp.sticky:
     url: https://github.com/ampproject/amphtml/blob/master/LICENSE
     gpl-compatible: false
   js:
-    https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js: { type: external, minified: true, attributes: { custom-element: "amp-sticky-ad", async: true } }
+    https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js:
+      {
+        type: external,
+        minified: true,
+        attributes: { custom-element: 'amp-sticky-ad', async: true },
+      }
