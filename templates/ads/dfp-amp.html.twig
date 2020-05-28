@@ -5,7 +5,7 @@
     {% set rtc_config_value = rtc_config|json_encode(constant('JSON_HEX_TAG') b-or constant('JSON_HEX_APOS') b-or constant('JSON_HEX_QUOT') b-or constant('JSON_UNESCAPED_UNICODE')) %}
 {% endif %}
 
-<amp-ad{{ attributes }}
+<amp-ad{{ attributes }} data-block-on-consent
         json='{{ json|json_encode(constant('JSON_HEX_TAG') b-or constant('JSON_HEX_APOS') b-or constant('JSON_HEX_QUOT') b-or constant('JSON_UNESCAPED_UNICODE'))|raw }}'
         {% if rtc_config %}
             rtc-config='{{ rtc_config_value|raw }}'

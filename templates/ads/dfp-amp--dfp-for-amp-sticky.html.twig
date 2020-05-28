@@ -6,7 +6,7 @@
   {% set rtc_config_value = rtc_config|json_encode(constant('JSON_HEX_TAG') b-or constant('JSON_HEX_APOS') b-or constant('JSON_HEX_QUOT') b-or constant('JSON_UNESCAPED_UNICODE')) %}
 {% endif %}
 
-<amp-sticky-ad layout="nodisplay">
+<amp-sticky-ad layout="nodisplay" data-block-on-consent>
   <amp-ad{{ attributes }}
     json='{{ json|json_encode(constant('JSON_HEX_TAG') b-or constant('JSON_HEX_APOS') b-or constant('JSON_HEX_QUOT') b-or constant('JSON_UNESCAPED_UNICODE'))|raw }}'
     {% if rtc_config %}
