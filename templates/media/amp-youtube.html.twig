@@ -13,5 +13,11 @@
  * @see template_preprocess_amp_youtube()
  */
 #}
-<amp-youtube{{ attributes }} data-block-on-consent>
-</amp-youtube>
+<div class="item-media__wrapper">
+  <amp-youtube{{ attributes }} data-block-on-consent>
+  </amp-youtube>
+  <div class="item-media__consent">
+    <button on="tap:consent-element.prompt()">Embed laden</button>
+  </div>
+</div>
+

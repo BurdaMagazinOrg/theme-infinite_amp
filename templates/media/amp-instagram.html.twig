@@ -13,5 +13,10 @@
  * @see template_preprocess_amp_instagram()
  */
 #}
-<amp-instagram{{ attributes }} data-block-on-consent>
-</amp-instagram>
+<div class="item-media__wrapper">
+  <amp-instagram{{ attributes }} data-block-on-consent>
+  </amp-instagram>
+  <div class="item-media__consent">
+    <button on="tap:consent-element.prompt()">Embed laden</button>
+  </div>
+</div>

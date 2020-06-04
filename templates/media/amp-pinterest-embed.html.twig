@@ -14,5 +14,10 @@
  * @see template_preprocess_amp_pinterest_embed()
  */
 #}
-<amp-pinterest{{ attributes }} data-block-on-consent>
-</amp-pinterest>
+<div class="item-media__wrapper">
+  <amp-pinterest{{ attributes }} data-block-on-consent>
+  </amp-pinterest>
+  <div class="item-media__consent">
+    <button on="tap:consent-element.prompt()">Embed laden</button>
+  </div>
+</div>
