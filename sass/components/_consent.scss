@@ -1,15 +1,13 @@
+amp-consent {
+  height: 100%;
+}
+
 #consent-ui {
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
-  height: 100%;
   height: 100vh;
   justify-items: center;
-  left: 0px;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  z-index: 2147483647;
 }
 
 .consent__content {
