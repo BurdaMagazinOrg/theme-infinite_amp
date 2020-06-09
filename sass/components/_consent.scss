@@ -10,6 +10,27 @@ amp-consent {
   justify-items: center;
 }
 
+#consent__prompt-btn {
+  align-items: center;
+  background-color: rgb(72, 72, 74);
+  border-radius: 50px;
+  border: none;
+  bottom: $grid-unit-2;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  outline: none;
+  position: fixed;
+  right: $grid-unit-2;
+  width: 40px;
+  z-index: 2147483639;
+
+  path {
+    fill: $color-white;
+  }
+}
+
 .consent__content {
   padding: 1.5rem;
   background-color: $color-white;
@@ -58,7 +79,7 @@ amp-consent {
   }
 }
 
-@mixin placeholder() {
+@mixin placeholder($bg-size: contain, $bg-pos: bottom) {
   align-items: center;
   border: 1px solid rgb(204, 214, 221);
   display: flex;
@@ -72,9 +93,9 @@ amp-consent {
 
   &:before {
     content: ' ';
-    background-position-y: bottom;
+    background-position-y: $bg-pos;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: $bg-size;
     height: 50px;
     width: 50px;
   }
@@ -110,7 +131,6 @@ amp-consent {
   }
 
   amp-youtube.amp-notbuilt + .item-media__consent {
-    @include placeholder();
     background-color: $color-dark-1;
     border: none;
 
@@ -121,18 +141,33 @@ amp-consent {
   }
 
   amp-pinterest.amp-notbuilt + .item-media__consent {
-    @include placeholder();
-
     &:before {
       background-image: url(/themes/contrib/infinite/images/static/pinterest.png);
     }
   }
 
   amp-twitter.amp-notbuilt + .item-media__consent {
-    @include placeholder();
-
     &:before {
       background-image: url(/themes/contrib/infinite/images/static/twitter.png);
+    }
+  }
+
+  amp-nexxtv-player.amp-notbuilt + .item-media__consent {
+    background-color: $color-dark-1;
+    border: none;
+
+    &:before {
+      align-items: center;
+      background-image: url(/themes/contrib/infinite/images/static/play_icon.png);
+      background-position-x: center;
+      background-position-y: center;
+      background-size: 12px;
+      border-radius: 50%;
+      border: 1px solid $color-white;
+      color: white;
+      content: ' ';
+      display: flex;
+      justify-content: center;
     }
   }
 }
