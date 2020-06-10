@@ -1,8 +1,4 @@
-amp-consent {
-  height: 100%;
-}
-
-#consent-ui {
+.consent {
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -58,9 +54,18 @@ amp-consent {
     @include button--lg();
     border-radius: 3px;
     flex: 1;
-    padding-left: $grid-unit-1;
-    padding-right: $grid-unit-1;
     text-transform: none;
+    padding: 0;
+
+    a {
+      display: block;
+      padding-left: $grid-unit-1;
+      padding-right: $grid-unit-1;
+      
+      &:hover {
+        color: inherit;
+      }
+    }
   }
 
   .consent__button--accept {
