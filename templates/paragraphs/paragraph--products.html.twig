@@ -67,16 +67,14 @@
                   width="auto"
                   height="100"
                   src="{{ content.field_products }}"
-                  items="docs">
+                  items=".">
                     <template type="amp-mustache">
                         {% verbatim %}
-                          {{#_source}}
-                        {% endverbatim %}
-
-                          {% include '@infinite_amp/product/product--mustache.html.twig' %}
-
-                        {% verbatim %}
-                          {{/_source}}
+                          {{#.}}
+                            {% endverbatim %}
+                              {% include '@infinite_amp/product/product--mustache.html.twig' %}
+                            {% verbatim %}
+                          {{/.}}
                         {% endverbatim %}
                     </template>
                 </amp-list>
