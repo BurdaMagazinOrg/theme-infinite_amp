@@ -9,7 +9,7 @@
 {% set article_title = parent_title | url_encode(true) %}
 
 {% set tipser_product_link %}
-  {% verbatim %}{{amp_shopping_link}}{% endverbatim %}?parent_id={{ parent_id }}&parent_type={{ parent_type }}&article={{article_url | raw}}{{article_title}}
+  {% verbatim %}{{attributes.0.value}}{% endverbatim %}?parent_id={{ parent_id }}&parent_type={{ parent_type }}&article={{article_url | raw}}{{article_title}}
 {% endset %} 
 
 {#
@@ -19,36 +19,38 @@
   
   The below, will render the following html including the Mustache template:
 
-  {{#amp_shopping_link}}
+  {{#attributes.0.value}}
       http://link.com?article=https%3A%2F%2Flink.com%2Farticle&title=Something%20about%20fashion
-  {{/amp_shopping_link}}
+  {{/attributes.0.value}}
 #}
 {% set tipser_product_link_mustache %}
-  {% verbatim %}{{#amp_shopping_link}}{% endverbatim %}
+  {% verbatim %}{{#attributes.0.value}}{% endverbatim %}
     {{ tipser_product_link }}
-  {% verbatim %}{{/amp_shopping_link}}{% endverbatim %}
+  {% verbatim %}{{/attributes.0.value}}{% endverbatim %}
 {% endset %} 
 
 {#
   Renders:
 
-  {{^amp_shopping_link}}
-    {{shop_url}}&subid={{ provider_identifier }}
-  {{/amp_shopping_link}}
+  {{^attributes.0.value}}
+    {{shop_url}}&subid={{ attributes.2.value }}
+  {{/attributes.0.value}}
 #}
 {% set normal_product_link_mustache %}
   {% verbatim %}
-    {{^amp_shopping_link}}
-      {{shop_url}}
-      {{#is_provider}}
-        {{#tracdelight}}
-          &subid={{provider_identifier}}
-        {{/tracdelight}}
-          {{#amazon}}
-            &tag={% endverbatim %}{{amazon_tag}}{% verbatim %}
-        {{/amazon}}
-      {{/is_provider}}
-    {{/amp_shopping_link}}
+    {{^attributes.0.value}}
+      {{attributes.3.value}}
+      {{#provider}}
+        {{#is}}
+          {{#tracdelight}}
+            &subid={{attributes.2.value}}
+          {{/tracdelight}}
+            {{#amazon}}
+              &tag={% endverbatim %}{{amazon_tag}}{% verbatim %}
+          {{/amazon}}
+        {{/is}}
+      {{/provider}}
+    {{/attributes.0.value}}
   {% endverbatim %}
 {% endset %} 
 
@@ -57,41 +59,41 @@
 {% verbatim %}
 <a class="item-product item-product--strikethrough" 
       data-vars-product-name="{{ title }}"
-      data-vars-product-shop="{{ shop_name }}"
-      data-vars-product-price="{{ price }}"
-      data-vars-product-currency="{{ original_currency_code }}"
+      data-vars-product-shop="{{ brand.name }}"
+      data-vars-product-price="{{ price.data_price }}"
+      data-vars-product-currency="{{ price.data_currency }}"
       data-vars-product-uuid="{{ uuid }}"
-      data-vars-product-id="{{ provider_identifier }}"
-      data-vars-product-category="{{ category }}"
-      data-vars-product-sold-out="{{#stock_availability}}0{{/stock_availability}}{{^stock_availability}}1{{/stock_availability}}"
-      data-vars-product-stock-availability="{{stock_availability}}"
-      data-vars-product-provider="{{ provider }}"
+      data-vars-product-id="{{ attributes.2.value }}"
+      data-vars-product-category="{{ category.name }}"
+      data-vars-product-sold-out="{{#attributes.4.value}}0{{/attributes.4.value}}{{^attributes.4.value}}1{{/attributes.4.value}}"
+      data-vars-product-stock-availability="{{attributes.4.value}}"
+      data-vars-product-provider="{{ provider.name }}"
       data-vars-product-view-mode="amp"
       data-vars-product-position="undefined"
       href={% endverbatim %}"{{href}}"{% verbatim %}
-      target="{{#amp_shopping_link}}_self{{/amp_shopping_link}}{{^amp_shopping_link}}_blank{{/amp_shopping_link}}"
+      target="{{#attributes.0.value}}_self{{/attributes.0.value}}{{^attributes.0.value}}_blank{{/attributes.0.value}}"
       style="margin-bottom: 16px">
     <div class="img-container">
-        <amp-img layout="responsive" src="{{ image_style_product_300x324 }}" width="200" height="200" alt="{{ title }}"></amp-img></div>
+        <amp-img layout="responsive" src="{{ images.0.image_style_product300x324 }}" width="200" height="200" alt="{{ title }}"></amp-img></div>
     <div class="caption">
-        <div class="text-brand">{{ brand }}</div>
+        <div class="text-brand">{{ brand.name }}</div>
         <div class="text-headline">{{ title }}</div>
         <div class="text-price">
-            {{#display_strikethrough}}
-              <span class="text-price--strikethrough">{{ original_price }} {{ original_currency_code }}</span>
-            {{/display_strikethrough}}
-            <span class="text-price--current">{{ price }} {{ original_currency_code }}</span>
+            {{#attributes.1.value}}
+              <span class="text-price--strikethrough">{{ price.original }}</span>
+            {{/attributes.1.value}}
+            <span class="text-price--current">{{ price.listing }}</span>
         </div>
         <div class="text-shop">
-          {{#stock_availability}}
-            {{#amp_shopping_link}}
+          {{#attributes.4.value}}
+            {{#attributes.0.value}}
               Kaufen
-            {{/amp_shopping_link}}
-            {{^amp_shopping_link}}
+            {{/attributes.0.value}}
+            {{^attributes.0.value}}
               Zum Shop
-            {{/amp_shopping_link}}
-          {{/stock_availability}}
-          {{^stock_availability}}Ausverkauft{{/stock_availability}}
+            {{/attributes.0.value}}
+          {{/attributes.4.value}}
+          {{^attributes.4.value}}Ausverkauft{{/attributes.4.value}}
         </div>
     </div>
 </a>
