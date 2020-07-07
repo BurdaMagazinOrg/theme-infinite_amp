@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Template for amp-twitter.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for amp-twitter:
+ *   - layout: The layout of Twitter element.
+ *   - height: The height of Twitter element.
+ *   - width: The width of Twitter element.
+ *   - data-tweetid: The ID of the tweet.
+ *
+ * @see template_preprocess_amp_twitter()
+ */
+#}
+<div class="item-media__wrapper">
+  <amp-twitter{{ attributes }} data-block-on-consent>
+  </amp-twitter>
+  <div class="item-media__consent">
+    <button on="tap:consent-element.prompt(),consent-ui-2.show,consent-ui-1.hide">Inhalt laden</button>
+  </div>
+</div>

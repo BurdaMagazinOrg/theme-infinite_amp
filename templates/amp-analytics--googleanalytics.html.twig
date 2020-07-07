@@ -14,6 +14,7 @@
 <!-- Google Tag Manager -->
 <amp-analytics
   config="https://www.googletagmanager.com/amp.json?id={{ gtmID }}&gtm_auth={{ gtmAuth }}&gtm_preview={{ gtmPreview }}&gtm_cookies_win=x&gtm.url=SOURCE_URL"
+  data-block-on-consent
   data-credentials="include">
   <script type="application/json">
     {
@@ -34,7 +35,7 @@
 </amp-analytics>
 
 <!-- Google Analytics -->
-<amp-analytics type="googleanalytics">
+<amp-analytics type="googleanalytics" data-block-on-consent>
   <script type="application/json">
     {
       "vars": {

@@ -2,17 +2,24 @@
 <div class="item-media item-media--nexx-video" itemscope="" itemtype="http://schema.org/videoObject">
     {{ attach_library('infinite_amp/amp.nexxtv-player') }}
 
-    <amp-nexxtv-player
-      data-mediaid="{{ media.field_video.hash }}"
-      data-client="{{ omnia_id }}"
-      data-streamtype="video"
-      data-mode="api"
-      data-origin="https://embed.nexx.cloud/"
-      data-streaming-filter="nxp-bitrate-2500"
-      layout="responsive"
-      width="480"
-      height="270"
-    ></amp-nexxtv-player>
+    <div class="item-media__wrapper">
+      <amp-nexxtv-player
+        data-mediaid="{{ media.field_video.hash }}"
+        data-client="{{ omnia_id }}"
+        data-streamtype="video"
+        data-mode="api"
+        data-origin="https://embed.nexx.cloud/"
+        data-streaming-filter="nxp-bitrate-2500"
+        layout="responsive"
+        width="480"
+        height="270"
+        data-block-on-consent
+      ></amp-nexxtv-player>
+      <div class="item-media__consent">
+        <button on="tap:consent-element.prompt(),consent-ui-2.show,consent-ui-1.hide">Video laden</button>
+      </div>
+    </div>
+
 
     {% spaceless %}
         <meta itemprop="description" content="{{ content.field_description | render | striptags | trim | replace({"\n":' ', "\r":' '})}}" />

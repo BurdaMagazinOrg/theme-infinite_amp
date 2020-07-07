@@ -20,6 +20,17 @@ amp.amp-carousel:
   js:
     https://cdn.ampproject.org/v0/amp-carousel-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-carousel", async: true } }
 
+amp.amp-consent:
+  remote: https://cdn.ampproject.org
+  header: true
+  version: 0.1
+  license:
+    name: apache
+    url: https://github.com/ampproject/amphtml/blob/master/LICENSE
+    gpl-compatible: false
+  js:
+    https://cdn.ampproject.org/v0/amp-consent-0.1.js: { type: external, minified: true, attributes: { custom-element: "amp-consent", async: true } }
+
 amp.nexxtv-player:
   remote: https://cdn.ampproject.org
   header: true

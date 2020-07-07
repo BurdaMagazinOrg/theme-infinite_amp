@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Template for amp-instagram.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for amp-instagram:
+ *   - layout: The layout of Instagram element.
+ *   - height: The height of Instagram element.
+ *   - width: The width of Instagram element.
+ *   - data-shortcode: The Instagram data-shortcode.
+ *
+ * @see template_preprocess_amp_instagram()
+ */
+#}
+<div class="item-media__wrapper">
+  <amp-instagram{{ attributes }} data-block-on-consent>
+  </amp-instagram>
+  <div class="item-media__consent">
+    <button on="tap:consent-element.prompt(),consent-ui-2.show,consent-ui-1.hide">Inhalt laden</button>
+  </div>
+</div>

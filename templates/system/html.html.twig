@@ -54,6 +54,7 @@ db_offline ? 'db-offline',
     <script async src="https://cdn.ampproject.org/v0.js"></script>
   </head>
   <body class="{{ attributes.addClass(body_classes).class }}">
+    {% include '@infinite_amp/consent/consent.html.twig' %}
     {% if amp_skip_link %}
       {{ amp_skip_link }}
     {% endif %}

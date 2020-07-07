@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Template for amp-youtube.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for amp-youtube:
+ *   - layout: The layout of Youtube element.
+ *   - height: The height of Youtube element.
+ *   - width: The width of Youtube element.
+ *   - data-videoid: The Youtube video id.
+ *
+ * @see template_preprocess_amp_youtube()
+ */
+#}
+<div class="item-media__wrapper">
+  <amp-youtube{{ attributes }} data-block-on-consent>
+  </amp-youtube>
+  <div class="item-media__consent">
+    <button on="tap:consent-element.prompt(),consent-ui-2.show,consent-ui-1.hide">Inhalt laden</button>
+  </div>
+</div>
+
